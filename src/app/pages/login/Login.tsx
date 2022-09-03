@@ -1,6 +1,12 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 
 export const Login: FC = () => {
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const handleLogin = () => {
+    console.log(emailRef.current?.value, passwordRef.current?.value);
+  };
+
   return (
     <main className='main'>
       <div className='login-form'>
@@ -15,6 +21,7 @@ export const Login: FC = () => {
               type='email'
               placeholder='you@example.com'
               required
+              ref={emailRef}
             />
           </div>
           <div className='form__group ma-bt-md'>
@@ -26,7 +33,13 @@ export const Login: FC = () => {
               type='password'
               placeholder='••••••••'
               required
+              ref={passwordRef}
             />
+          </div>
+          <div className='form__group'>
+            <button onClick={handleLogin} className='btn btn--green'>
+              Login
+            </button>
           </div>
         </div>
       </div>
