@@ -1,8 +1,7 @@
-import React from 'react';
-import '../../css/style.css';
+import { FC } from 'react';
 import Logogreen from '../../img/logo-green.png';
 
-const Footer = () => {
+const Footer: FC = () => {
   return (
     <footer className='footer'>
       <div className='footer__logo'>

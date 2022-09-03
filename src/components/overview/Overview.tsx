@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Overview: FC = () => {
   return (
@@ -61,9 +62,9 @@ export const Overview: FC = () => {
                 <span className='card__footer-value'>4.9</span>
                 <span className='card__footer-text'>rating (21)</span>
               </p>
-              <a href='#' className='btn btn--green btn--small'>
+              <Link to='/tour/:element' className='btn btn--green btn--small'>
                 Details
-              </a>
+              </Link>
             </div>
           </div>
         </div>
