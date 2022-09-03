@@ -1,10 +1,10 @@
 import { FC, useRef } from 'react';
 
 export const Login: FC = () => {
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
+  const email = useRef<HTMLInputElement>(null);
+  const password = useRef<HTMLInputElement>(null);
   const handleLogin = () => {
-    console.log(emailRef.current?.value, passwordRef.current?.value);
+    console.log(email.current?.value, password.current?.value);
   };
 
   return (
@@ -21,7 +21,7 @@ export const Login: FC = () => {
               type='email'
               placeholder='you@example.com'
               required
-              ref={emailRef}
+              ref={email}
             />
           </div>
           <div className='form__group ma-bt-md'>
@@ -33,7 +33,7 @@ export const Login: FC = () => {
               type='password'
               placeholder='••••••••'
               required
-              ref={passwordRef}
+              ref={password}
             />
           </div>
           <div className='form__group'>
