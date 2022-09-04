@@ -21,6 +21,7 @@ export const Login: FC = () => {
             inputType='email'
             formClass='form__group'
             ref={email}
+            required
           />
 
           <FormInput
@@ -29,6 +30,7 @@ export const Login: FC = () => {
             placeholder='••••••••'
             inputType='password'
             formClass='form__group ma-bt-md'
+            required
           />
 
           <div className='form__group'>

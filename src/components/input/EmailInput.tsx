@@ -10,9 +10,10 @@ interface InputType extends InputHTMLAttributes<HTMLInputElement> {
     | 'form__group'
     | 'form--signup'
     | 'form--signup ma-bt-md';
+  required?: boolean;
 }
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputType> = (
-  { label, placeholder, inputType, formClass },
+  { label, placeholder, inputType, formClass, required },
   ref
 ) => {
   return (
@@ -23,6 +24,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputType> = (
         type={inputType}
         placeholder={placeholder}
         ref={ref}
+        required={required}
       />
     </div>
   );

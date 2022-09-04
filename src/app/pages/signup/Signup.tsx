@@ -30,6 +30,7 @@ const Signup: FC = () => {
             inputType='text'
             formClass='form--signup'
             ref={name}
+            required
           />
           <FormInput
             label='Email address'
@@ -37,6 +38,7 @@ const Signup: FC = () => {
             inputType='email'
             formClass='form--signup'
             ref={email}
+            required
           />
           <FormInput
             label='Password'
@@ -44,6 +46,7 @@ const Signup: FC = () => {
             placeholder='••••••••'
             inputType='password'
             formClass='form--signup ma-bt-md'
+            required
           />
           <FormInput
             label='Confirm password'
@@ -51,6 +54,7 @@ const Signup: FC = () => {
             placeholder='••••••••'
             inputType='password'
             formClass='form--signup ma-bt-md'
+            required
           />
           <div className='form__group'>
             <button type='submit' className='btn btn--green'>
