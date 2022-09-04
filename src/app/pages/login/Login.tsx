@@ -1,4 +1,5 @@
 import { FC, useRef } from 'react';
+import FormInput from '../../../components/input/EmailInput';
 
 export const Login: FC = () => {
   const email = useRef<HTMLInputElement>(null);
@@ -12,30 +13,22 @@ export const Login: FC = () => {
       <div className='login-form'>
         <h2 className='heading-secondary ma-bt-lg'>Log into your account</h2>
         <div className='form form--login'>
-          <div className='form__group'>
-            <label htmlFor='email' className='form__label'>
-              Email address
-            </label>
-            <input
-              className='email form__input'
-              type='email'
-              placeholder='you@example.com'
-              required
-              ref={email}
-            />
-          </div>
-          <div className='form__group ma-bt-md'>
-            <label htmlFor='password' className='form__label'>
-              Password
-            </label>
-            <input
-              className='password form__input'
-              type='password'
-              placeholder='••••••••'
-              required
-              ref={password}
-            />
-          </div>
+          <FormInput
+            label='Email address'
+            placeholder='you@example.com'
+            inputType='email'
+            passwordClass='form__group'
+            ref={email}
+          />
+
+          <FormInput
+            label='Password'
+            ref={password}
+            placeholder='••••••••'
+            inputType='password'
+            passwordClass='form__group ma-bt-md'
+          />
+
           <div className='form__group'>
             <button onClick={handleLogin} className='btn btn--green'>
               Login
