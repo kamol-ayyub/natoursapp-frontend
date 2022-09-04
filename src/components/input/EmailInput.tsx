@@ -5,14 +5,14 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   placeholder: string;
   inputType: 'email' | 'password';
-  passwordClass: 'form__group ma-bt-md' | 'form__group';
+  formClass: 'form__group ma-bt-md' | 'form__group' | 'form--signup';
 }
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { label, placeholder, inputType, passwordClass },
+  { label, placeholder, inputType, formClass },
   ref
 ) => {
   return (
-    <div className={passwordClass}>
+    <div className={formClass}>
       <label className='form__label'>{label}</label>
       <input
         className=' form__input'

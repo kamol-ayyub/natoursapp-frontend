@@ -1,4 +1,5 @@
 import { FC, useRef } from 'react';
+import FormInput from '../../../components/input/EmailInput';
 
 const Signup: FC = () => {
   // refs for get data from form
@@ -21,57 +22,34 @@ const Signup: FC = () => {
       <div className='login-form'>
         <h2 className='heading-secondary ma-bt-lg'>CREATE YOUR ACCOUNT!</h2>
         <div className='form form--signup'>
-          <div className='form__group'>
-            <label htmlFor='name' className='form__label'>
-              Your name
-            </label>
-            <input
-              className=' form__input'
-              id='name'
-              type='text'
-              placeholder='your name'
-              required
-              ref={name}
-            />
-          </div>
-          <div className='form__group'>
-            <label htmlFor='email' className='form__label'>
-              Email address
-            </label>
-            <input
-              className='email form__input'
-              type='email'
-              placeholder='you@example.com'
-              required
-              ref={email}
-            />
-          </div>
-          <div className='form__group ma-bt-md'>
-            <label htmlFor='password' className='form__label'>
-              Password
-            </label>
-            <input
-              id='password'
-              className='password form__input'
-              type='password'
-              placeholder='••••••••'
-              required
-              ref={password}
-            />
-          </div>
-          <div className='form__group ma-bt-md'>
-            <label htmlFor='passwordConfirm' className='form__label'>
-              Confirm password
-            </label>
-            <input
-              id='passwordConfirm'
-              className='password form__input'
-              type='password'
-              placeholder='••••••••'
-              required
-              ref={passwordConfirm}
-            />
-          </div>
+          <FormInput
+            label='Your name'
+            placeholder='your name'
+            inputType='email'
+            formClass='form--signup'
+            ref={name}
+          />
+          <FormInput
+            label='Email address'
+            placeholder='you@example.com'
+            inputType='email'
+            formClass='form__group'
+            ref={email}
+          />
+          <FormInput
+            label='Password'
+            ref={password}
+            placeholder='••••••••'
+            inputType='password'
+            formClass='form__group ma-bt-md'
+          />
+          <FormInput
+            label='Confirm password'
+            ref={passwordConfirm}
+            placeholder='••••••••'
+            inputType='password'
+            formClass='form__group ma-bt-md'
+          />
           <div className='form__group'>
             <button onClick={handleSignup} className='btn btn--green'>
               Sign up

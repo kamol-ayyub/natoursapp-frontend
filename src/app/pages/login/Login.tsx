@@ -17,7 +17,7 @@ export const Login: FC = () => {
             label='Email address'
             placeholder='you@example.com'
             inputType='email'
-            passwordClass='form__group'
+            formClass='form__group'
             ref={email}
           />
 
@@ -26,7 +26,7 @@ export const Login: FC = () => {
             ref={password}
             placeholder='••••••••'
             inputType='password'
-            passwordClass='form__group ma-bt-md'
+            formClass='form__group ma-bt-md'
           />
 
           <div className='form__group'>
