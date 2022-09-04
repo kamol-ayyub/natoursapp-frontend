@@ -9,23 +9,25 @@ const Signup: FC = () => {
   const passwordConfirm = useRef<HTMLInputElement>(null);
 
   // function for request to backend
-  const handleSignup = () => {
+  const handleSignup = (event: any) => {
+    event.preventDefault();
     console.log(
       email.current?.value,
       name.current?.value,
       password.current?.value,
       passwordConfirm.current?.value
     );
+    event.target.reset();
   };
   return (
     <main className='main'>
       <div className='login-form'>
         <h2 className='heading-secondary ma-bt-lg'>CREATE YOUR ACCOUNT!</h2>
-        <div className='form form--signup'>
+        <form onSubmit={handleSignup} className='form form--signup'>
           <FormInput
             label='Your name'
             placeholder='your name'
-            inputType='email'
+            inputType='text'
             formClass='form--signup'
             ref={name}
           />
@@ -33,7 +35,7 @@ const Signup: FC = () => {
             label='Email address'
             placeholder='you@example.com'
             inputType='email'
-            formClass='form__group'
+            formClass='form--signup'
             ref={email}
           />
           <FormInput
@@ -41,21 +43,21 @@ const Signup: FC = () => {
             ref={password}
             placeholder='••••••••'
             inputType='password'
-            formClass='form__group ma-bt-md'
+            formClass='form--signup ma-bt-md'
           />
           <FormInput
             label='Confirm password'
             ref={passwordConfirm}
             placeholder='••••••••'
             inputType='password'
-            formClass='form__group ma-bt-md'
+            formClass='form--signup ma-bt-md'
           />
           <div className='form__group'>
-            <button onClick={handleSignup} className='btn btn--green'>
+            <button type='submit' className='btn btn--green'>
               Sign up
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </main>
   );

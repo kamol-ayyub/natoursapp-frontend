@@ -1,13 +1,17 @@
 import React, { ForwardRefRenderFunction, InputHTMLAttributes } from 'react';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputType extends InputHTMLAttributes<HTMLInputElement> {
   ref: String | HTMLInputElement | null;
   label: string;
   placeholder: string;
-  inputType: 'email' | 'password';
-  formClass: 'form__group ma-bt-md' | 'form__group' | 'form--signup';
+  inputType: 'email' | 'password' | 'text';
+  formClass:
+    | 'form__group ma-bt-md'
+    | 'form__group'
+    | 'form--signup'
+    | 'form--signup ma-bt-md';
 }
-const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
+const Input: ForwardRefRenderFunction<HTMLInputElement, InputType> = (
   { label, placeholder, inputType, formClass },
   ref
 ) => {
