@@ -25,6 +25,8 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputType> = (
         placeholder={placeholder}
         ref={ref}
         required={required}
+        minLength={4}
+        maxLength={30}
       />
     </div>
   );
