@@ -428,7 +428,7 @@ body {
 }
 
 .section-description {
-  background-color: #fcfcfc;
+  background-color: white;
   margin-top: calc(0px - var(--section-rotate));
   display: -webkit-box;
   display: -ms-flexbox;
@@ -445,6 +445,7 @@ body {
 
 .description-box .description {
   margin-right: 5rem;
+  background-color: white;
 }
 .description-box .description__text {
   font-size: 1.7rem;
@@ -454,7 +455,7 @@ body {
 }
 
 .overview-box {
-  background-color: #f7f7f7;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

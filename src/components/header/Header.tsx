@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logowhite from '../../../img/logo-white.png';
-import ProfilePhoto from '../../../img/users/default.jpg';
-import '../../../css/style.css';
+import Logowhite from '../../img/logo-white.png';
+import ProfilePhoto from '../../img/users/default.jpg';
+import '../../css/style.css';
 
 const Header: FC = () => {
   const [user, setUser] = useState<boolean>(true);
