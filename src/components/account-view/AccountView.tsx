@@ -9,17 +9,11 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
   // refs for get data from form
   const name = useRef<HTMLInputElement>(null);
   const email = useRef<HTMLInputElement>(null);
-  const password = useRef<HTMLInputElement>(null);
-  const passwordConfirm = useRef<HTMLInputElement>(null);
+
   // function for request to backend
   const handleSignup = (event: any) => {
     event.preventDefault();
-    console.log(
-      email.current?.value,
-      name.current?.value,
-      password.current?.value,
-      passwordConfirm.current?.value
-    );
+    console.log(email.current?.value, name.current?.value);
     event.target.reset();
   };
   return (
