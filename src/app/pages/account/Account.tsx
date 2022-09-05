@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { AccountSidebar } from '../../../AccountSidebar';
 
-const Account = () => {
-  return <div>Account</div>;
+const Account: FC = () => {
+  return (
+    <main className='main'>
+      <AccountSidebar />
+    </main>
+  );
 };
 export default Account;
