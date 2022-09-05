@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import { OverviewBox } from '../overview-box/OverviewBox';
 import { TourDescription } from '../tour-description/TourDescription';
 

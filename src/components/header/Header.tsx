@@ -5,25 +5,28 @@ import ProfilePhoto from '../../img/users/default.jpg';
 import '../../css/style.css';
 
 const Header: FC = () => {
-  const [user, setUser] = useState<boolean>(true);
+  const [user, setUser] = useState<boolean>(false);
   return (
     <header className='header'>
       <nav className='nav nav--tours'>
         <Link className='nav__el' to={`/`}>
           All tours
         </Link>
-        <form className='nav__search'>
-          <button className='nav__search-btn'>
-            <svg>
-              <use xlinkHref='img/icons.svg#icon-search'></use>
-            </svg>
-          </button>
-          <input
-            type='text'
-            placeholder='Search tours'
-            className='nav__search-input'
-          />
-        </form>
+        {user && (
+          <form className='nav__search'>
+            <button className='nav__search-btn'>
+              <svg>
+                <use xlinkHref='img/icons.svg#icon-search'></use>
+              </svg>
+            </button>
+
+            <input
+              type='text'
+              placeholder='Search tours'
+              className='nav__search-input'
+            />
+          </form>
+        )}
       </nav>
       <div className='header__logo'>
         <img src={Logowhite} alt='header brand logo' />
