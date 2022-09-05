@@ -1,10 +1,17 @@
 import React, { FC } from 'react';
-import { AccountSidebar } from '../../../AccountSidebar';
+import { AccountPassword } from '../../../components/account-password/AccountPassword';
+import { AccountSidebar } from '../../../components/account-sidebar/AccountSidebar';
+import { AccountView } from '../../../components/account-view/AccountView';
 
 const Account: FC = () => {
   return (
     <main className='main'>
-      <AccountSidebar />
+      <div className='user-view'>
+        <AccountSidebar />
+        <AccountView>
+          <AccountPassword />
+        </AccountView>
+      </div>
     </main>
   );
 };

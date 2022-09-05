@@ -3,9 +3,9 @@ import React, { ForwardRefRenderFunction, InputHTMLAttributes } from 'react';
 interface InputType extends InputHTMLAttributes<HTMLInputElement> {
   ref: String | HTMLInputElement | null;
   label: string;
-  placeholder: string;
+  placeholder?: string;
   inputType: 'email' | 'password' | 'text';
-  formClass:
+  formClass?:
     | 'form__group ma-bt-md'
     | 'form__group'
     | 'form--signup'
