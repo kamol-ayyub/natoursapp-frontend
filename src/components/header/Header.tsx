@@ -5,7 +5,7 @@ import ProfilePhoto from '../../img/users/default.jpg';
 import '../../css/style.css';
 
 const Header: FC = () => {
-  const [user, setUser] = useState<boolean>(false);
+  const [user, setUser] = useState<boolean>(true);
   return (
     <header className='header'>
       <nav className='nav nav--tours'>

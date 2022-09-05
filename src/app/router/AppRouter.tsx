@@ -5,6 +5,7 @@ import Overview from '../../components/overview/Overview';
 import Tour from '../pages/tour/Tour';
 import Signup from '../pages/signup/Signup';
 import NotFound from '../pages/notFound/NotFound';
+import Account from '../pages/account/Account';
 
 export const AppRouter = () => {
   return (
@@ -14,8 +15,8 @@ export const AppRouter = () => {
           <Route index element={<Overview />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
-
-          <Route path='/tour/:element' element={<Tour />} />
+          <Route path='/tour/:tour' element={<Tour />} />
+          <Route path='/me' element={<Account />} />
         </Route>
 
         <Route path='*' element={<NotFound />} />
