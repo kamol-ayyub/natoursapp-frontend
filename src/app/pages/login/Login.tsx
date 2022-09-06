@@ -1,12 +1,35 @@
-import { FC, useRef } from 'react';
+import { FC, useRef, useState } from 'react';
 import FormInput from '../../../components/input/EmailInput';
+import useHttp from '../../../hooks/use-http';
+type EmailAndPasswordType = String | undefined;
 
 export const Login: FC = () => {
-  const email = useRef<HTMLInputElement>(null);
-  const password = useRef<HTMLInputElement>(null);
-  const handleLogin = (e: any) => {
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const [data, setData] = useState(null);
+  //
+  const {
+    error,
+    isLoading,
+    isSuccess,
+    response,
+    sendRequest: sendLoginrequest,
+  } = useHttp();
+
+  const handleLogin = async (e: any) => {
     e.preventDefault();
-    console.log(email.current?.value, password.current?.value);
+
+    const email: EmailAndPasswordType = emailRef.current?.value;
+    const password: EmailAndPasswordType = passwordRef.current?.value;
+
+    await sendLoginrequest({
+      url: '/api/v1/users/login',
+      method: 'POST',
+      data: { email, password },
+    });
+
+    // console.log(responseFromLogin, 'response from backend');
+    console.log(isSuccess, response, isLoading, 'isLoading');
     e.target.reset();
   };
 
@@ -20,13 +43,13 @@ export const Login: FC = () => {
             placeholder='you@example.com'
             inputType='email'
             formClass='form__group'
-            ref={email}
+            ref={emailRef}
             required
           />
 
           <FormInput
             label='Password'
-            ref={password}
+            ref={passwordRef}
             placeholder='••••••••'
             inputType='password'
             formClass='form__group ma-bt-md'

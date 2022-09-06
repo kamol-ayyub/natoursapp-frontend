@@ -13,24 +13,24 @@ const api = axios.create({
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState(null);
+  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
+  const [response, setResponse] = useState(null);
 
-  const sendRequest = useCallback(
-    async (requestConfig: any, applyData: any) => {
-      // requestConfig is object, for url, method and data's body
-      setIsLoading(true);
-      setError(null);
-      try {
-        const response = await api(requestConfig);
-
-        const data = response.data;
-        applyData(data);
-      } catch (err: any) {
-        setError(err.message || 'Something went wrong!');
-      }
-      setIsLoading(false);
-    },
-    []
-  );
-  return { error, isLoading, sendRequest };
+  const sendRequest = useCallback(async (requestConfig: any) => {
+    // requestConfig is object, for url, method and data's body
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await api(requestConfig);
+      const data = response.data;
+      setResponse(data);
+      setIsSuccess(true);
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong!');
+      setIsSuccess(false);
+    }
+    setIsLoading(false);
+  }, []);
+  return { error, isLoading, isSuccess, response, sendRequest };
 };
 export default useHttp;
