@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import axios from 'axios';
 
 const api = axios.create({
@@ -6,31 +6,37 @@ const api = axios.create({
 });
 
 /**
- * It's a custom hook that sends a request to the server and returns an error, a loading state and a
+ * It's a custom hook that sends a request to the server and returns an isError, a loading state and a
  * function to send the request.
- * @returns An object with three properties: error, isLoading, and sendRequest.
+ * @returns An object with three properties: isError, isLoading, and sendRequest.
  */
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState(null);
-  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
-  const [response, setResponse] = useState(null);
+  const [isError, setIsError] = useState<boolean | null>(null);
+  const [response, setResponse] = useState<any>(false);
+
+  const clearResponse = () => {
+    setResponse(null);
+  };
 
   const sendRequest = useCallback(async (requestConfig: any) => {
     // requestConfig is object, for url, method and data's body
     setIsLoading(true);
-    setError(null);
+    setIsError(null);
     try {
       const response = await api(requestConfig);
       const data = response.data;
       setResponse(data);
-      setIsSuccess(true);
     } catch (err: any) {
-      setError(err.message || 'Something went wrong!');
-      setIsSuccess(false);
+      setIsError(err.message || 'Something went wrong!');
     }
     setIsLoading(false);
   }, []);
-  return { error, isLoading, isSuccess, response, sendRequest };
+  return {
+    isError,
+    isLoading,
+    response,
+    sendRequest,
+  };
 };
 export default useHttp;
