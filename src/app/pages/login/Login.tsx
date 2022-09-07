@@ -1,4 +1,4 @@
-import { FC, useRef, useEffect, useState, useCallback } from 'react';
+import { FC, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormInput from '../../../components/input/EmailInput';
 import useHttp from '../../../hooks/use-http';
@@ -16,12 +16,7 @@ export const Login: FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   //
-  const {
-    isLoading,
-    response,
-    sendRequest: sendrequestToLogin,
-    isError,
-  } = useHttp();
+  const { response, sendRequest: sendrequestToLogin, isError } = useHttp();
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
@@ -41,7 +36,7 @@ export const Login: FC = () => {
     if (response?.status === 'success') {
       setTimeout(() => {
         navigate('/me', { replace: true });
-      }, 1500);
+      }, 0);
     } else {
       notify('Incorrect email or password!');
     }
