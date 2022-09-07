@@ -24,7 +24,7 @@ const Tour: FC = () => {
   return (
     <>
       <TourHeader data={response?.data?.data} />
-      <Overview />
+      <Overview data={response?.data?.data} />
       <Review />
       <Cta />
     </>

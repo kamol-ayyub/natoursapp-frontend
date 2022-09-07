@@ -5,13 +5,12 @@ import { BsClock } from 'react-icons/bs';
 type HeaderProps = any;
 
 export const TourHeader: FC<HeaderProps> = ({ data }) => {
-  console.log(data);
   return (
     <section className='section-header'>
       <div className='header__hero'>
         <div className='header__hero-overlay'>&nbsp;</div>
         <img
-          src={require(`../../img/tours/${data?.imageCover}`)}
+          src={`../../img/tours/${data?.imageCover}`}
           alt={`${data?.imageCover}`}
           className='header__hero-img'
         />

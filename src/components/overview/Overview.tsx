@@ -2,10 +2,12 @@ import { FC } from 'react';
 import { OverviewBox } from '../overview-box/OverviewBox';
 import { TourDescription } from '../tour-description/TourDescription';
 
-export const Overview: FC = () => {
+type OverViewProps = any;
+
+export const Overview: FC<OverViewProps> = ({ data }) => {
   return (
     <section className='section-description'>
-      <OverviewBox />
+      <OverviewBox data={data} />
       <TourDescription />
     </section>
   );

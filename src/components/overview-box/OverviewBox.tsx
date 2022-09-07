@@ -1,40 +1,43 @@
-import React from 'react';
-import '../../css/style.css';
+import React, { FC } from 'react';
+import { OverviewDetail } from '../overview-detail/OverviewDetail';
+import { AiOutlineCalendar, AiOutlineStar } from 'react-icons/ai';
+import { MdPeopleOutline } from 'react-icons/md';
+import { BiTrendingUp } from 'react-icons/bi';
 
-export const OverviewBox = () => {
+//types
+type BoxProps = any;
+
+export const OverviewBox: FC<BoxProps> = ({ data }) => {
+  console.log(data);
   return (
     <div className='overview-box'>
       <div>
         <div className='overview-box__group'>
           <h2 className='heading-secondary ma-bt-lg'>Quick facts</h2>
-          <div className='overview-box__detail'>
-            <svg className='overview-box__icon'>
-              <use xlinkHref='img/icons.svg#icon-calendar'></use>
-            </svg>
-            <span className='overview-box__label'>Next date</span>
-            <span className='overview-box__text'>August 2021</span>
-          </div>
-          <div className='overview-box__detail'>
-            <svg className='overview-box__icon'>
-              <use xlinkHref='img/icons.svg#icon-trending-up'></use>
-            </svg>
-            <span className='overview-box__label'>Difficulty</span>
-            <span className='overview-box__text'>Medium</span>
-          </div>
-          <div className='overview-box__detail'>
-            <svg className='overview-box__icon'>
-              <use xlinkHref='img/icons.svg#icon-user'></use>
-            </svg>
-            <span className='overview-box__label'>Participants</span>
-            <span className='overview-box__text'>10 people</span>
-          </div>
-          <div className='overview-box__detail'>
-            <svg className='overview-box__icon'>
-              <use xlinkHref='img/icons.svg#icon-star'></use>
-            </svg>
-            <span className='overview-box__label'>Rating</span>
-            <span className='overview-box__text'>4.9 / 5</span>
-          </div>
+
+          <OverviewDetail
+            title={'Quick facts'}
+            svg={<AiOutlineCalendar />}
+            date={data?.startDates[0]?.substring(0, 4)}
+            addition={'August'}
+          />
+          <OverviewDetail
+            title={'Difficulty'}
+            svg={<BiTrendingUp />}
+            date={data?.difficulty}
+          />
+
+          <OverviewDetail
+            title={'Participants'}
+            svg={<MdPeopleOutline />}
+            date={data?.maxGroupSize}
+            addition={`People`}
+          />
+          <OverviewDetail
+            title={'Rating'}
+            svg={<AiOutlineStar />}
+            date={data?.ratingsAverage}
+          />
         </div>
 
         <div className='overview-box__group'>
