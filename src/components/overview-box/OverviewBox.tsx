@@ -3,6 +3,7 @@ import { OverviewDetail } from '../overview-detail/OverviewDetail';
 import { AiOutlineCalendar, AiOutlineStar } from 'react-icons/ai';
 import { MdPeopleOutline } from 'react-icons/md';
 import { BiTrendingUp } from 'react-icons/bi';
+import { TourGuide } from '../tour-guides/TourGuide';
 
 //types
 type BoxProps = any;
@@ -43,33 +44,17 @@ export const OverviewBox: FC<BoxProps> = ({ data }) => {
         <div className='overview-box__group'>
           <h2 className='heading-secondary ma-bt-lg'>Your tour guides</h2>
 
-          <div className='overview-box__detail'>
-            <img
-              src='img/users/user-19.jpg'
-              alt='Lead guide'
-              className='overview-box__img'
-            />
-            <span className='overview-box__label'>Lead guide</span>
-            <span className='overview-box__text'>Steven Miller</span>
-          </div>
-          <div className='overview-box__detail'>
-            <img
-              src='img/users/user-18.jpg'
-              alt='Tour guide'
-              className='overview-box__img'
-            />
-            <span className='overview-box__label'>Tour guide</span>
-            <span className='overview-box__text'>Lisa Brown</span>
-          </div>
-          <div className='overview-box__detail'>
-            <img
-              src='img/users/user-17.jpg'
-              alt='Intern'
-              className='overview-box__img'
-            />
-            <span className='overview-box__label'>Intern</span>
-            <span className='overview-box__text'>Max Smith</span>
-          </div>
+          <TourGuide
+            name={data?.guides[0]?.name}
+            title={`Lead Guide`}
+            photo={data?.guides[0]?.photo}
+          />
+
+          <TourGuide
+            name={data?.guides[1]?.name}
+            title={`Tour Guide`}
+            photo={data?.guides[1]?.photo}
+          />
         </div>
       </div>
     </div>
