@@ -20,7 +20,7 @@ export const Home: FC = () => {
     <main className='main'>
       <div className='card-container'>
         {isError && <h1>Something went wrong, try again!</h1>}
-        <Card data={response} />
+        <Card allTours={response?.data?.data} />
       </div>
     </main>
   );
