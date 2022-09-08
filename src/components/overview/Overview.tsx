@@ -8,7 +8,7 @@ export const Overview: FC<OverViewProps> = ({ data }) => {
   return (
     <section className='section-description'>
       <OverviewBox data={data} />
-      <TourDescription />
+      <TourDescription tourName={data?.name} description={data?.description} />
     </section>
   );
 };

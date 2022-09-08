@@ -9,7 +9,6 @@ import { TourGuide } from '../tour-guides/TourGuide';
 type BoxProps = any;
 
 export const OverviewBox: FC<BoxProps> = ({ data }) => {
-  console.log(data);
   return (
     <div className='overview-box'>
       <div>

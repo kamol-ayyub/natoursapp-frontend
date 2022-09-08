@@ -20,13 +20,16 @@ const Tour: FC = () => {
     sendRequest();
   }, [tour]);
 
-  if (isError) return <h1>SOmething went wrong! Try again!</h1>;
+  if (isError) return <h1>Something went wrong! Try again!</h1>;
   return (
     <>
       <TourHeader data={response?.data?.data} />
       <Overview data={response?.data?.data} />
-      <Review />
-      <Cta />
+      <Review data={response?.data?.data?.reviews} />
+      <Cta
+        images={response?.data?.data?.images}
+        duration={response?.data?.data?.duration}
+      />
     </>
   );
 };

@@ -1,10 +1,14 @@
 import React from 'react';
-// import '../../img/';
-
+import { AiOutlineStar } from 'react-icons/ai';
+import { IconContext } from 'react-icons';
 export const ReviewStar = () => {
   return (
-    <svg className='reviews__star reviews__star--active'>
-      <use xlinkHref='../../img/icons.svg#icon-star'></use>
-    </svg>
+    <IconContext.Provider value={{ className: 'reviews__star--active' }}>
+      <AiOutlineStar />
+      <AiOutlineStar />
+      <AiOutlineStar />
+      <AiOutlineStar />
+      <AiOutlineStar />
+    </IconContext.Provider>
   );
 };

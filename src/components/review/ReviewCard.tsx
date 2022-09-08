@@ -1,24 +1,19 @@
 import { ReviewStar } from './ReviewStar';
-export const ReviewCard = () => {
+import { ReviewerType } from '../../types/types';
+
+export const ReviewCard = ({ review, user, userPhoto }: ReviewerType) => {
   return (
     <div className='reviews__card'>
       <div className='reviews__avatar'>
         <img
-          src='img/users/user-7.jpg'
+          src={require(`../../../public/img/users/${userPhoto}`)}
           alt='Jim Brown'
           className='reviews__avatar-img'
         />
-        <h6 className='reviews__user'>Jim Brown</h6>
+        <h6 className='reviews__user'> {user} </h6>
       </div>
-      <p className='reviews__text'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-        dignissimos sint quo commodi corrupti accusantium veniam saepe numquam.
-      </p>
+      <p className='reviews__text'>{review}</p>
       <div className='reviews__rating'>
-        <ReviewStar />
-        <ReviewStar />
-        <ReviewStar />
-        <ReviewStar />
         <ReviewStar />
       </div>
     </div>
