@@ -5,7 +5,6 @@ import { TourDescription } from '../tour-description/TourDescription';
 type OverViewProps = any;
 
 export const Overview: FC<OverViewProps> = ({
-  data,
   name,
   description,
   startDates,
@@ -19,7 +18,6 @@ export const Overview: FC<OverViewProps> = ({
       <OverviewBox
         difficulty={difficulty}
         startDates={startDates}
-        data={data}
         maxGroupSize={maxGroupSize}
         ratingsAverage={ratingsAverage}
         guides={guides}

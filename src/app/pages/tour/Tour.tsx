@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useLayoutEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Cta } from '../../../components/cta/Cta';
@@ -16,7 +16,7 @@ const Tour: FC = () => {
       method: 'GET',
     });
   };
-  useEffect(() => {
+  useLayoutEffect(() => {
     sendRequest();
   }, [tour]);
 
@@ -26,7 +26,6 @@ const Tour: FC = () => {
       <TourHeader data={response?.data?.data} />
       <Overview
         name={response?.data?.data.name}
-        data={response?.data?.data}
         description={response?.data?.data.description}
         startDates={response?.data?.data?.startDates}
         difficulty={response?.data?.data?.difficulty}
@@ -44,3 +43,10 @@ const Tour: FC = () => {
 };
 
 export default Tour;
+// name={response?.data?.data.name}
+// description={response?.data?.data.description}
+// startDates={response?.data?.data?.startDates}
+// difficulty={response?.data?.data?.difficulty}
+// maxGroupSize={response?.data?.data?.maxGroupSize}
+// ratingsAverage={response?.data?.data?.ratingsAverage}
+// guides={response?.data?.data?.guides}

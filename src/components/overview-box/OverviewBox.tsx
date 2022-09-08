@@ -6,10 +6,7 @@ import { BiTrendingUp } from 'react-icons/bi';
 import { TourGuide } from '../tour-guides/TourGuide';
 import { OverviewBoxProps } from '../../types/types';
 
-//types
-
 export const OverviewBox: FC<OverviewBoxProps> = ({
-  data,
   startDates,
   difficulty,
   maxGroupSize,
@@ -25,25 +22,25 @@ export const OverviewBox: FC<OverviewBoxProps> = ({
           <OverviewDetail
             title={'Quick facts'}
             svg={<AiOutlineCalendar />}
-            date={startDates[0]?.substring(0, 4)}
+            date={startDates && startDates[0] && startDates[0]?.substring(0, 4)}
             addition={'August'}
           />
           <OverviewDetail
             title={'Difficulty'}
             svg={<BiTrendingUp />}
-            date={difficulty}
+            date={difficulty && difficulty}
           />
 
           <OverviewDetail
             title={'Participants'}
             svg={<MdPeopleOutline />}
-            date={maxGroupSize}
+            date={maxGroupSize && maxGroupSize}
             addition={`People`}
           />
           <OverviewDetail
             title={'Rating'}
             svg={<AiOutlineStar />}
-            date={ratingsAverage}
+            date={ratingsAverage && ratingsAverage}
           />
         </div>
 
@@ -51,15 +48,15 @@ export const OverviewBox: FC<OverviewBoxProps> = ({
           <h2 className='heading-secondary ma-bt-lg'>Your tour guides</h2>
 
           <TourGuide
-            name={guides[0]?.name}
+            name={(guides && guides[0]?.name) || ''}
             title={`Lead Guide`}
-            photo={guides[0]?.photo}
+            photo={(guides && guides[0]?.photo) || ''}
           />
 
           <TourGuide
-            name={guides[1]?.name}
+            name={(guides && guides[0]?.name) || ''}
             title={`Tour Guide`}
-            photo={guides[1]?.photo}
+            photo={(guides && guides[1]?.photo) || ''}
           />
         </div>
       </div>
