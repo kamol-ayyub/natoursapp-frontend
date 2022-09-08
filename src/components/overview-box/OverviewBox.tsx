@@ -4,11 +4,18 @@ import { AiOutlineCalendar, AiOutlineStar } from 'react-icons/ai';
 import { MdPeopleOutline } from 'react-icons/md';
 import { BiTrendingUp } from 'react-icons/bi';
 import { TourGuide } from '../tour-guides/TourGuide';
+import { OverviewBoxProps } from '../../types/types';
 
 //types
-type BoxProps = any;
 
-export const OverviewBox: FC<BoxProps> = ({ data }) => {
+export const OverviewBox: FC<OverviewBoxProps> = ({
+  data,
+  startDates,
+  difficulty,
+  maxGroupSize,
+  ratingsAverage,
+  guides,
+}) => {
   return (
     <div className='overview-box'>
       <div>
@@ -18,25 +25,25 @@ export const OverviewBox: FC<BoxProps> = ({ data }) => {
           <OverviewDetail
             title={'Quick facts'}
             svg={<AiOutlineCalendar />}
-            date={data?.startDates[0]?.substring(0, 4)}
+            date={startDates[0]?.substring(0, 4)}
             addition={'August'}
           />
           <OverviewDetail
             title={'Difficulty'}
             svg={<BiTrendingUp />}
-            date={data?.difficulty}
+            date={difficulty}
           />
 
           <OverviewDetail
             title={'Participants'}
             svg={<MdPeopleOutline />}
-            date={data?.maxGroupSize}
+            date={maxGroupSize}
             addition={`People`}
           />
           <OverviewDetail
             title={'Rating'}
             svg={<AiOutlineStar />}
-            date={data?.ratingsAverage}
+            date={ratingsAverage}
           />
         </div>
 
@@ -44,15 +51,15 @@ export const OverviewBox: FC<BoxProps> = ({ data }) => {
           <h2 className='heading-secondary ma-bt-lg'>Your tour guides</h2>
 
           <TourGuide
-            name={data?.guides[0]?.name}
+            name={guides[0]?.name}
             title={`Lead Guide`}
-            photo={data?.guides[0]?.photo}
+            photo={guides[0]?.photo}
           />
 
           <TourGuide
-            name={data?.guides[1]?.name}
+            name={guides[1]?.name}
             title={`Tour Guide`}
-            photo={data?.guides[1]?.photo}
+            photo={guides[1]?.photo}
           />
         </div>
       </div>

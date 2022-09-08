@@ -24,7 +24,16 @@ const Tour: FC = () => {
   return (
     <>
       <TourHeader data={response?.data?.data} />
-      <Overview data={response?.data?.data} />
+      <Overview
+        name={response?.data?.data.name}
+        data={response?.data?.data}
+        description={response?.data?.data.description}
+        startDates={response?.data?.data?.startDates}
+        difficulty={response?.data?.data?.difficulty}
+        maxGroupSize={response?.data?.data?.maxGroupSize}
+        ratingsAverage={response?.data?.data?.ratingsAverage}
+        guides={response?.data?.data?.guides}
+      />
       <Review data={response?.data?.data?.reviews} />
       <Cta
         images={response?.data?.data?.images}

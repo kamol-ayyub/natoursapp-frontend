@@ -3,7 +3,7 @@ import { IconContext } from 'react-icons';
 type OverviewDetailProps = {
   title: String;
   svg: any;
-  date: String;
+  date: String | undefined;
   addition?: String;
 };
 export const OverviewDetail = ({
