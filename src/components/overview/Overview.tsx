@@ -1,10 +1,9 @@
 import { FC } from 'react';
 import { OverviewBox } from '../overview-box/OverviewBox';
 import { TourDescription } from '../tour-description/TourDescription';
+import { OverviewProps } from '../../types/types';
 
-type OverViewProps = any;
-
-export const Overview: FC<OverViewProps> = ({
+export const Overview: FC<OverviewProps> = ({
   name,
   description,
   startDates,

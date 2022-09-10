@@ -6,10 +6,11 @@ import { TourHeader } from '../../../components/tour-header/TourHeader';
 import Overview from '../../../components/overview/Overview';
 import { Review } from '../../../components/review/Review';
 import useHttp from '../../../hooks/use-http';
+import { CustomHookType } from '../../../types/types';
 
 const Tour: FC = () => {
   const { tour } = useParams();
-  const { response, sendRequest: getTour, isError } = useHttp();
+  const { response, sendRequest: getTour, isError }: CustomHookType = useHttp();
   const sendRequest = async () => {
     await getTour({
       url: `/api/v1/tours/${tour}`,

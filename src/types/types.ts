@@ -1,11 +1,12 @@
+import { ReactNode } from 'react';
 export type ReviewerType = {
-  review: String;
-  user: String;
-  userPhoto: String;
+  review: string;
+  user: string;
+  userPhoto: string;
 };
 export type CtaProps = {
-  images: String[];
-  duration: String;
+  images: string[];
+  duration: string;
 };
 interface IGuides {
   _id: string;
@@ -21,3 +22,25 @@ export type OverviewBoxProps = {
   ratingsAverage?: string;
   guides?: IGuides[];
 };
+export type OverviewProps = {
+  startDates?: string[];
+  difficulty?: string;
+  maxGroupSize?: string;
+  ratingsAverage?: string;
+  guides?: IGuides[];
+  name?: string;
+  description?: string;
+};
+export type OverviewDetailProps = {
+  title: string;
+  svg: ReactNode;
+  date: string | undefined;
+  addition?: string;
+};
+
+export interface CustomHookType {
+  isError: boolean | null;
+  isLoading: boolean;
+  response: any;
+  sendRequest: (requestConfig: any) => Promise<void>;
+}

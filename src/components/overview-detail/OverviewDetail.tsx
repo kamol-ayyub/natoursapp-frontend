@@ -1,11 +1,6 @@
 import { IconContext } from 'react-icons';
 
-type OverviewDetailProps = {
-  title: String;
-  svg: any;
-  date: String | undefined;
-  addition?: String;
-};
+import { OverviewDetailProps } from '../../types/types';
 export const OverviewDetail = ({
   title,
   svg,
