@@ -10,7 +10,7 @@ type EmailAndPasswordType = String | undefined;
 
 export const Login: FC = () => {
   const navigate = useNavigate();
-  const notify = (text: any) => {
+  const notify = (text: string) => {
     toast(text);
   };
   const emailRef = useRef<HTMLInputElement>(null);
@@ -32,8 +32,10 @@ export const Login: FC = () => {
   };
 
   useEffect(() => {
-    console.log(response);
+    console.log(response?.token);
+
     if (response?.status === 'success') {
+      localStorage.setItem('token', response?.token);
       setTimeout(() => {
         navigate('/me', { replace: true });
       }, 0);

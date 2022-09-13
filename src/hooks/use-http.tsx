@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback } from 'react';
 import axios from 'axios';
 
 const api = axios.create({
@@ -14,10 +14,6 @@ const useHttp = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean | null>(null);
   const [response, setResponse] = useState<any>(false);
-
-  const clearResponse = () => {
-    setResponse(null);
-  };
 
   const sendRequest = useCallback(async (requestConfig: any) => {
     // requestConfig is object, for url, method and data's body

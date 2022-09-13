@@ -1,24 +1,59 @@
-import { FC, useRef } from 'react';
+import { FC, useRef, useState, useEffect } from 'react';
 import FormInput from '../../../components/input/EmailInput';
+import useHttp from '../../../hooks/use-http';
+import { useNavigate } from 'react-router-dom';
 
 const Signup: FC = () => {
+  const navigate = useNavigate();
+  const [passwordAlertMsg, setpasswordAlertMsg] = useState<null | string>(null);
+  const [nameAlertMsg, setNameAlertMsg] = useState<null | string>(null);
+
+  // destructuring custom hook
+  const { response, sendRequest: sendRequestToSignup, isError } = useHttp();
   // refs for get data from form
-  const name = useRef<HTMLInputElement>(null);
-  const email = useRef<HTMLInputElement>(null);
-  const password = useRef<HTMLInputElement>(null);
-  const passwordConfirm = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const passwordConfirmRef = useRef<HTMLInputElement>(null);
 
   // function for request to backend
-  const handleSignup = (event: any) => {
+  const handleSignup = async (event: any) => {
     event.preventDefault();
-    console.log(
-      email.current?.value,
-      name.current?.value,
-      password.current?.value,
-      passwordConfirm.current?.value
-    );
-    event.target.reset();
+    const name = nameRef.current?.value;
+    const email = emailRef.current?.value;
+    const password = passwordRef.current?.value;
+    const passwordConfirm = passwordConfirmRef.current?.value;
+
+    if (!name?.match(/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/)) {
+      setNameAlertMsg('Name must consist of Latin letters or numbers!');
+      setTimeout(() => {
+        setNameAlertMsg('');
+      }, 4000);
+    } else if (password !== passwordConfirm) {
+      setpasswordAlertMsg('Password and Password Confirm must be similar!');
+      setTimeout(() => {
+        setpasswordAlertMsg('');
+      }, 4000);
+    } else {
+      await sendRequestToSignup({
+        url: '/api/v1/users/signup',
+        method: 'POST',
+        data: { name, email, password, passwordConfirm },
+      });
+      event.target.reset();
+    }
   };
+
+  useEffect(() => {
+    console.log(response);
+    if (response?.status === 'success') {
+      setTimeout(() => {
+        navigate('/me', { replace: true });
+      }, 0);
+    }
+  }, [response]);
+
+  console.log('rendered');
   return (
     <main className='main'>
       <div className='login-form'>
@@ -29,20 +64,23 @@ const Signup: FC = () => {
             placeholder='your name'
             inputType='text'
             formClass='form--signup'
-            ref={name}
+            ref={nameRef}
             required
           />
+          {nameAlertMsg && (
+            <h2 style={{ color: 'red', margin: '20px 0' }}>{nameAlertMsg}</h2>
+          )}
           <FormInput
             label='Email address'
             placeholder='you@example.com'
             inputType='email'
             formClass='form--signup'
-            ref={email}
+            ref={emailRef}
             required
           />
           <FormInput
             label='Password'
-            ref={password}
+            ref={passwordRef}
             placeholder='••••••••'
             inputType='password'
             formClass='form--signup ma-bt-md'
@@ -50,12 +88,17 @@ const Signup: FC = () => {
           />
           <FormInput
             label='Confirm password'
-            ref={passwordConfirm}
+            ref={passwordConfirmRef}
             placeholder='••••••••'
             inputType='password'
             formClass='form--signup ma-bt-md'
             required
           />
+          {passwordAlertMsg && (
+            <h2 style={{ color: 'red', margin: '20px 0' }}>
+              {passwordAlertMsg}
+            </h2>
+          )}
           <div className='form__group'>
             <button type='submit' className='btn btn--green'>
               Sign up

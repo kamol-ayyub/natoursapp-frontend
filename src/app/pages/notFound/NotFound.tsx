@@ -5,9 +5,9 @@ const NotFound: FC = () => {
     <main className='main'>
       <div className='error'>
         <div className='error__title'>
-          <h2 className='heading-secondary heading-secondary-error'>
+          <h1 className='heading-secondary heading-secondary-error'>
             404 Page Not Found
-          </h2>
+          </h1>
         </div>
       </div>
     </main>

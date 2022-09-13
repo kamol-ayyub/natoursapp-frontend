@@ -20,7 +20,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputType> = (
     <div className={formClass}>
       <label className='form__label'>{label}</label>
       <input
-        className=' form__input'
+        className='form__input'
         type={inputType}
         placeholder={placeholder}
         ref={ref}
