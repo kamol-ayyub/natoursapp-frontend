@@ -45,7 +45,6 @@ const Signup: FC = () => {
   };
 
   useEffect(() => {
-    console.log(response);
     if (response?.status === 'success') {
       setTimeout(() => {
         navigate('/me', { replace: true });

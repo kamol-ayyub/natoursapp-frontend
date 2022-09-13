@@ -4,7 +4,6 @@ import { AccountSidebar } from '../../../components/account-sidebar/AccountSideb
 import { AccountView } from '../../../components/account-view/AccountView';
 
 const Account: FC = () => {
-  console.log(localStorage.getItem('token'));
   return (
     <main className='main'>
       <div className='user-view'>

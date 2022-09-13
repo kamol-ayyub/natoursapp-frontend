@@ -1,19 +1,35 @@
 import FormInput from '../input/EmailInput';
 import { useRef, FC } from 'react';
+import useHttp from '../../hooks/use-http';
 import UserImg from '../../img/users/default.jpg';
 
 interface AccountViewProps {
   children: JSX.Element;
 }
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
+  const { response, sendRequest: changeNameAndEmail, isError } = useHttp();
+  const token = localStorage.getItem('token');
+
   // refs for get data from form
-  const name = useRef<HTMLInputElement>(null);
-  const email = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const photoRef = useRef<HTMLInputElement>(null);
+
+  console.log(token);
 
   // function for request to backend
-  const handleSignup = (event: any) => {
+  const handleSignup = async (event: any) => {
     event.preventDefault();
-    console.log(email.current?.value, name.current?.value);
+    const name = nameRef.current?.value;
+    const email = emailRef.current?.value;
+    const photo = photoRef.current?.value;
+
+    await changeNameAndEmail({
+      url: `/api/v1/users/updateMe`,
+      method: 'PATCH',
+      data: { name, email, photo },
+      headers: { Authorization: `Bearer ${token}` },
+    });
     event.target.reset();
   };
   return (
@@ -26,14 +42,14 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
               label='Name'
               inputType='text'
               formClass='form--signup ma-bt-md'
-              ref={name}
+              ref={nameRef}
               required
             />
             <FormInput
               label='Email address'
               inputType='email'
               formClass='form--signup ma-bt-md'
-              ref={email}
+              ref={emailRef}
               required
             />
             <div className='form__group form__photo-upload'>
@@ -44,7 +60,9 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
                 accept='image/*'
                 type='file'
                 className='form__upload'
+                ref={photoRef}
               />
+
               <label htmlFor='photo'>Choose new photo</label>
             </div>
             <div className='form__group right'>
