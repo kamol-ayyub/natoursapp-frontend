@@ -2,16 +2,11 @@ import FormInput from '../input/EmailInput';
 import { useRef, FC, useEffect } from 'react';
 import useHttp from '../../hooks/use-http';
 import UserImg from '../../img/users/default.jpg';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 interface AccountViewProps {
   children: JSX.Element;
 }
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
-  const notify = (text: string | boolean | null) => {
-    toast(text);
-  };
   const { response, sendRequest: changeNameAndEmail, isError } = useHttp();
   const token = localStorage.getItem('token');
 
@@ -39,15 +34,13 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
   useEffect(() => {
     if (response?.status === 'success') {
       console.log(response);
-      notify('You successfully changed your name and email!');
     } else if (response?.status === 'error') {
-      notify(isError);
+      // notify(isError);
     }
   }, [response]);
 
   return (
     <>
-      {<ToastContainer />}
       <div className='user-view__content'>
         <div className='user-view__form-container'>
           <h2 className='heading-secondary ma-bt-md'>Your account settings</h2>

@@ -1,18 +1,18 @@
-import { FC, useRef, useEffect } from 'react';
+import { FC, useRef, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormInput from '../../../components/input/EmailInput';
 import useHttp from '../../../hooks/use-http';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+import { UserIsLoggedContext } from '../../../context/Context';
 
 //types
 type EmailAndPasswordType = String | undefined;
 
 export const Login: FC = () => {
+  const { setLogged } = useContext(UserIsLoggedContext);
+
   const navigate = useNavigate();
-  const notify = (text: string) => {
-    toast(text);
-  };
+
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   //
@@ -30,24 +30,21 @@ export const Login: FC = () => {
     });
     e.target.reset();
   };
-
+  const changeIsLogged = () => {
+    setLogged(true);
+  };
   useEffect(() => {
-    console.log(response?.token);
-
     if (response?.status === 'success') {
+      changeIsLogged();
       localStorage.setItem('token', response?.token);
       setTimeout(() => {
         navigate('/me', { replace: true });
-      }, 0);
-    } else {
-      notify('Incorrect email or password!');
+      }, 2000);
     }
   }, [response]);
 
   return (
     <>
-      {isError && <ToastContainer />}
-
       <main className='main'>
         <div className='login-form'>
           <h2 className='heading-secondary ma-bt-lg'>Log into your account</h2>

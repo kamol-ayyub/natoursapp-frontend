@@ -1,12 +1,14 @@
-import { FC, useRef, useState, useEffect } from 'react';
+import { FC, useRef, useState, useEffect, useContext } from 'react';
 import FormInput from '../../../components/input/EmailInput';
 import useHttp from '../../../hooks/use-http';
 import { useNavigate } from 'react-router-dom';
+import { UserIsLoggedContext } from '../../../context/Context';
 
 const Signup: FC = () => {
   const navigate = useNavigate();
-  const [passwordAlertMsg, setpasswordAlertMsg] = useState<null | string>(null);
-  const [nameAlertMsg, setNameAlertMsg] = useState<null | string>(null);
+  const [passwordAlertMsg, setpasswordAlertMsg] = useState<string>('');
+  const [nameAlertMsg, setNameAlertMsg] = useState<string>('');
+  const { setLogged } = useContext(UserIsLoggedContext);
 
   // destructuring custom hook
   const { response, sendRequest: sendRequestToSignup, isError } = useHttp();
@@ -46,6 +48,7 @@ const Signup: FC = () => {
 
   useEffect(() => {
     if (response?.status === 'success') {
+      setLogged(true);
       setTimeout(() => {
         navigate('/me', { replace: true });
       }, 0);

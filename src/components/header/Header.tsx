@@ -1,43 +1,37 @@
-import { FC, useState } from 'react';
+import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logowhite from '../../img/logo-white.png';
 import ProfilePhoto from '../../img/users/default.jpg';
+import { UserIsLoggedContext } from '../../context/Context';
 import '../../css/style.css';
 
 const Header: FC = () => {
-  const [user, setUser] = useState<boolean>(false);
+  const { logged, setLogged } = useContext(UserIsLoggedContext);
+  const handleLogOut = () => {
+    setLogged(false);
+    localStorage.clear();
+  };
   return (
     <header className='header'>
       <nav className='nav nav--tours'>
         <Link className='nav__el' to={`/`}>
           All tours
         </Link>
-        {user && (
-          <form className='nav__search'>
-            <button className='nav__search-btn'>
-              <svg>
-                <use xlinkHref='img/icons.svg#icon-search'></use>
-              </svg>
-            </button>
-
-            <input
-              type='text'
-              placeholder='Search tours'
-              className='nav__search-input'
-            />
-          </form>
-        )}
       </nav>
       <div className='header__logo'>
         <img src={Logowhite} alt='header brand logo' />
       </div>
       <nav className='nav nav--user'>
-        {user ? (
+        {logged ? (
           <>
             <Link to={`/`} className='nav__el'>
               My bookings
             </Link>
-            <Link className='nav__el nav__el--logout' to={`/logout`}>
+            <Link
+              onClick={handleLogOut}
+              className='nav__el nav__el--logout'
+              to={`/`}
+            >
               Logout
             </Link>
             <Link className='nav__el ' to={`/me`}>
