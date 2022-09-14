@@ -1,8 +1,7 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { AccountPassword } from '../../../components/account-password/AccountPassword';
 import { AccountSidebar } from '../../../components/account-sidebar/AccountSidebar';
 import { AccountView } from '../../../components/account-view/AccountView';
-import { UserIsLoggedContext } from '../../../context/Context';
 
 const Account: FC = () => {
   return (

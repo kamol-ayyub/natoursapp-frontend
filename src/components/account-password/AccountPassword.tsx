@@ -1,9 +1,11 @@
 import { FC, useRef, useState, useEffect } from 'react';
 import FormInput from '../input/EmailInput';
 import useHttp from '../../hooks/use-http';
+import { ErrorNotif } from '../../components/notification/Notification';
 
 export const AccountPassword: FC = () => {
-  const [showError, setShowError] = useState<any>('');
+  const [message, setMessage] = useState<string | boolean>('');
+
   const token = localStorage.getItem('token');
   const currentPasswordRef = useRef<HTMLInputElement>(null);
   const newPasswordRef = useRef<HTMLInputElement>(null);
@@ -28,13 +30,15 @@ export const AccountPassword: FC = () => {
       });
     event.target.reset();
   };
-
+  const clearMsg = () => {
+    setTimeout(() => {
+      setMessage('');
+    }, 3000);
+  };
   useEffect(() => {
     if (isError) {
-      setShowError(isError);
-      setTimeout(() => {
-        setShowError('');
-      }, 3000);
+      setMessage(`Password or password confirm is not valid!`);
+      clearMsg();
     }
   }, [isError]);
 
@@ -42,7 +46,7 @@ export const AccountPassword: FC = () => {
     <>
       <div className='user-view__form-container'>
         <h2 className='heading-secondary ma-bt-md'>Password change</h2>
-        {/* {showError && <h2 style={{ color: 'red' }}>{showError}</h2>} */}
+        {message && <ErrorNotif text={message} />}
         <form
           onSubmit={handleChangePassword}
           action=''

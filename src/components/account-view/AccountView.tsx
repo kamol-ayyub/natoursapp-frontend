@@ -1,5 +1,5 @@
 import FormInput from '../input/EmailInput';
-import { useRef, FC, useEffect } from 'react';
+import { useRef, FC, useEffect, useState } from 'react';
 import useHttp from '../../hooks/use-http';
 import UserImg from '../../img/users/default.jpg';
 
@@ -7,7 +7,7 @@ interface AccountViewProps {
   children: JSX.Element;
 }
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
-  const { response, sendRequest: changeNameAndEmail, isError } = useHttp();
+  const { response, sendRequest: changeNameAndEmail } = useHttp();
   const token = localStorage.getItem('token');
 
   // refs for get data from form
@@ -34,8 +34,6 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
   useEffect(() => {
     if (response?.status === 'success') {
       console.log(response);
-    } else if (response?.status === 'error') {
-      // notify(isError);
     }
   }, [response]);
 
