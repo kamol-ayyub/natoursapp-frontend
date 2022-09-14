@@ -10,7 +10,7 @@ import { UserIsLoggedContext } from '../../../context/Context';
 type EmailAndPasswordType = String | undefined;
 
 export const Login: FC = () => {
-  const [message, setMessage] = useState<string>('');
+  const [message, setMessage] = useState<string | null>(null);
   const { setLogged } = useContext(UserIsLoggedContext);
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
@@ -35,7 +35,7 @@ export const Login: FC = () => {
   };
   const clearMsg = () => {
     setTimeout(() => {
-      setMessage('');
+      setMessage(null);
     }, 3000);
   };
   useEffect(() => {
@@ -45,7 +45,7 @@ export const Login: FC = () => {
       setTimeout(() => {
         navigate('/me', { replace: true });
       }, 10);
-    } else {
+    } else if (response === false) {
       setMessage(`Email or password is not valid!`);
       clearMsg();
     }
@@ -56,7 +56,7 @@ export const Login: FC = () => {
       <main className='main'>
         <div className='login-form'>
           <h2 className='heading-secondary ma-bt-lg'>Log into your account</h2>
-          <ErrorNotif text={message} />
+          {message && <ErrorNotif text={message} />}
           <form onSubmit={handleLogin} className='form form--login'>
             <FormInput
               label='Email address'

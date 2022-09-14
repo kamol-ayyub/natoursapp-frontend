@@ -13,7 +13,7 @@ const api = axios.create({
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean | null>(null);
-  const [response, setResponse] = useState<any>(false);
+  const [response, setResponse] = useState<any>(null);
 
   const sendRequest = useCallback(async (requestConfig: any) => {
     // requestConfig is object, for url, method and data's body
@@ -25,6 +25,7 @@ const useHttp = () => {
       setResponse(data);
     } catch (err: any) {
       setIsError(err.message || 'Something went wrong!');
+      setResponse(false);
     }
     setIsLoading(false);
   }, []);
