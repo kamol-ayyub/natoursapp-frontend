@@ -1,6 +1,10 @@
-import { createContext, useState } from 'react';
-export let logged: any = false;
+import { createContext } from 'react';
+import { GlobalContext } from '../types/types';
 
-export const setLogged = (params: any) => (logged = params);
+export let logged: boolean = false;
+export const setLogged = (params: boolean) => (logged = params);
 
-export const UserIsLoggedContext = createContext({ logged, setLogged });
+export const UserIsLoggedContext = createContext<GlobalContext>({
+  logged,
+  setLogged,
+});

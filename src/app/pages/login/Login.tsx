@@ -1,13 +1,10 @@
-import { FC, useRef, useEffect, useContext, useState } from 'react';
+import { FC, useRef, useEffect, useContext, useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormInput from '../../../components/input/EmailInput';
 import useHttp from '../../../hooks/use-http';
 import { ErrorNotif } from '../../../components/notification/Notification';
-
+import { EmailAndPasswordType } from '../../../types/types';
 import { UserIsLoggedContext } from '../../../context/Context';
-
-//types
-type EmailAndPasswordType = String | undefined;
 
 export const Login: FC = () => {
   const [message, setMessage] = useState<string | null>(null);
@@ -16,9 +13,10 @@ export const Login: FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   //
-  const { response, sendRequest: sendrequestToLogin, isError } = useHttp();
+  const { response, sendRequest: sendrequestToLogin } = useHttp();
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleLogin = async (e: any) => {
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     const email: EmailAndPasswordType = emailRef.current?.value;
     const password: EmailAndPasswordType = passwordRef.current?.value;
@@ -28,12 +26,12 @@ export const Login: FC = () => {
       method: 'POST',
       data: { email, password },
     });
-    e.target.reset();
+    formRef.current?.reset();
   };
-  const changeIsLogged = () => {
+  const changeIsLogged = (): void => {
     setLogged(true);
   };
-  const clearMsg = () => {
+  const clearMsg = (): void => {
     setTimeout(() => {
       setMessage(null);
     }, 3000);
@@ -46,7 +44,7 @@ export const Login: FC = () => {
         navigate('/me', { replace: true });
       }, 10);
     } else if (response === false) {
-      setMessage(`Email or password is not valid!`);
+      setMessage(`Incorrect email or password!`);
       clearMsg();
     }
   }, [response]);
@@ -56,8 +54,12 @@ export const Login: FC = () => {
       <main className='main'>
         <div className='login-form'>
           <h2 className='heading-secondary ma-bt-lg'>Log into your account</h2>
-          {message && <ErrorNotif text={message} />}
-          <form onSubmit={handleLogin} className='form form--login'>
+          {message && <ErrorNotif text={message} type='error' />}
+          <form
+            ref={formRef}
+            onSubmit={handleLogin}
+            className='form form--login'
+          >
             <FormInput
               label='Email address'
               placeholder='you@example.com'

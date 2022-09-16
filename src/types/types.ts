@@ -44,3 +44,25 @@ export interface CustomHookType {
   response: any;
   sendRequest: (requestConfig: any) => Promise<void>;
 }
+export type EmailAndPasswordType = String | undefined;
+export interface ErrorNotifType {
+  text?: string | null;
+  type?: string;
+}
+export type RefValueType = string | undefined;
+export interface requestConfigType {
+  url?: string;
+  method?: string;
+  data?: object;
+  headers?: object;
+}
+export type usehttp = {
+  isError?: null | boolean;
+  isLoading?: null | boolean;
+  response?: any;
+  sendRequest?: () => {};
+};
+export type GlobalContext = {
+  logged: boolean;
+  setLogged: (params: boolean) => void;
+};
