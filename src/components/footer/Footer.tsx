@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Logogreen from '../../img/logo-green.png';
 
-const Footer: FC = () => {
+export const Footer: FC = () => {
   return (
     <footer className='footer'>
       <div className='footer__logo'>
@@ -21,5 +21,3 @@ const Footer: FC = () => {
     </footer>
   );
 };
-
-export default Footer;

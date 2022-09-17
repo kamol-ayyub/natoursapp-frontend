@@ -5,7 +5,7 @@ import ProfilePhoto from '../../img/users/default.jpg';
 import { UserIsLoggedContext } from '../../context/Context';
 import '../../css/style.css';
 
-const Header: FC = () => {
+export const Header: FC = () => {
   const { logged, setLogged } = useContext(UserIsLoggedContext);
   const handleLogOut = () => {
     setLogged(false);
@@ -57,5 +57,3 @@ const Header: FC = () => {
     </header>
   );
 };
-
-export default Header;

@@ -8,7 +8,7 @@ import { Review } from '../../../components/review/Review';
 import useHttp from '../../../hooks/use-http';
 import { CustomHookType } from '../../../types/types';
 
-const Tour: FC = () => {
+export const Tour: FC = () => {
   const { tour } = useParams();
   const { response, sendRequest: getTour, isError }: CustomHookType = useHttp();
   const sendRequest = async () => {
@@ -42,12 +42,3 @@ const Tour: FC = () => {
     </>
   );
 };
-
-export default Tour;
-// name={response?.data?.data.name}
-// description={response?.data?.data.description}
-// startDates={response?.data?.data?.startDates}
-// difficulty={response?.data?.data?.difficulty}
-// maxGroupSize={response?.data?.data?.maxGroupSize}
-// ratingsAverage={response?.data?.data?.ratingsAverage}
-// guides={response?.data?.data?.guides}

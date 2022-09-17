@@ -1,9 +1,11 @@
 import { FC } from 'react';
-import { AccountPassword } from '../../../components/account-password/AccountPassword';
-import { AccountSidebar } from '../../../components/account-sidebar/AccountSidebar';
-import { AccountView } from '../../../components/account-view/AccountView';
+import {
+  AccountPassword,
+  AccountSidebar,
+  AccountView,
+} from '../../../components';
 
-const Account: FC = () => {
+export const Account: FC = () => {
   return (
     <main className='main'>
       <div className='user-view'>
@@ -15,4 +17,3 @@ const Account: FC = () => {
     </main>
   );
 };
-export default Account;

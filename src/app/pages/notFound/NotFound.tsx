@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-const NotFound: FC = () => {
+export const NotFound: FC = () => {
   return (
     <main className='main'>
       <div className='error'>
@@ -13,5 +13,3 @@ const NotFound: FC = () => {
     </main>
   );
 };
-
-export default NotFound;

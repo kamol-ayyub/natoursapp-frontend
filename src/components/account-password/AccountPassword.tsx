@@ -1,8 +1,9 @@
 import { FC, useRef, useState, useEffect, FormEvent } from 'react';
 import FormInput from '../input/EmailInput';
 import useHttp from '../../hooks/use-http';
-import { ErrorNotif } from '../../components/notification/Notification';
+import { ErrorNotif } from '../../components';
 import { RefValueType } from '../../types/types';
+
 export const AccountPassword: FC = () => {
   const [message, setMessage] = useState<string | null>(null);
 

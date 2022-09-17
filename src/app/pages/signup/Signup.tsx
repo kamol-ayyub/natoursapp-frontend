@@ -4,7 +4,7 @@ import useHttp from '../../../hooks/use-http';
 import { useNavigate } from 'react-router-dom';
 import { UserIsLoggedContext } from '../../../context/Context';
 
-const Signup: FC = () => {
+export const Signup: FC = () => {
   const navigate = useNavigate();
   const [passwordAlertMsg, setpasswordAlertMsg] = useState<string>('');
   const [nameAlertMsg, setNameAlertMsg] = useState<string>('');
@@ -111,5 +111,3 @@ const Signup: FC = () => {
     </main>
   );
 };
-
-export default Signup;
