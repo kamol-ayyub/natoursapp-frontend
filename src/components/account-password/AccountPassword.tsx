@@ -29,6 +29,7 @@ export const AccountPassword: FC = () => {
         data: { passwordCurrent, password, passwordConfirm },
         headers: { Authorization: `Bearer ${token}` },
       });
+
     formRef.current?.reset();
   };
   const clearMsg = (): void => {

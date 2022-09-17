@@ -28,6 +28,7 @@ export const Login: FC = () => {
     });
     formRef.current?.reset();
   };
+
   const changeIsLogged = (): void => {
     setLogged(true);
   };
