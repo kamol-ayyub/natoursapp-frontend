@@ -13,7 +13,6 @@ export const AppRouter = () => {
           <Route path='/tour/:tour' element={<Tour />} />
           <Route path='/me' element={<Account />} />
         </Route>
-
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>

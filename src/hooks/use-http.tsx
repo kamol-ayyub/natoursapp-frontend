@@ -17,7 +17,7 @@ const useHttp = () => {
   const [response, setResponse] = useState<any>(null);
 
   const sendRequest = useCallback(
-    async (requestConfig: AxiosRequestConfig<any>) => {
+    async (requestConfig: AxiosRequestConfig<object>) => {
       // requestConfig is object, for url, method and data's body
       setIsLoading(true);
       setIsError(null);
