@@ -1,6 +1,5 @@
 import { FC, useRef, useEffect, useContext, useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import useHttp from '../../../hooks/use-http';
 import { ErrorNotif, FormInput } from '../../../components';
 import { EmailAndPasswordType } from '../../../types/types';

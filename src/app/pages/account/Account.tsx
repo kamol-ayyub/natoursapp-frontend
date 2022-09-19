@@ -3,19 +3,21 @@ import {
   AccountPassword,
   AccountSidebar,
   AccountView,
+  Main,
+  UserView,
 } from '../../../components';
 import { UserIsLoggedContext } from '../../../context/Context';
 
 export const Account: FC = () => {
-  const { logged } = useContext(UserIsLoggedContext);
+  // const { logged, setLogged } = useContext(UserIsLoggedContext);
   return (
-    <main className='main'>
-      <div className='user-view'>
+    <Main>
+      <UserView>
         <AccountSidebar />
         <AccountView>
           <AccountPassword />
         </AccountView>
-      </div>
-    </main>
+      </UserView>
+    </Main>
   );
 };
