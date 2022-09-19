@@ -1,5 +1,5 @@
 import { FormInput } from '../';
-import { useRef, FC, useEffect, ReactNode } from 'react';
+import { useRef, FC, useEffect } from 'react';
 import useHttp from '../../hooks/use-http';
 import UserImg from '../../img/users/default.jpg';
 import { AccountViewProps } from '../../types/types';

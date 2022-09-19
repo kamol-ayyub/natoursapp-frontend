@@ -15,3 +15,4 @@ export * from './review/index';
 export * from './tour-description/TourDescription';
 export * from './tour-guides/TourGuide';
 export * from './tour-header/TourHeader';
+export * from './protected/Protected';

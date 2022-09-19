@@ -8,7 +8,7 @@ import { UserIsLoggedContext } from '../../../context/Context';
 
 export const Login: FC = () => {
   const [message, setMessage] = useState<string | null>(null);
-  const { setLogged } = useContext(UserIsLoggedContext);
+  const { setLogged, logged } = useContext(UserIsLoggedContext);
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -28,10 +28,8 @@ export const Login: FC = () => {
     });
     formRef.current?.reset();
   };
+  console.log(logged);
 
-  const changeIsLogged = (): void => {
-    setLogged(true);
-  };
   const clearMsg = (): void => {
     setTimeout(() => {
       setMessage(null);
@@ -39,11 +37,11 @@ export const Login: FC = () => {
   };
   useEffect(() => {
     if (response?.status === 'success') {
-      changeIsLogged();
+      setLogged(true);
       localStorage.setItem('token', response?.token);
       setTimeout(() => {
         navigate('/me', { replace: true });
-      }, 10);
+      }, 1000);
     } else if (response === false) {
       setMessage(`Incorrect email or password!`);
       clearMsg();
