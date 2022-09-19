@@ -1,20 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { AppRouter } from './app/router';
-import { UserIsLoggedContext } from './context/Context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-// const [logged, setLogged] = useState(false);
 
 root.render(
   <React.StrictMode>
-    {/* <UserIsLoggedContext.Provider value={{ logged, setLogged }}> */}
     <AppRouter />
-    {/* </UserIsLoggedContext.Provider> */}
   </React.StrictMode>
 );
 
