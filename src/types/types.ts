@@ -66,3 +66,6 @@ export type GlobalContext = {
   logged: boolean;
   setLogged: (params: boolean) => void;
 };
+export interface AccountViewProps {
+  children: ReactNode;
+}

@@ -1,8 +1,8 @@
 import { FC, useRef, useEffect, useContext, useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import FormInput from '../../../components/input/EmailInput';
+
 import useHttp from '../../../hooks/use-http';
-import { ErrorNotif } from '../../../components/notification/Notification';
+import { ErrorNotif, FormInput } from '../../../components';
 import { EmailAndPasswordType } from '../../../types/types';
 import { UserIsLoggedContext } from '../../../context/Context';
 

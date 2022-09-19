@@ -32,6 +32,4 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputType> = (
     </div>
   );
 };
-const FormInput = React.forwardRef(Input);
-
-export default FormInput;
+export const FormInput = React.forwardRef(Input);

@@ -1,5 +1,5 @@
 import { FC, useRef, useState, useEffect, useContext } from 'react';
-import FormInput from '../../../components/input/EmailInput';
+import { FormInput } from '../../../components';
 import useHttp from '../../../hooks/use-http';
 import { useNavigate } from 'react-router-dom';
 import { UserIsLoggedContext } from '../../../context/Context';

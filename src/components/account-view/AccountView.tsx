@@ -1,11 +1,9 @@
-import FormInput from '../input/EmailInput';
-import { useRef, FC, useEffect, useState } from 'react';
+import { FormInput } from '../';
+import { useRef, FC, useEffect, ReactNode } from 'react';
 import useHttp from '../../hooks/use-http';
 import UserImg from '../../img/users/default.jpg';
+import { AccountViewProps } from '../../types/types';
 
-interface AccountViewProps {
-  children: JSX.Element;
-}
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
   const { response, sendRequest: changeNameAndEmail } = useHttp();
   const token = localStorage.getItem('token');
@@ -16,7 +14,7 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
   const photoRef = useRef<HTMLInputElement>(null);
 
   // function for request to backend
-  const handleSignup = async (event: any) => {
+  const handleSignup = async (event: any): Promise<void> => {
     event.preventDefault();
     const name = nameRef.current?.value;
     const email = emailRef.current?.value;
