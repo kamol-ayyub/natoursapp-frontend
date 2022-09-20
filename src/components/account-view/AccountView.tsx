@@ -1,8 +1,15 @@
-import { FormInput } from '../';
+import { FormInput, UserViewFormContainer } from '../';
 import { useRef, FC, useEffect } from 'react';
 import useHttp from '../../hooks/use-http';
 import UserImg from '../../img/users/default.jpg';
 import { AccountViewProps } from '../../types/types';
+import styled from 'styled-components';
+const UserViewContent = styled.div`
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 7rem 0;
+`;
 
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
   const { response, sendRequest: changeNameAndEmail } = useHttp();
@@ -37,8 +44,8 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
 
   return (
     <>
-      <div className='user-view__content'>
-        <div className='user-view__form-container'>
+      <UserViewContent>
+        <UserViewFormContainer>
           <h2 className='heading-secondary ma-bt-md'>Your account settings</h2>
           <form onSubmit={handleSignup} className='form form-user-data'>
             <div className='form__group'>
@@ -76,10 +83,10 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
               </div>
             </div>
           </form>
-        </div>
+        </UserViewFormContainer>
         <div className='line'>&nbsp;</div>
         {children}
-      </div>
+      </UserViewContent>
     </>
   );
 };

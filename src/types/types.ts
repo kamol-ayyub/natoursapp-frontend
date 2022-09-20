@@ -69,3 +69,6 @@ export type GlobalContext = {
 export interface AccountViewProps {
   children: ReactNode;
 }
+export interface ChildProp {
+  children?: ReactNode;
+}

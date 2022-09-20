@@ -6,6 +6,7 @@ import GlobalStyle from '../GlobalStyle';
 export const App: FC = () => {
   return (
     <>
+      <GlobalStyle />
       <Header />
       <Outlet />
       <Footer />

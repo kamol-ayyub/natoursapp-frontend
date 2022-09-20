@@ -18,3 +18,5 @@ export * from './tour-header/TourHeader';
 export * from './protected/Protected';
 export * from './main/Main';
 export * from './user-view/UserView';
+export * from './user-view-form-container/UserViewFormContainer';
+export * from './heading-secondary/HeadingSecondary';

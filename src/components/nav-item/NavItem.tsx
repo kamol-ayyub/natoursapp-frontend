@@ -1,16 +1,14 @@
-import React from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-// import bla from '../../img'
 
 interface NavItemType {
   link: HTMLAnchorElement | String;
   text: String;
-
   active?: boolean;
   svg: any;
 }
 
-export const NavItem = ({ link, text, svg, active }: NavItemType) => {
+export const NavItem: FC<NavItemType> = ({ link, text, svg, active }) => {
   return (
     <li className={active ? 'side-nav--active' : ''}>
       <Link to={`${link}`}>
