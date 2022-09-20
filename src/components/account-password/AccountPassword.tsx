@@ -3,7 +3,7 @@ import useHttp from '../../hooks/use-http';
 import {
   ErrorNotif,
   FormInput,
-  HeadingSecondary,
+  HeadingSecondaryMaBtLg,
   UserViewFormContainer,
 } from '../../components';
 import { RefValueType } from '../../types/types';
@@ -55,7 +55,7 @@ export const AccountPassword: FC = () => {
   return (
     <>
       <UserViewFormContainer>
-        <HeadingSecondary>Password change</HeadingSecondary>
+        <HeadingSecondaryMaBtLg>Password change</HeadingSecondaryMaBtLg>
         {response === false && <ErrorNotif text={message} type='error' />}
         {response?.status === 'success' && (
           <ErrorNotif text={message} type='success' />
@@ -63,7 +63,7 @@ export const AccountPassword: FC = () => {
 
         <form
           onSubmit={handleChangePassword}
-          className='form form-user-password'
+          className='form-user-password'
           ref={formRef}
         >
           <FormInput

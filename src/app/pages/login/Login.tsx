@@ -1,7 +1,7 @@
 import { FC, useRef, useEffect, useContext, useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useHttp from '../../../hooks/use-http';
-import { ErrorNotif, FormInput } from '../../../components';
+import { ErrorNotif, FormInput, Form } from '../../../components';
 import { EmailAndPasswordType } from '../../../types/types';
 import { UserIsLoggedContext } from '../../../context/Context';
 
@@ -53,7 +53,7 @@ export const Login: FC = () => {
         <div className='login-form'>
           <h2 className='heading-secondary ma-bt-lg'>Log into your account</h2>
           {message && <ErrorNotif text={message} type='error' />}
-          <form
+          <Form
             ref={formRef}
             onSubmit={handleLogin}
             className='form form--login'
@@ -81,7 +81,7 @@ export const Login: FC = () => {
                 Login
               </button>
             </div>
-          </form>
+          </Form>
         </div>
       </main>
     </>

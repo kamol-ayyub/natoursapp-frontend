@@ -1,3 +1,5 @@
+import { format } from 'path';
+
 export * from './account-password/AccountPassword';
 export * from './account-sidebar/AccountSidebar';
 export * from './account-view/AccountView';
@@ -20,3 +22,4 @@ export * from './main/Main';
 export * from './user-view/UserView';
 export * from './user-view-form-container/UserViewFormContainer';
 export * from './heading-secondary/HeadingSecondary';
+export * from './form/Form';

@@ -21,6 +21,18 @@ const HeadSecondary = styled.h2`
   display: inline-block;
 `;
 
+export const HeadSecondaryMa = styled(HeadSecondary)`
+  margin-bottom: 3rem !important;
+`;
+
+export const HeadSecondaryMaBtLg = styled(HeadSecondary)`
+  margin-bottom: 3.5rem !important;
+`;
+
+export const HeadingSecondaryMaBtLg: FC<ChildProp> = ({ children }) => {
+  return <HeadSecondaryMaBtLg>{children}</HeadSecondaryMaBtLg>;
+};
+
 export const HeadingSecondary: FC<ChildProp> = ({ children }) => {
   return <HeadSecondary>{children}</HeadSecondary>;
 };

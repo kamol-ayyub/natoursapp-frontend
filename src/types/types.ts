@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, RefObject, FormEvent } from 'react';
 export type ReviewerType = {
   review: string;
   user: string;
@@ -71,4 +71,11 @@ export interface AccountViewProps {
 }
 export interface ChildProp {
   children?: ReactNode;
+}
+
+export interface ChildPropWithRef {
+  children?: ReactNode;
+  ref?: RefObject<HTMLFormElement> | null;
+  onSubmit: (e: FormEvent) => Promise<void>;
+  className?: string;
 }
