@@ -7,7 +7,6 @@ interface ProtectedType {
 }
 
 export const Protected: FC<ProtectedType> = ({ isLogged }) => {
-  console.log(isLogged, 'islogged protected');
   if (!isLogged) {
     return <Navigate to={'*'} replace />;
   }

@@ -1,13 +1,19 @@
 import { FC, useRef, useEffect, useContext, useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useHttp from '../../../hooks/use-http';
-import { ErrorNotif, FormInput, Form } from '../../../components';
+import {
+  ErrorNotif,
+  FormInput,
+  Form,
+  HeadSecondaryMaBtLg,
+  Main,
+} from '../../../components';
 import { EmailAndPasswordType } from '../../../types/types';
 import { UserIsLoggedContext } from '../../../context/Context';
 
 export const Login: FC = () => {
   const [message, setMessage] = useState<string | null>(null);
-  const { setLogged, logged } = useContext(UserIsLoggedContext);
+  const { setLogged } = useContext(UserIsLoggedContext);
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -27,7 +33,6 @@ export const Login: FC = () => {
     });
     formRef.current?.reset();
   };
-  console.log(logged);
 
   const clearMsg = (): void => {
     setTimeout(() => {
@@ -49,13 +54,13 @@ export const Login: FC = () => {
 
   return (
     <>
-      <main className='main'>
+      <Main>
         <div className='login-form'>
-          <h2 className='heading-secondary ma-bt-lg'>Log into your account</h2>
+          <HeadSecondaryMaBtLg>Log into your account</HeadSecondaryMaBtLg>
           {message && <ErrorNotif text={message} type='error' />}
           <Form
-            ref={formRef}
-            onSubmit={handleLogin}
+            formRef={formRef}
+            submitForm={handleLogin}
             className='form form--login'
           >
             <FormInput
@@ -83,7 +88,7 @@ export const Login: FC = () => {
             </div>
           </Form>
         </div>
-      </main>
+      </Main>
     </>
   );
 };

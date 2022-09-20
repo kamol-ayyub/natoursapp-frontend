@@ -1,9 +1,14 @@
 import { FC } from 'react';
 import { ChildPropWithRef } from '../../types/types';
 
-export const Form: FC<ChildPropWithRef> = ({ children, ref, className }) => {
+export const Form: FC<ChildPropWithRef> = ({
+  children,
+  formRef,
+  className,
+  submitForm,
+}) => {
   return (
-    <form ref={ref} className={className}>
+    <form onSubmit={submitForm} ref={formRef} className={className}>
       {children}
     </form>
   );

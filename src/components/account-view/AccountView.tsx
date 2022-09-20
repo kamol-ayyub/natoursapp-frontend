@@ -36,12 +36,6 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
     event.target.reset();
   };
 
-  useEffect(() => {
-    if (response?.status === 'success') {
-      console.log(response);
-    }
-  }, [response]);
-
   return (
     <>
       <UserViewContent>

@@ -75,7 +75,7 @@ export interface ChildProp {
 
 export interface ChildPropWithRef {
   children?: ReactNode;
-  ref?: RefObject<HTMLFormElement> | null;
-  onSubmit: (e: FormEvent) => Promise<void>;
+  formRef?: RefObject<HTMLFormElement>;
+  submitForm: (e: FormEvent) => Promise<void>;
   className?: string;
 }

@@ -55,7 +55,6 @@ export const Signup: FC = () => {
     }
   }, [response]);
 
-  console.log('rendered');
   return (
     <main className='main'>
       <div className='login-form'>
