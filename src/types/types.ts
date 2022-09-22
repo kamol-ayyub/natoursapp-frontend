@@ -56,6 +56,7 @@ export interface requestConfigType {
   data?: object;
   headers?: object;
 }
+
 export type usehttp = {
   isError?: null | boolean;
   isLoading?: null | boolean;
@@ -71,6 +72,7 @@ export interface AccountViewProps {
 }
 export interface ChildProp {
   children?: ReactNode;
+  MaBtLg?: boolean;
 }
 
 export interface ChildPropWithRef {

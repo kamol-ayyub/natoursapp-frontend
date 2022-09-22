@@ -5,8 +5,10 @@ import {
   ErrorNotif,
   FormInput,
   Form,
-  HeadSecondaryMaBtLg,
   Main,
+  FormGroup,
+  LoginForm,
+  HeadingSecondary,
 } from '../../../components';
 import { EmailAndPasswordType } from '../../../types/types';
 import { UserIsLoggedContext } from '../../../context/Context';
@@ -55,8 +57,8 @@ export const Login: FC = () => {
   return (
     <>
       <Main>
-        <div className='login-form'>
-          <HeadSecondaryMaBtLg>Log into your account</HeadSecondaryMaBtLg>
+        <LoginForm>
+          <HeadingSecondary MaBtLg>Log into your account</HeadingSecondary>
           {message && <ErrorNotif text={message} type='error' />}
           <Form
             formRef={formRef}
@@ -81,13 +83,13 @@ export const Login: FC = () => {
               required
             />
 
-            <div className='form__group'>
+            <FormGroup>
               <button type='submit' className='btn btn--green'>
                 Login
               </button>
-            </div>
+            </FormGroup>
           </Form>
-        </div>
+        </LoginForm>
       </Main>
     </>
   );

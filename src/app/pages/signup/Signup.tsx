@@ -1,5 +1,12 @@
-import { FC, useRef, useState, useEffect, useContext } from 'react';
-import { FormInput } from '../../../components';
+import { FC, useRef, useState, useEffect, useContext, FormEvent } from 'react';
+import {
+  Form,
+  FormGroup,
+  FormInput,
+  HeadingSecondary,
+  LoginForm,
+  Main,
+} from '../../../components';
 import useHttp from '../../../hooks/use-http';
 import { useNavigate } from 'react-router-dom';
 import { UserIsLoggedContext } from '../../../context/Context';
@@ -11,15 +18,16 @@ export const Signup: FC = () => {
   const { setLogged } = useContext(UserIsLoggedContext);
 
   // destructuring custom hook
-  const { response, sendRequest: sendRequestToSignup, isError } = useHttp();
+  const { response, sendRequest: sendRequestToSignup } = useHttp();
   // refs for get data from form
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordConfirmRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   // function for request to backend
-  const handleSignup = async (event: any) => {
+  const handleSignup = async (event: FormEvent) => {
     event.preventDefault();
     const name = nameRef.current?.value;
     const email = emailRef.current?.value;
@@ -31,19 +39,19 @@ export const Signup: FC = () => {
       setTimeout(() => {
         setNameAlertMsg('');
       }, 4000);
-    } else if (password !== passwordConfirm) {
+    }
+    if (password !== passwordConfirm) {
       setpasswordAlertMsg('Password and Password Confirm must be similar!');
       setTimeout(() => {
         setpasswordAlertMsg('');
       }, 4000);
-    } else {
-      await sendRequestToSignup({
-        url: '/api/v1/users/signup',
-        method: 'POST',
-        data: { name, email, password, passwordConfirm },
-      });
-      event.target.reset();
     }
+    await sendRequestToSignup({
+      url: '/api/v1/users/signup',
+      method: 'POST',
+      data: { name, email, password, passwordConfirm },
+    });
+    formRef.current?.reset();
   };
 
   useEffect(() => {
@@ -56,10 +64,14 @@ export const Signup: FC = () => {
   }, [response]);
 
   return (
-    <main className='main'>
-      <div className='login-form'>
-        <h2 className='heading-secondary ma-bt-lg'>CREATE YOUR ACCOUNT!</h2>
-        <form onSubmit={handleSignup} className='form form--signup'>
+    <Main>
+      <LoginForm>
+        <HeadingSecondary MaBtLg={true}>CREATE YOUR ACCOUNT!</HeadingSecondary>
+        <Form
+          formRef={formRef}
+          submitForm={handleSignup}
+          className='form form--signup'
+        >
           <FormInput
             label='Your name'
             placeholder='your name'
@@ -100,13 +112,13 @@ export const Signup: FC = () => {
               {passwordAlertMsg}
             </h2>
           )}
-          <div className='form__group'>
+          <FormGroup>
             <button type='submit' className='btn btn--green'>
               Sign up
             </button>
-          </div>
-        </form>
-      </div>
-    </main>
+          </FormGroup>
+        </Form>
+      </LoginForm>
+    </Main>
   );
 };

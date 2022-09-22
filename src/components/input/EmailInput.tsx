@@ -1,4 +1,5 @@
 import React, { ForwardRefRenderFunction, InputHTMLAttributes } from 'react';
+import { Label } from './Label';
 
 interface InputType extends InputHTMLAttributes<HTMLInputElement> {
   ref?: String | HTMLInputElement | null;
@@ -19,7 +20,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputType> = (
 ) => {
   return (
     <div className={formClass}>
-      {label && <label className='form__label'>{label}</label>}
+      {label && <Label>{label}</Label>}
       <input
         className={classname ? classname : `form__input`}
         type={inputType}

@@ -1,5 +1,3 @@
-import { format } from 'path';
-
 export * from './account-password/AccountPassword';
 export * from './account-sidebar/AccountSidebar';
 export * from './account-view/AccountView';
@@ -7,7 +5,7 @@ export * from './cta/Cta';
 export * from './footer/Footer';
 export * from './header/Header';
 export * from './home-card/Card';
-export * from './input/EmailInput';
+export * from './input';
 export * from './nav-item/NavItem';
 export * from './notification/Notification';
 export * from './overview/Overview';
@@ -22,4 +20,4 @@ export * from './main/Main';
 export * from './user-view/UserView';
 export * from './user-view-form-container/UserViewFormContainer';
 export * from './heading-secondary/HeadingSecondary';
-export * from './form/Form';
+export * from './form';

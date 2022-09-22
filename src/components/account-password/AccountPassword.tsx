@@ -2,8 +2,9 @@ import { FC, useRef, useState, useEffect, FormEvent } from 'react';
 import useHttp from '../../hooks/use-http';
 import {
   ErrorNotif,
+  Form,
   FormInput,
-  HeadingSecondaryMaBtLg,
+  HeadingSecondary,
   UserViewFormContainer,
 } from '../../components';
 import { RefValueType } from '../../types/types';
@@ -55,16 +56,16 @@ export const AccountPassword: FC = () => {
   return (
     <>
       <UserViewFormContainer>
-        <HeadingSecondaryMaBtLg>Password change</HeadingSecondaryMaBtLg>
+        <HeadingSecondary MaBtLg>Password change</HeadingSecondary>
         {response === false && <ErrorNotif text={message} type='error' />}
         {response?.status === 'success' && (
           <ErrorNotif text={message} type='success' />
         )}
 
-        <form
-          onSubmit={handleChangePassword}
+        <Form
+          submitForm={handleChangePassword}
           className='form-user-password'
-          ref={formRef}
+          formRef={formRef}
         >
           <FormInput
             label='Current password'
@@ -96,7 +97,7 @@ export const AccountPassword: FC = () => {
           >
             Save password
           </button>
-        </form>
+        </Form>
       </UserViewFormContainer>
     </>
   );

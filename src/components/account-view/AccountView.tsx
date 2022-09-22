@@ -1,9 +1,10 @@
-import { FormInput, UserViewFormContainer } from '../';
+import { Form, FormInput, UserViewFormContainer } from '../';
 import { useRef, FC, useEffect } from 'react';
 import useHttp from '../../hooks/use-http';
 import UserImg from '../../img/users/default.jpg';
 import { AccountViewProps } from '../../types/types';
 import styled from 'styled-components';
+import { FormGroup } from '../form/FormGroup';
 const UserViewContent = styled.div`
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -41,8 +42,8 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
       <UserViewContent>
         <UserViewFormContainer>
           <h2 className='heading-secondary ma-bt-md'>Your account settings</h2>
-          <form onSubmit={handleSignup} className='form form-user-data'>
-            <div className='form__group'>
+          <Form submitForm={handleSignup} className='form form-user-data'>
+            <FormGroup>
               <FormInput
                 label='Name'
                 inputType='text'
@@ -75,8 +76,8 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
                   Save settings
                 </button>
               </div>
-            </div>
-          </form>
+            </FormGroup>
+          </Form>
         </UserViewFormContainer>
         <div className='line'>&nbsp;</div>
         {children}
