@@ -6,6 +6,7 @@ import { AccountViewProps } from '../../types/types';
 import styled from 'styled-components';
 import { FormGroup } from '../form/FormGroup';
 import { Button } from '../button/Button';
+import { FormUploadPhoto } from '../form/FormUploadPhoto';
 const UserViewContent = styled.div`
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -59,7 +60,7 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
                 ref={emailRef}
                 required
               />
-              <div className='form__group form__photo-upload'>
+              <FormUploadPhoto>
                 <img className='form__user-photo' src={UserImg} alt='user' />
                 <input
                   name='photo'
@@ -71,12 +72,12 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
                 />
 
                 <label htmlFor='photo'>Choose new photo</label>
-              </div>
-              <div className='form__group right'>
+              </FormUploadPhoto>
+              <FormGroup right>
                 <Button SmallBtn GreenBtn>
                   Save settings
                 </Button>
-              </div>
+              </FormGroup>
             </FormGroup>
           </Form>
         </UserViewFormContainer>

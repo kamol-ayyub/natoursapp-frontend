@@ -96,3 +96,7 @@ export interface LabelProp {
 export type InputRefType = HTMLInputElement;
 export type FormType = HTMLFormElement;
 export type FormEventType = FormEvent;
+export interface FormGroupType {
+  right?: boolean;
+  children?: ReactNode;
+}

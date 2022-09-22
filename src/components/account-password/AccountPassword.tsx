@@ -3,6 +3,7 @@ import useHttp from '../../hooks/use-http';
 import {
   ErrorNotif,
   Form,
+  FormGroup,
   FormInput,
   HeadingSecondary,
   UserViewFormContainer,
@@ -97,9 +98,11 @@ export const AccountPassword: FC = () => {
             required
             placeholder='••••••••'
           />
-          <Button SmallBtn GreenBtn>
-            Save password
-          </Button>
+          <FormGroup right>
+            <Button SmallBtn GreenBtn>
+              Save password
+            </Button>
+          </FormGroup>
         </Form>
       </UserViewFormContainer>
     </>
