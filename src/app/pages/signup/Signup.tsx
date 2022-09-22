@@ -1,4 +1,6 @@
 import { FC, useRef, useState, useEffect, useContext, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { InputRefType, FormType, FormEventType } from '../../../types/types';
 import {
   Form,
   FormGroup,
@@ -6,9 +8,9 @@ import {
   HeadingSecondary,
   LoginForm,
   Main,
+  Button,
 } from '../../../components';
 import useHttp from '../../../hooks/use-http';
-import { useNavigate } from 'react-router-dom';
 import { UserIsLoggedContext } from '../../../context/Context';
 
 export const Signup: FC = () => {
@@ -20,14 +22,14 @@ export const Signup: FC = () => {
   // destructuring custom hook
   const { response, sendRequest: sendRequestToSignup } = useHttp();
   // refs for get data from form
-  const nameRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const passwordConfirmRef = useRef<HTMLInputElement>(null);
-  const formRef = useRef<HTMLFormElement>(null);
+  const nameRef = useRef<InputRefType>(null);
+  const emailRef = useRef<InputRefType>(null);
+  const passwordRef = useRef<InputRefType>(null);
+  const passwordConfirmRef = useRef<InputRefType>(null);
+  const formRef = useRef<FormType>(null);
 
   // function for request to backend
-  const handleSignup = async (event: FormEvent) => {
+  const handleSignup = async (event: FormEventType) => {
     event.preventDefault();
     const name = nameRef.current?.value;
     const email = emailRef.current?.value;
@@ -113,9 +115,7 @@ export const Signup: FC = () => {
             </h2>
           )}
           <FormGroup>
-            <button type='submit' className='btn btn--green'>
-              Sign up
-            </button>
+            <Button GreenBtn>Sign up</Button>
           </FormGroup>
         </Form>
       </LoginForm>

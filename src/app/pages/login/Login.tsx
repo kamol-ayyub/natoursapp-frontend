@@ -1,4 +1,4 @@
-import { FC, useRef, useEffect, useContext, useState, FormEvent } from 'react';
+import { FC, useRef, useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useHttp from '../../../hooks/use-http';
 import {
@@ -10,8 +10,9 @@ import {
   LoginForm,
   HeadingSecondary,
 } from '../../../components';
-import { EmailAndPasswordType } from '../../../types/types';
+import { EmailAndPasswordType, FormEventType } from '../../../types/types';
 import { UserIsLoggedContext } from '../../../context/Context';
+import { Button } from '../../../components/button/Button';
 
 export const Login: FC = () => {
   const [message, setMessage] = useState<string | null>(null);
@@ -23,7 +24,7 @@ export const Login: FC = () => {
   const { response, sendRequest: sendrequestToLogin } = useHttp();
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleLogin = async (e: FormEvent) => {
+  const handleLogin = async (e: FormEventType) => {
     e.preventDefault();
     const email: EmailAndPasswordType = emailRef.current?.value;
     const password: EmailAndPasswordType = passwordRef.current?.value;
@@ -84,9 +85,7 @@ export const Login: FC = () => {
             />
 
             <FormGroup>
-              <button type='submit' className='btn btn--green'>
-                Login
-              </button>
+              <Button GreenBtn>Login</Button>
             </FormGroup>
           </Form>
         </LoginForm>

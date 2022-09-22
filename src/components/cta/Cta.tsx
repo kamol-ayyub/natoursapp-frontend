@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { CtaProps } from '../../types/types';
+import { Button } from '../button/Button';
 
 export const Cta: FC<CtaProps> = ({ images, duration }) => {
   return (
@@ -29,9 +30,9 @@ export const Cta: FC<CtaProps> = ({ images, duration }) => {
             {duration} days. 1 adventure. Infinite memories. Make it yours
             today!
           </p>
-          <button className='btn btn--green span-all-rows'>
+          <Button GreenBtn SpanRows>
             Book tour now!
-          </button>
+          </Button>
         </div>
       </div>
     </section>

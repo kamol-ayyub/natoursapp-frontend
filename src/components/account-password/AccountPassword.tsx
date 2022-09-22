@@ -1,4 +1,4 @@
-import { FC, useRef, useState, useEffect, FormEvent } from 'react';
+import { FC, useRef, useState, useEffect } from 'react';
 import useHttp from '../../hooks/use-http';
 import {
   ErrorNotif,
@@ -7,21 +7,27 @@ import {
   HeadingSecondary,
   UserViewFormContainer,
 } from '../../components';
-import { RefValueType } from '../../types/types';
+import {
+  RefValueType,
+  FormEventType,
+  InputRefType,
+  FormType,
+} from '../../types/types';
+import { Button } from '../button/Button';
 
 export const AccountPassword: FC = () => {
   const [message, setMessage] = useState<string | null>(null);
 
   const token = localStorage.getItem('token');
-  const currentPasswordRef = useRef<HTMLInputElement>(null);
-  const newPasswordRef = useRef<HTMLInputElement>(null);
-  const passwordConfRef = useRef<HTMLInputElement>(null);
-  const formRef = useRef<HTMLFormElement>(null);
+  const currentPasswordRef = useRef<InputRefType>(null);
+  const newPasswordRef = useRef<InputRefType>(null);
+  const passwordConfRef = useRef<InputRefType>(null);
+  const formRef = useRef<FormType>(null);
 
   const { response, sendRequest: sendRequestToResetPass } = useHttp();
 
   // function for request to backend
-  const handleChangePassword = async (event: FormEvent) => {
+  const handleChangePassword = async (event: FormEventType) => {
     event.preventDefault();
 
     const passwordCurrent: RefValueType = currentPasswordRef.current?.value;
@@ -91,12 +97,9 @@ export const AccountPassword: FC = () => {
             required
             placeholder='••••••••'
           />
-          <button
-            type='submit'
-            className='btn btn--small btn--green btn--save-password'
-          >
+          <Button SmallBtn GreenBtn>
             Save password
-          </button>
+          </Button>
         </Form>
       </UserViewFormContainer>
     </>

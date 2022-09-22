@@ -21,3 +21,4 @@ export * from './user-view/UserView';
 export * from './user-view-form-container/UserViewFormContainer';
 export * from './heading-secondary/HeadingSecondary';
 export * from './form';
+export * from './button/Button';

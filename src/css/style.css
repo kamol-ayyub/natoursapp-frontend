@@ -58,10 +58,6 @@ body {
   display: flex;
 }
 
-.span-all-rows {
-  grid-row: 1 / -1;
-}
-
 .container {
   max-width: 120rem;
   margin: 0 auto;
@@ -264,39 +260,6 @@ body {
 
 .btn-small:hover {
   background-color: #7dd56f;
-}
-
-.btn-text:link,
-.btn-text:visited {
-  color: #55c57a;
-  display: inline-block;
-  text-decoration: none;
-  border-bottom: 1px solid #55c57a;
-  padding: 3px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.btn-text:hover {
-  background-color: #55c57a;
-  color: #fff;
-  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-  -webkit-transform: translateY(-2px);
-  transform: translateY(-2px);
-}
-
-.btn-text:active {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-
-.btn-text:focus {
-  outline: none;
-  outline: 3px solid #55c57a;
-  outline-offset: 3px;
 }
 
 .header {

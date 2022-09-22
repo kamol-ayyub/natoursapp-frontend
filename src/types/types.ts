@@ -71,7 +71,7 @@ export interface AccountViewProps {
   children: ReactNode;
 }
 export interface ChildProp {
-  children?: ReactNode;
+  children?: ReactNode | string;
   MaBtLg?: boolean;
 }
 
@@ -81,3 +81,18 @@ export interface ChildPropWithRef {
   submitForm: (e: FormEvent) => Promise<void>;
   className?: string;
 }
+
+export interface ButtonPropType {
+  GreenBtn?: boolean;
+  SmallBtn?: boolean;
+  WhiteBtn?: boolean;
+  children?: string;
+  SpanRows?: boolean;
+}
+export interface LabelProp {
+  children?: ReactNode | string;
+  HTMLFor?: string;
+}
+export type InputRefType = HTMLInputElement;
+export type FormType = HTMLFormElement;
+export type FormEventType = FormEvent;
