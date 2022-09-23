@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { CtaProps } from '../../types/types';
 import { Button } from '../button/Button';
+import { HeadingSecondary } from '../heading-secondary/HeadingSecondary';
 
 export const Cta: FC<CtaProps> = ({ images, duration }) => {
   return (
@@ -17,6 +18,7 @@ export const Cta: FC<CtaProps> = ({ images, duration }) => {
           />
         )}
         {images && (
+          // todo imglarni componentga olish, FormInputni qaytadan, classnamesiz, propslar bilan togrilab qoyish, CTA pageni tugatish.
           <img
             src={require(`../../../public/img/tours/${images[2]}`)}
             alt={`../../../public/img/tours/${images[2]}`}
@@ -25,7 +27,7 @@ export const Cta: FC<CtaProps> = ({ images, duration }) => {
         )}
 
         <div className='cta__content'>
-          <h2 className='heading-secondary'>What are you waiting for?</h2>
+          <HeadingSecondary>What are you waiting for?</HeadingSecondary>
           <p className='cta__text'>
             {duration} days. 1 adventure. Infinite memories. Make it yours
             today!

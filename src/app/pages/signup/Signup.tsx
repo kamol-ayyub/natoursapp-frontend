@@ -78,7 +78,6 @@ export const Signup: FC = () => {
             label='Your name'
             placeholder='your name'
             inputType='text'
-            formClass='form--signup'
             ref={nameRef}
             required
           />
@@ -89,7 +88,6 @@ export const Signup: FC = () => {
             label='Email address'
             placeholder='you@example.com'
             inputType='email'
-            formClass='form--signup'
             ref={emailRef}
             required
           />
@@ -98,7 +96,7 @@ export const Signup: FC = () => {
             ref={passwordRef}
             placeholder='••••••••'
             inputType='password'
-            formClass='form--signup ma-bt-md'
+            MaBtMd
             required
           />
           <FormInput
@@ -106,7 +104,7 @@ export const Signup: FC = () => {
             ref={passwordConfirmRef}
             placeholder='••••••••'
             inputType='password'
-            formClass='form--signup ma-bt-md'
+            MaBtMd
             required
           />
           {passwordAlertMsg && (

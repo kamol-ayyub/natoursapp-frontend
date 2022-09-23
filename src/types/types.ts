@@ -78,8 +78,9 @@ export interface ChildProp {
 export interface ChildPropWithRef {
   children?: ReactNode;
   formRef?: RefObject<HTMLFormElement>;
-  submitForm: (e: FormEvent) => Promise<void>;
+  submitForm?: (e: FormEvent) => Promise<void>;
   className?: string;
+  Upload?: boolean;
 }
 
 export interface ButtonPropType {
@@ -92,6 +93,7 @@ export interface ButtonPropType {
 export interface LabelProp {
   children?: ReactNode | string;
   HTMLFor?: string;
+  Upload?: boolean;
 }
 export type InputRefType = HTMLInputElement;
 export type FormType = HTMLFormElement;

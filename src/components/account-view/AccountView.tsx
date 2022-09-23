@@ -1,8 +1,8 @@
 import { Form, FormInput, HeadingSecondary, UserViewFormContainer } from '../';
-import { useRef, FC, useEffect } from 'react';
+import { useRef, FC } from 'react';
 import useHttp from '../../hooks/use-http';
 import UserImg from '../../img/users/default.jpg';
-import { AccountViewProps } from '../../types/types';
+import { AccountViewProps, InputRefType } from '../../types/types';
 import styled from 'styled-components';
 import { FormGroup } from '../form/FormGroup';
 import { Button } from '../button/Button';
@@ -19,9 +19,9 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
   const token = localStorage.getItem('token');
 
   // refs for get data from form
-  const nameRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const photoRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<InputRefType>(null);
+  const emailRef = useRef<InputRefType>(null);
+  const photoRef = useRef<InputRefType>(null);
 
   // function for request to backend
   const handleSignup = async (event: any): Promise<void> => {
@@ -44,34 +44,35 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
       <UserViewContent>
         <UserViewFormContainer>
           <HeadingSecondary MaBtLg>Your account settings</HeadingSecondary>
-          <Form submitForm={handleSignup} className='form form-user-data'>
+          <Form submitForm={handleSignup}>
             <FormGroup>
               <FormInput
                 label='Name'
                 inputType='text'
-                formClass='form--signup ma-bt-md'
+                MaBtMd
                 ref={nameRef}
                 required
               />
               <FormInput
                 label='Email address'
                 inputType='email'
-                formClass='form--signup ma-bt-md'
+                MaBtMd
                 ref={emailRef}
                 required
               />
               <FormUploadPhoto>
                 <img className='form__user-photo' src={UserImg} alt='user' />
-                <input
+                <FormInput
                   name='photo'
                   id='photo'
                   accept='image/*'
-                  type='file'
+                  inputType='file'
                   className='form__upload'
                   ref={photoRef}
+                  Upload
+                  HTMLFor='photo'
+                  label='Choose new photo'
                 />
-
-                <label htmlFor='photo'>Choose new photo</label>
               </FormUploadPhoto>
               <FormGroup right>
                 <Button SmallBtn GreenBtn>

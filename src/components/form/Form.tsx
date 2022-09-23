@@ -1,15 +1,17 @@
 import { FC } from 'react';
 import { ChildPropWithRef } from '../../types/types';
+import styled from 'styled-components';
+const FormBase = styled.form<ChildPropWithRef>``;
 
 export const Form: FC<ChildPropWithRef> = ({
   children,
   formRef,
-  className,
+
   submitForm,
 }) => {
   return (
-    <form onSubmit={submitForm} ref={formRef} className={className}>
+    <FormBase onSubmit={submitForm} ref={formRef}>
       {children}
-    </form>
+    </FormBase>
   );
 };

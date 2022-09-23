@@ -1,5 +1,6 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
+import { ChildProp } from '../../types/types';
 const MainWrapper = styled.main`
   background-color: #f7f7f7;
   padding: 8rem 6rem;
@@ -9,10 +10,6 @@ const MainWrapper = styled.main`
   position: relative;
 `;
 
-interface MainType {
-  children: ReactNode;
-}
-
-export const Main: FC<MainType> = ({ children }) => {
+export const Main: FC<ChildProp> = ({ children }) => {
   return <MainWrapper>{children}</MainWrapper>;
 };

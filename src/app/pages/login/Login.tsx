@@ -70,7 +70,6 @@ export const Login: FC = () => {
               label='Email address'
               placeholder='you@example.com'
               inputType='email'
-              formClass='form__group'
               ref={emailRef}
               required
             />
@@ -80,7 +79,7 @@ export const Login: FC = () => {
               ref={passwordRef}
               placeholder='••••••••'
               inputType='password'
-              formClass='form__group ma-bt-md'
+              MaBtMd
               required
             />
 
