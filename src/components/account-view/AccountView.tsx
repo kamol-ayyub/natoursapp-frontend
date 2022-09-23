@@ -4,9 +4,8 @@ import useHttp from '../../hooks/use-http';
 import UserImg from '../../img/users/default.jpg';
 import { AccountViewProps, InputRefType } from '../../types/types';
 import styled from 'styled-components';
-import { FormGroup } from '../form/FormGroup';
-import { Button } from '../button/Button';
-import { FormUploadPhoto } from '../form/FormUploadPhoto';
+import { Image, FormUploadPhoto, Button, FormGroup } from '../';
+
 const UserViewContent = styled.div`
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -46,22 +45,19 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
           <HeadingSecondary MaBtLg>Your account settings</HeadingSecondary>
           <Form submitForm={handleSignup}>
             <FormGroup>
-              <FormInput
-                label='Name'
-                inputType='text'
-                MaBtMd
-                ref={nameRef}
-                required
-              />
+              <FormInput label='Name' inputType='text' ref={nameRef} required />
               <FormInput
                 label='Email address'
                 inputType='email'
-                MaBtMd
                 ref={emailRef}
                 required
               />
               <FormUploadPhoto>
-                <img className='form__user-photo' src={UserImg} alt='user' />
+                <Image
+                  FormUserPhoto
+                  src={'../../img/users/default.jpg'}
+                  alt={'user'}
+                />
                 <FormInput
                   name='photo'
                   id='photo'

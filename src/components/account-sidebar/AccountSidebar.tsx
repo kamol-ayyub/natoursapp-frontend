@@ -68,7 +68,7 @@ export const AccountSidebar = () => {
           link={'/me'}
           text={'Settings'}
           svg={<RiSettings3Line />}
-          active={true}
+          Active
         />
         <NavItem
           link={'/my-tours'}

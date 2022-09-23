@@ -77,7 +77,6 @@ export const AccountPassword: FC = () => {
           <FormInput
             label='Current password'
             inputType='password'
-            MaBtMd
             ref={currentPasswordRef}
             placeholder='••••••••'
             required
@@ -85,7 +84,6 @@ export const AccountPassword: FC = () => {
           <FormInput
             label='New password'
             inputType='password'
-            MaBtMd
             ref={newPasswordRef}
             required
             placeholder='••••••••'
@@ -93,7 +91,6 @@ export const AccountPassword: FC = () => {
           <FormInput
             label='Confirm password'
             inputType='password'
-            MaBtMd
             ref={passwordConfRef}
             required
             placeholder='••••••••'

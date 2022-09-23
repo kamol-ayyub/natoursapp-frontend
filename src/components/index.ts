@@ -22,3 +22,4 @@ export * from './user-view-form-container/UserViewFormContainer';
 export * from './heading-secondary/HeadingSecondary';
 export * from './form';
 export * from './button/Button';
+export * from './img-component/Image';
