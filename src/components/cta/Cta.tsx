@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { CtaProps } from '../../types/types';
 import { Button } from '../button/Button';
 import { HeadingSecondary, Image } from '../index';
-import { CtaImg } from './CtaImg';
-import { CtaWrapper } from './CtaWrapper';
+import { CtaContent, CtaImg, CtaText, CtaWrapper } from './';
 
 export const Cta: FC<CtaProps> = ({ images, duration }) => {
+  console.log(typeof duration);
   return (
     <CtaWrapper>
       <CtaImg CtaLogo>
@@ -28,15 +28,13 @@ export const Cta: FC<CtaProps> = ({ images, duration }) => {
         />
       )}
 
-      <div className='cta__content'>
+      <CtaContent>
         <HeadingSecondary>What are you waiting for?</HeadingSecondary>
-        <p className='cta__text'>
-          {duration} days. 1 adventure. Infinite memories. Make it yours today!
-        </p>
+        <CtaText duration={duration} />
         <Button GreenBtn SpanRows>
           Book tour now!
         </Button>
-      </div>
+      </CtaContent>
     </CtaWrapper>
   );
 };
