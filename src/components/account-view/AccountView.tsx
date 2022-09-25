@@ -28,11 +28,13 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
     const name = nameRef.current?.value;
     const email = emailRef.current?.value;
     const photo = photoRef.current?.value;
+    const formData = new FormData();
 
+    if (photo) formData.append('photo', photo);
     await changeNameAndEmail({
       url: `/api/v1/users/updateMe`,
       method: 'PATCH',
-      data: { name, email, photo },
+      data: { name, email, formData },
       headers: { Authorization: `Bearer ${token}` },
     });
     event.target.reset();

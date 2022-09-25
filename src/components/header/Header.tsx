@@ -1,9 +1,10 @@
 import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Logowhite from '../../img/logo-white.png';
 import ProfilePhoto from '../../img/users/default.jpg';
 import { UserIsLoggedContext } from '../../context/Context';
 import '../../css/style.css';
+import { Image } from '../img-component/Image';
+import { RouteLink } from '../';
 
 export const Header: FC = () => {
   const { logged, setLogged } = useContext(UserIsLoggedContext);
@@ -14,43 +15,32 @@ export const Header: FC = () => {
   return (
     <header className='header'>
       <nav className='nav nav--tours'>
-        <Link className='nav__el' to={`/`}>
+        <RouteLink NavEl to={`/`}>
           All tours
-        </Link>
+        </RouteLink>
       </nav>
       <div className='header__logo'>
-        <img src={Logowhite} alt='header brand logo' />
+        <Image src={'../../img/logo-white.png'} alt='header brand logo' />
       </div>
       <nav className='nav nav--user'>
         {logged ? (
           <>
-            <Link to={`/`} className='nav__el'>
-              My bookings
-            </Link>
-            <Link
-              onClick={handleLogOut}
-              className='nav__el nav__el--logout'
-              to={`/`}
-            >
+            <RouteLink NavEl onClick={handleLogOut} to={`/`}>
               Logout
-            </Link>
-            <Link className='nav__el ' to={`/me`}>
-              <img
-                className='nav__user-img'
-                src={ProfilePhoto}
-                alt='user profile'
-              />
+            </RouteLink>
+            <RouteLink NavEl to={`/me`}>
+              <Image NavUserImg src={ProfilePhoto} alt='user profile' />
               <span>Ayyubxon</span>
-            </Link>
+            </RouteLink>
           </>
         ) : (
           <>
-            <Link className='nav__el' to='/login'>
+            <RouteLink NavEl to='/login'>
               Log in
-            </Link>
-            <Link className='nav__el nav__el--cta' to='/signup'>
+            </RouteLink>
+            <RouteLink NavEl NavElCta to='/signup'>
               Sign up
-            </Link>
+            </RouteLink>
           </>
         )}
       </nav>

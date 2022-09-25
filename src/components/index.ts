@@ -23,3 +23,4 @@ export * from './heading-secondary/HeadingSecondary';
 export * from './form';
 export * from './button/Button';
 export * from './img-component/Image';
+export * from './link/Link';

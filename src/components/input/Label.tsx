@@ -23,9 +23,6 @@ const LabelBase = styled.label<LabelProp>`
           }
         `
       : css`
-          :not(:last-child) {
-            margin-bottom: 2.5rem;
-          }
           display: block;
           font-size: 1.6rem;
           font-weight: 700;
