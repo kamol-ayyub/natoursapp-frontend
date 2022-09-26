@@ -1,10 +1,7 @@
 import { FC, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import ProfilePhoto from '../../img/users/default.jpg';
 import { UserIsLoggedContext } from '../../context/Context';
-import '../../css/style.css';
-import { Image } from '../img-component/Image';
-import { RouteLink } from '../';
+import { Image, RouteLink, Nav, HeaderWrapper, HeaderLogo } from '../index';
 
 export const Header: FC = () => {
   const { logged, setLogged } = useContext(UserIsLoggedContext);
@@ -13,37 +10,38 @@ export const Header: FC = () => {
     localStorage.clear();
   };
   return (
-    <header className='header'>
-      <nav className='nav nav--tours'>
-        <RouteLink NavEl to={`/`}>
+    //todo mashi componentniyam reusable qilish kerak
+    <HeaderWrapper>
+      <Nav Tour>
+        <RouteLink navel={true} to={`/`}>
           All tours
         </RouteLink>
-      </nav>
-      <div className='header__logo'>
+      </Nav>
+      <HeaderLogo>
         <Image src={'../../img/logo-white.png'} alt='header brand logo' />
-      </div>
-      <nav className='nav nav--user'>
+      </HeaderLogo>
+      <Nav User>
         {logged ? (
           <>
-            <RouteLink NavEl onClick={handleLogOut} to={`/`}>
+            <RouteLink navel={true} onClick={handleLogOut} to={`/`}>
               Logout
             </RouteLink>
-            <RouteLink NavEl to={`/me`}>
+            <RouteLink navel={true} to={`/me`}>
               <Image NavUserImg src={ProfilePhoto} alt='user profile' />
               <span>Ayyubxon</span>
             </RouteLink>
           </>
         ) : (
           <>
-            <RouteLink NavEl to='/login'>
+            <RouteLink navel={true} to={'/login'}>
               Log in
             </RouteLink>
-            <RouteLink NavEl NavElCta to='/signup'>
+            <RouteLink navel={true} navelcta={true} to='/signup'>
               Sign up
             </RouteLink>
           </>
         )}
-      </nav>
-    </header>
+      </Nav>
+    </HeaderWrapper>
   );
 };

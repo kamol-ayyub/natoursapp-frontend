@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 interface LinkBaseType {
-  to?: string;
+  to?: any;
   children?: ReactNode;
-  NavEl?: boolean;
+  navel?: boolean;
   onClick?: () => void;
-  NavElCta?: boolean;
+  navelcta?: boolean;
 }
 const LinkBase = styled(Link)<LinkBaseType>`
   ${(props) =>
-    props.NavEl &&
+    props.navel &&
     css`
       color: #f7f7f7;
       text-transform: uppercase;
@@ -50,7 +50,7 @@ const LinkBase = styled(Link)<LinkBaseType>`
       }
     `}
   ${(props) =>
-    props.NavElCta &&
+    props.navelcta &&
     css`
       padding: 1rem 3rem;
       border-radius: 10rem;
@@ -69,11 +69,12 @@ const LinkBase = styled(Link)<LinkBaseType>`
 export const RouteLink: FC<LinkBaseType> = ({
   onClick,
   children,
-  NavEl,
-  NavElCta,
+  navel,
+  navelcta,
+  to,
 }) => {
   return (
-    <LinkBase onClick={onClick} NavElCta={NavElCta} NavEl={NavEl} to={'/'}>
+    <LinkBase onClick={onClick} navelcta={navelcta} navel={navel} to={to}>
       {children}
     </LinkBase>
   );
