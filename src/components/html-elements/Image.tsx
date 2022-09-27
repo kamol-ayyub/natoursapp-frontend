@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled, { css } from 'styled-components';
 interface ImageType {
-  src?: string;
+  src: string;
   alt: string;
   CtaImg?: boolean;
   CtaImgOne?: boolean;
@@ -9,6 +9,8 @@ interface ImageType {
   FormUserPhoto?: boolean;
   NavUserImg?: boolean;
   OverviewBoxImg?: boolean;
+  CardPicImage?: boolean;
+  HeaderHeroImg?: boolean;
 }
 
 const ImageBase = styled.img<ImageType>`
@@ -61,6 +63,24 @@ const ImageBase = styled.img<ImageType>`
       height: 3.5rem;
       margin-right: 1.25rem;
     `}
+    ${(props) =>
+    props.CardPicImage &&
+    css`
+      -o-object-fit: cover;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    `}
+    ${(props) =>
+    props.HeaderHeroImg &&
+    css`
+      -o-object-fit: cover;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      -o-object-position: 50% 25%;
+      object-position: 50% 25%;
+    `}
 `;
 export const Image: FC<ImageType> = ({
   src,
@@ -71,6 +91,8 @@ export const Image: FC<ImageType> = ({
   FormUserPhoto,
   NavUserImg,
   OverviewBoxImg,
+  CardPicImage,
+  HeaderHeroImg,
 }) => {
   return (
     <ImageBase
@@ -82,6 +104,8 @@ export const Image: FC<ImageType> = ({
       FormUserPhoto={FormUserPhoto}
       NavUserImg={NavUserImg}
       OverviewBoxImg={OverviewBoxImg}
+      CardPicImage={CardPicImage}
+      HeaderHeroImg={HeaderHeroImg}
     />
   );
 };

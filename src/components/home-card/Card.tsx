@@ -5,7 +5,8 @@ import { GoLocation } from 'react-icons/go';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { BsFlag } from 'react-icons/bs';
 import { VscAccount } from 'react-icons/vsc';
-
+import { CardData, Image, Span } from '../index';
+import styled from 'styled-components';
 //types
 interface CardProps {
   allTours: Object[];
@@ -25,15 +26,15 @@ export const Card: FC<CardProps> = ({ allTours }) => {
                 <div className='card__header'>
                   <div className='card__picture'>
                     <div className='card__picture-overlay'>&nbsp;</div>
-                    <img
+                    <Image
                       src={require(`../../img/tours/${el?.imageCover}`)}
                       alt={`../../img/tours/${el?.imageCover}`}
-                      className='card__picture-img'
+                      CardPicImage
                     />
                   </div>
 
                   <h3 className='heading-tertirary'>
-                    <span>{el?.name}</span>
+                    <Span>{el?.name}</Span>
                   </h3>
                 </div>
 
@@ -42,22 +43,24 @@ export const Card: FC<CardProps> = ({ allTours }) => {
                     {el?.difficulty} {el?.duration}-day tour
                   </h4>
                   <p className='card__text'>{el?.summary}</p>
-                  <div className='card__data'>
-                    <GoLocation />
-                    <span>{el?.startLocation.description}</span>
-                  </div>
-                  <div className='card__data'>
-                    <AiOutlineCalendar />
-                    <span>April {el?.startDates[0].substring(0, 4)}</span>
-                  </div>
-                  <div className='card__data'>
-                    <BsFlag />
-                    <span>{el?.locations.length} stops</span>
-                  </div>
-                  <div className='card__data'>
-                    <VscAccount />
-                    <span>{el?.maxGroupSize} people</span>
-                  </div>
+                  <CardData
+                    Svg={<GoLocation />}
+                    Span={<Span>{el?.startLocation.description}</Span>}
+                  />
+                  <CardData
+                    Svg={<AiOutlineCalendar />}
+                    Span={
+                      <Span>April {el?.startDates[0].substring(0, 4)}</Span>
+                    }
+                  />
+                  <CardData
+                    Svg={<BsFlag />}
+                    Span={<Span>{el?.locations.length} stops</Span>}
+                  />
+                  <CardData
+                    Svg={<VscAccount />}
+                    Span={<Span>{el?.maxGroupSize} people</Span>}
+                  />
                 </div>
 
                 <div className='card__footer'>
@@ -70,7 +73,6 @@ export const Card: FC<CardProps> = ({ allTours }) => {
                       {el?.ratingsAverage}
                     </span>
                     <span className='card__footer-text'>
-                      {' '}
                       rating ({el?.ratingsQuantity})
                     </span>
                   </p>

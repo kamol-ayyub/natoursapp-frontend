@@ -20,5 +20,5 @@ const HeadSecondary = styled('h2')<SecondaryType>`
 `;
 
 export const HeadingSecondary: FC<ChildProp> = ({ children, MaBtLg }) => {
-  return <HeadSecondary MaBtLg>{children}</HeadSecondary>;
+  return <HeadSecondary MaBtLg={MaBtLg}>{children}</HeadSecondary>;
 };

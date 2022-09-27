@@ -118,3 +118,8 @@ export type GuideProps = {
   title: String;
   photo: String;
 };
+export interface SpanProps {
+  children?: string | ReactNode;
+  OverviewBoxLabel?: boolean;
+  OverviewBoxText?: boolean;
+}
