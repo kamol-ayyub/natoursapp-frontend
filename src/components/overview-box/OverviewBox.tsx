@@ -1,9 +1,26 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import styled from 'styled-components';
+
 import { AiOutlineCalendar, AiOutlineStar } from 'react-icons/ai';
 import { MdPeopleOutline } from 'react-icons/md';
 import { BiTrendingUp } from 'react-icons/bi';
-import { TourGuide, OverviewDetail } from '../index';
+import { TourGuide, OverviewDetail, HeadingSecondary } from '../index';
 import { OverviewBoxProps } from '../../types/types';
+
+const OverviewBoxBase = styled.div`
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+`;
+const OverviewBoxGroup = styled.div`
+  :not(:last-child) {
+    margin-bottom: 7rem;
+  }
+`;
 
 export const OverviewBox: FC<OverviewBoxProps> = ({
   startDates,
@@ -13,11 +30,10 @@ export const OverviewBox: FC<OverviewBoxProps> = ({
   guides,
 }) => {
   return (
-    <div className='overview-box'>
+    <OverviewBoxBase>
       <div>
-        <div className='overview-box__group'>
-          <h2 className='heading-secondary ma-bt-lg'>Quick facts</h2>
-
+        <OverviewBoxGroup>
+          <HeadingSecondary MaBtLg>Quick facts</HeadingSecondary>
           <OverviewDetail
             title={'Quick facts'}
             svg={<AiOutlineCalendar />}
@@ -41,10 +57,10 @@ export const OverviewBox: FC<OverviewBoxProps> = ({
             svg={<AiOutlineStar />}
             date={ratingsAverage && ratingsAverage}
           />
-        </div>
+        </OverviewBoxGroup>
 
-        <div className='overview-box__group'>
-          <h2 className='heading-secondary ma-bt-lg'>Your tour guides</h2>
+        <OverviewBoxGroup>
+          <HeadingSecondary MaBtLg>Your tour guides</HeadingSecondary>
 
           <TourGuide
             name={(guides && guides[0]?.name) || ''}
@@ -53,12 +69,12 @@ export const OverviewBox: FC<OverviewBoxProps> = ({
           />
 
           <TourGuide
-            name={(guides && guides[0]?.name) || ''}
+            name={(guides && guides[1]?.name) || ''}
             title={`Tour Guide`}
             photo={(guides && guides[1]?.photo) || ''}
           />
-        </div>
+        </OverviewBoxGroup>
       </div>
-    </div>
+    </OverviewBoxBase>
   );
 };
