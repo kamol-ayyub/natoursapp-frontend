@@ -1,14 +1,8 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import { LinkBaseType } from '../../types/types';
 
-interface LinkBaseType {
-  to?: any;
-  children?: ReactNode;
-  navel?: boolean;
-  onClick?: () => void;
-  navelcta?: boolean;
-}
 const LinkBase = styled(Link)<LinkBaseType>`
   ${(props) =>
     props.navel &&

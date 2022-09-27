@@ -7,7 +7,7 @@ import {
   FormInput,
   HeadingSecondary,
   UserViewFormContainer,
-} from '../../components';
+} from '..';
 import {
   RefValueType,
   FormEventType,

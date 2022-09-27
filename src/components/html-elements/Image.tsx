@@ -8,10 +8,9 @@ interface ImageType {
   CtaImgTwo?: boolean;
   FormUserPhoto?: boolean;
   NavUserImg?: boolean;
+  OverviewBoxImg?: boolean;
 }
-interface ImageBaseType {
-  CtaImg?: boolean;
-}
+
 const ImageBase = styled.img<ImageType>`
   ${(props) =>
     props.CtaImg &&
@@ -55,6 +54,13 @@ const ImageBase = styled.img<ImageType>`
       border-radius: 50%;
       margin-right: 1rem;
     `}
+    ${(props) =>
+    props.OverviewBoxImg &&
+    css`
+      border-radius: 50%;
+      height: 3.5rem;
+      margin-right: 1.25rem;
+    `}
 `;
 export const Image: FC<ImageType> = ({
   src,
@@ -64,6 +70,7 @@ export const Image: FC<ImageType> = ({
   CtaImgTwo,
   FormUserPhoto,
   NavUserImg,
+  OverviewBoxImg,
 }) => {
   return (
     <ImageBase
@@ -74,6 +81,7 @@ export const Image: FC<ImageType> = ({
       alt={alt}
       FormUserPhoto={FormUserPhoto}
       NavUserImg={NavUserImg}
+      OverviewBoxImg={OverviewBoxImg}
     />
   );
 };

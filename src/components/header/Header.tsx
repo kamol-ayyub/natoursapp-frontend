@@ -10,7 +10,6 @@ export const Header: FC = () => {
     localStorage.clear();
   };
   return (
-    //todo mashi componentniyam reusable qilish kerak
     <HeaderWrapper>
       <Nav Tour>
         <RouteLink navel={true} to={`/`}>

@@ -2,7 +2,7 @@ import { FC, useLayoutEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Cta } from '../../../components/cta/Cta';
-import { TourHeader } from '../../../components/tour-header/TourHeader';
+import { TourHeader } from '../../../components/tour-description/TourHeader';
 import Overview from '../../../components/overview/Overview';
 import { Review } from '../../../components/review/Review';
 import useHttp from '../../../hooks/use-http';

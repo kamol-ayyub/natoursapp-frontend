@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
-import { OverviewDetail } from '../overview-detail/OverviewDetail';
 import { AiOutlineCalendar, AiOutlineStar } from 'react-icons/ai';
 import { MdPeopleOutline } from 'react-icons/md';
 import { BiTrendingUp } from 'react-icons/bi';
-import { TourGuide } from '../tour-guides/TourGuide';
+import { TourGuide, OverviewDetail } from '../index';
 import { OverviewBoxProps } from '../../types/types';
 
 export const OverviewBox: FC<OverviewBoxProps> = ({

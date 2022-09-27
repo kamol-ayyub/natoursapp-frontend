@@ -1,18 +1,11 @@
 import { FC } from 'react';
+import { GuideProps } from '../../types/types';
+import { Image } from '../index';
 
-type GuideProps = {
-  name: String;
-  title: String;
-  photo: String;
-};
 export const TourGuide: FC<GuideProps> = ({ name, title, photo }) => {
   return (
     <div className='overview-box__detail'>
-      <img
-        src={`../../img/users/${photo}`}
-        alt='Lead guide'
-        className='overview-box__img'
-      />
+      <Image src={`../../img/users/${photo}`} alt='Lead guide' OverviewBoxImg />
       <span className='overview-box__label'>{title}</span>
       <span className='overview-box__text'>{name}</span>
     </div>

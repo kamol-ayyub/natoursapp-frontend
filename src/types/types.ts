@@ -102,3 +102,19 @@ export interface FormGroupType {
   right?: boolean;
   children?: ReactNode;
 }
+export interface LinkBaseType {
+  to?: any;
+  children?: ReactNode;
+  navel?: boolean;
+  onClick?: () => void;
+  navelcta?: boolean;
+}
+export interface FooterNavType {
+  children?: ReactNode;
+  items?: string[];
+}
+export type GuideProps = {
+  name: String;
+  title: String;
+  photo: String;
+};
