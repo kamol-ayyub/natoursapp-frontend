@@ -48,6 +48,19 @@ const CardButton = styled(Link)`
   }
   padding: 1.25rem 3rem !important;
   font-size: 1.4rem !important;
+  border-radius: 10rem;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-weight: 400;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /*Add later when we use this for the button in form*/
+  border: none;
+  cursor: pointer;
 `;
 export const CardFooter: FC<CardFooterProps> = ({ el }) => {
   return (

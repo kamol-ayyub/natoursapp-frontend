@@ -1118,11 +1118,7 @@ body {
 .card__data svg {
   margin-right: 0.7rem;
 }
-.card__icon {
-  height: 2rem;
-  width: 2rem;
-  fill: #55c57a;
-}
+
 .card__footer {
   background-color: #f7f7f7;
   padding: 2.5rem 3rem;

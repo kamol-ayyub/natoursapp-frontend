@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 
-import { CardData, Image, Span, CardHeader, CardDetails } from '../index';
+import { CardHeader, CardDetails, CardFooter } from '../index';
 import { CardProps } from '../../types/types';
 import styled from 'styled-components';
 
@@ -34,33 +33,14 @@ export const Card: FC<CardProps> = ({ allTours }) => {
           return (
             <IconContext.Provider
               key={el?.id}
-              value={{ className: 'card__icon' }}
+              value={{
+                style: { height: '2rem', width: '2rem', fill: '#55c57a' },
+              }}
             >
               <CardBase>
                 <CardHeader el={el} />
-
                 <CardDetails el={el} />
-
-                <div className='card__footer'>
-                  <p>
-                    <span className='card__footer-value'>${el?.price}</span>
-                    <span className='card__footer-text'> per person</span>
-                  </p>
-                  <p className='card__ratings'>
-                    <span className='card__footer-value'>
-                      {el?.ratingsAverage}
-                    </span>
-                    <span className='card__footer-text'>
-                      rating ({el?.ratingsQuantity})
-                    </span>
-                  </p>
-                  <Link
-                    to={`/tour/${el?._id}`}
-                    className='btn btn--green btn--small'
-                  >
-                    Details
-                  </Link>
-                </div>
+                <CardFooter el={el} />
               </CardBase>
             </IconContext.Provider>
           );
