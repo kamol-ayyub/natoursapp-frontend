@@ -24,7 +24,12 @@ export const Tour: FC = () => {
   if (isError) return <h1>Something went wrong! Try again!</h1>;
   return (
     <>
-      <TourHeader data={response?.data?.data} />
+      <TourHeader
+        description={response?.data?.data?.startLocation.description}
+        duration={response?.data?.data?.duration}
+        imageCover={response?.data?.data?.imageCover}
+        name={response?.data?.data?.name}
+      />
       <Overview
         name={response?.data?.data.name}
         description={response?.data?.data.description}

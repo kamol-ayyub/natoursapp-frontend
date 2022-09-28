@@ -7,7 +7,7 @@ import {
   FormUploadPhoto,
   Button,
   FormGroup,
-} from '../';
+} from '..';
 import { useRef, FC } from 'react';
 import useHttp from '../../hooks/use-http';
 import { AccountViewProps, InputRefType } from '../../types/types';

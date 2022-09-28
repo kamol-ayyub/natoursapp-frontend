@@ -1,9 +1,6 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import styled, { css } from 'styled-components';
-interface CtaImgProp {
-  CtaLogo?: boolean;
-  children?: ReactNode;
-}
+import { CtaImgProp } from '../../types/types';
 const CtaImgBase = styled.div<CtaImgProp>`
   ${(props) =>
     props.CtaLogo &&

@@ -3,6 +3,7 @@ import { GoLocation } from 'react-icons/go';
 import { BsClock } from 'react-icons/bs';
 import { Image, Span, HeadingPrimary } from '../index';
 import styled from 'styled-components';
+import { HeaderProps } from '../../types/types';
 const SectionHeader = styled.section`
   position: relative;
   height: 38vw;
@@ -75,29 +76,33 @@ const HeadingBoxDetail = styled.div`
     margin-right: 4rem;
   }
 `;
-type HeaderProps = any;
 
-export const TourHeader: FC<HeaderProps> = ({ data }) => {
+export const TourHeader: FC<HeaderProps> = ({
+  description,
+  duration,
+  imageCover,
+  name,
+}) => {
   return (
     <SectionHeader>
       <HeaderHero>
         <HeaderHeroOverlay>&nbsp;</HeaderHeroOverlay>
         <Image
-          src={`../../img/tours/${data?.imageCover}`}
-          alt={`${data?.imageCover}`}
+          src={`../../img/tours/${imageCover}`}
+          alt={`${imageCover}`}
           HeaderHeroImg
         />
       </HeaderHero>
       <HeadingBox>
-        <HeadingPrimary>{data?.name}</HeadingPrimary>
+        <HeadingPrimary>{name}</HeadingPrimary>
         <HeadingBoxGroup>
           <HeadingBoxDetail>
             <BsClock />
-            <Span>{data?.duration} days</Span>
+            <Span>{duration} days</Span>
           </HeadingBoxDetail>
           <HeadingBoxDetail>
             <GoLocation />
-            <Span>{data?.startLocation.description}</Span>
+            <Span>{description}</Span>
           </HeadingBoxDetail>
         </HeadingBoxGroup>
       </HeadingBox>

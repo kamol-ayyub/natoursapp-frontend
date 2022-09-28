@@ -1,6 +1,6 @@
-import React, { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
-
+import { UserViewType } from '../../types/types';
 const UserViewWrap = styled.main`
   background-color: #fff;
   max-width: 120rem;
@@ -14,9 +14,7 @@ const UserViewWrap = styled.main`
   display: -ms-flexbox;
   display: flex;
 `;
-interface UserViewType {
-  children: ReactNode;
-}
+
 export const UserView: FC<UserViewType> = ({ children }) => {
   return <UserViewWrap>{children}</UserViewWrap>;
 };

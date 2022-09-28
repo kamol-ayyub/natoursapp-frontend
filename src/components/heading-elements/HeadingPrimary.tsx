@@ -1,10 +1,8 @@
 import { FC } from 'react';
-import styled, { css } from 'styled-components';
-import { ChildProp } from '../../types/types';
+import styled from 'styled-components';
+import { ChildProp, SecondaryType } from '../../types/types';
 import { Span } from '../index';
-interface SecondaryType {
-  MaBtLg?: boolean;
-}
+
 const HeadPrimary = styled('h2')<SecondaryType>`
   color: #fff;
   text-transform: uppercase;

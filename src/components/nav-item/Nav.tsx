@@ -1,10 +1,6 @@
-import React, { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import styled, { css } from 'styled-components';
-interface NavBaseProps {
-  Tour?: boolean;
-  User?: boolean;
-  children?: ReactNode;
-}
+import { NavBaseProps } from '../../types/types';
 const NavBase = styled.nav<NavBaseProps>`
   ${(props) =>
     props.Tour &&

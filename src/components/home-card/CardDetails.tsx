@@ -1,10 +1,11 @@
+import styled from 'styled-components';
 import { GoLocation } from 'react-icons/go';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { BsFlag } from 'react-icons/bs';
 import { VscAccount } from 'react-icons/vsc';
 import { FC } from 'react';
 import { CardData, Span } from '../index';
-import styled from 'styled-components';
+import { CardDetailsProps } from '../../types/types';
 
 const CardDetailsBase = styled.div`
   display: grid;
@@ -29,15 +30,6 @@ const CardText = styled.p`
   margin-bottom: 0.75rem;
 `;
 
-interface CardDetailsProps {
-  difficulty: 'easy' | 'medium' | 'hard';
-  duration: number;
-  summary: string;
-  description: string;
-  startDates: Array<string>;
-  locations: Array<object>;
-  maxGroupSize: number;
-}
 export const CardDetails: FC<CardDetailsProps> = ({
   difficulty,
   description,

@@ -1,22 +1,7 @@
-import React, { ForwardRefRenderFunction, InputHTMLAttributes } from 'react';
+import React, { ForwardRefRenderFunction } from 'react';
 import { Label } from './Label';
 import styled, { css } from 'styled-components';
-interface InputType extends InputHTMLAttributes<HTMLInputElement> {
-  ref?: String | HTMLInputElement | null;
-  label?: string;
-  placeholder?: string;
-  inputType: 'email' | 'password' | 'text' | 'file';
-  required?: boolean;
-  HTMLFor?: string;
-  Upload?: boolean;
-  MaBtMd?: boolean;
-  name?: string;
-  id?: string;
-}
-
-interface InputBaseType {
-  MaBtMd?: boolean;
-}
+import { InputBaseType, InputType } from '../../types/types';
 
 const InputWrapBase = styled.div<InputBaseType>`
   ${(props) =>
@@ -28,9 +13,7 @@ const InputWrapBase = styled.div<InputBaseType>`
     margin-bottom: 2.5rem;
   }
 `;
-interface InputBaseType {
-  Upload?: boolean;
-}
+
 const InputBase = styled.input<InputBaseType>`
   ${(props) =>
     props.Upload

@@ -1,9 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-interface NavItemBaseType {
-  Active?: boolean;
-}
+import { NavItemType, NavItemBaseType } from '../../types/types';
 const NavItemBase = styled.li<NavItemBaseType>`
   ${(props) =>
     props.Active &&
@@ -17,13 +15,6 @@ const NavItemLink = styled(Link)`
     /* border-left: 4px solid #fff !important; */
   }
 `;
-interface NavItemType {
-  link?: HTMLAnchorElement | String;
-  text?: String;
-  active?: boolean;
-  svg?: any;
-  Active?: boolean;
-}
 
 export const NavItem: FC<NavItemType> = ({ link, text, svg, Active }) => {
   return (

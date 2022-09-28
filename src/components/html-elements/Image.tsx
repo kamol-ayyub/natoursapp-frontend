@@ -1,17 +1,6 @@
 import { FC } from 'react';
 import styled, { css } from 'styled-components';
-interface ImageType {
-  src: string;
-  alt: string;
-  CtaImg?: boolean;
-  CtaImgOne?: boolean;
-  CtaImgTwo?: boolean;
-  FormUserPhoto?: boolean;
-  NavUserImg?: boolean;
-  OverviewBoxImg?: boolean;
-  CardPicImage?: boolean;
-  HeaderHeroImg?: boolean;
-}
+import { ImageType } from '../../types/types';
 
 const ImageBase = styled.img<ImageType>`
   ${(props) =>

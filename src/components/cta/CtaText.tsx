@@ -1,8 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-interface CtaTextProp {
-  duration: string;
-}
+import { CtaTextProp } from '../../types/types';
 const CtaTextBase = styled.p`
   font-size: 1.9rem;
   font-weight: 400;

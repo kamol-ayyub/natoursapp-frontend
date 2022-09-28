@@ -1,5 +1,4 @@
 export * from './account-elements';
-export * from './account-view/AccountView';
 export * from './cta';
 export * from './footer';
 export * from './header';
@@ -11,13 +10,11 @@ export * from './overview';
 
 export * from './review/index';
 export * from './tour-description';
-export * from './protected/Protected';
+export * from './protected';
 export * from './main/Main';
-export * from './user-view/UserView';
-export * from './user-view/UserViewFormContainer';
+export * from './user-view';
 export * from './heading-elements';
 export * from './form';
-export * from './html-elements/Button';
 export * from './html-elements';
 export * from './link/Link';
 export * from './not-found';

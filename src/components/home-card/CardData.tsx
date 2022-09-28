@@ -1,5 +1,6 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
+import { CardDataProps } from '../../types/types';
 const CardDataBase = styled.div`
   font-size: 1.3rem;
   display: -webkit-box;
@@ -12,11 +13,6 @@ const CardDataBase = styled.div`
     margin-right: 0.7rem;
   }
 `;
-
-interface CardDataProps {
-  Svg?: ReactNode;
-  Span?: ReactNode;
-}
 
 export const CardData: FC<CardDataProps> = ({ Svg, Span }) => {
   return (

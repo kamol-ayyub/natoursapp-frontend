@@ -1,4 +1,4 @@
-import { ReactNode, RefObject, FormEvent } from 'react';
+import { ReactNode, RefObject, FormEvent, InputHTMLAttributes } from 'react';
 export type ReviewerType = {
   review: string;
   user: string;
@@ -175,3 +175,82 @@ export interface OverviewBoxTextProps {
 export interface ReviewProps {
   data?: Array<object>;
 }
+export interface CtaImgProp {
+  CtaLogo?: boolean;
+  children?: ReactNode;
+}
+export interface CtaTextProp {
+  duration: string;
+}
+export interface SecondaryType {
+  MaBtLg?: boolean;
+}
+export interface CardDataProps {
+  Svg?: ReactNode;
+  Span?: ReactNode;
+}
+export interface CardDetailsProps {
+  difficulty: 'easy' | 'medium' | 'hard';
+  duration: number;
+  summary: string;
+  description: string;
+  startDates: Array<string>;
+  locations: Array<object>;
+  maxGroupSize: number;
+}
+export interface ImageType {
+  src: string;
+  alt: string;
+  CtaImg?: boolean;
+  CtaImgOne?: boolean;
+  CtaImgTwo?: boolean;
+  FormUserPhoto?: boolean;
+  NavUserImg?: boolean;
+  OverviewBoxImg?: boolean;
+  CardPicImage?: boolean;
+  HeaderHeroImg?: boolean;
+}
+export interface InputType extends InputHTMLAttributes<HTMLInputElement> {
+  ref?: String | HTMLInputElement | null;
+  label?: string;
+  placeholder?: string;
+  inputType: 'email' | 'password' | 'text' | 'file';
+  required?: boolean;
+  HTMLFor?: string;
+  Upload?: boolean;
+  MaBtMd?: boolean;
+  name?: string;
+  id?: string;
+}
+
+export interface InputBaseType {
+  MaBtMd?: boolean;
+  Upload?: boolean;
+}
+export interface NavBaseProps {
+  Tour?: boolean;
+  User?: boolean;
+  children?: ReactNode;
+}
+export interface NavItemType {
+  link?: HTMLAnchorElement | String;
+  text?: String;
+  active?: boolean;
+  svg?: any;
+  Active?: boolean;
+}
+export interface NavItemBaseType {
+  Active?: boolean;
+}
+export interface ProtectedType {
+  isLogged?: boolean;
+}
+export interface UserViewType {
+  children: ReactNode;
+}
+export type HeaderProps = {
+  imageCover: string;
+  name: string;
+  duration: number;
+  description: string;
+};
