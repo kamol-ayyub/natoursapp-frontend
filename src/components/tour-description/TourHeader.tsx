@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { GoLocation } from 'react-icons/go';
 import { BsClock } from 'react-icons/bs';
 import { Image, Span, HeadingPrimary } from '../index';
-import '../../css/style.css';
 import styled from 'styled-components';
 const SectionHeader = styled.section`
   position: relative;

@@ -79,7 +79,6 @@ export interface ChildPropWithRef {
   children?: ReactNode;
   formRef?: RefObject<HTMLFormElement>;
   submitForm?: (e: FormEvent) => Promise<void>;
-
   Upload?: boolean;
 }
 
