@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { HeadingTertirary, Image, Span } from '../index';
 import styled from 'styled-components';
 interface CardHeaderProps {
-  el?: any;
+  el: any;
 }
 
 const CardHeaderBase = styled.div`
