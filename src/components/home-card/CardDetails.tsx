@@ -5,6 +5,9 @@ import { VscAccount } from 'react-icons/vsc';
 import { FC } from 'react';
 import { CardData, Span } from '../index';
 import styled from 'styled-components';
+interface CardDetailsProps {
+  el: any;
+}
 const CardDetailsBase = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -27,7 +30,7 @@ const CardText = styled.p`
   margin-top: -1rem;
   margin-bottom: 0.75rem;
 `;
-export const CardDetails: FC = ({ el }: any) => {
+export const CardDetails: FC<CardDetailsProps> = ({ el }) => {
   return (
     <CardDetailsBase>
       <CardSubHeading>

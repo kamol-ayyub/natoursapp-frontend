@@ -39,9 +39,7 @@ export const CardHeader: FC<CardHeaderProps> = ({ el }) => {
           CardPicImage
         />
       </CardPicture>
-      <HeadingTertirary>
-        <Span>{el?.name}</Span>
-      </HeadingTertirary>
+      <HeadingTertirary>{el?.name}</HeadingTertirary>
     </CardHeaderBase>
   );
 };

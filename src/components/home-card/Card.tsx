@@ -39,7 +39,7 @@ export const Card: FC<CardProps> = ({ allTours }) => {
               <CardBase>
                 <CardHeader el={el} />
 
-                <CardDetails />
+                <CardDetails el={el} />
 
                 <div className='card__footer'>
                   <p>
