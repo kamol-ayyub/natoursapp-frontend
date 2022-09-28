@@ -1,5 +1,6 @@
-import React, { FC, useLayoutEffect } from 'react';
-import { Card } from '../../../components/home-card/Card';
+import { FC, useLayoutEffect } from 'react';
+import { Main, Card, CardContainer } from '../../../components';
+
 import useHttp from '../../../hooks/use-http';
 
 export const Home: FC = () => {
@@ -17,11 +18,11 @@ export const Home: FC = () => {
   }, []);
 
   return (
-    <main className='main'>
-      <div className='card-container'>
+    <Main>
+      <CardContainer>
         {isError && <h1>Something went wrong, try again!</h1>}
         <Card allTours={response?.data?.data} />
-      </div>
-    </main>
+      </CardContainer>
+    </Main>
   );
 };

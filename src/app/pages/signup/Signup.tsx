@@ -69,11 +69,7 @@ export const Signup: FC = () => {
     <Main>
       <LoginForm>
         <HeadingSecondary MaBtLg={true}>CREATE YOUR ACCOUNT!</HeadingSecondary>
-        <Form
-          formRef={formRef}
-          submitForm={handleSignup}
-          className='form form--signup'
-        >
+        <Form formRef={formRef} submitForm={handleSignup}>
           <FormInput
             label='Your name'
             placeholder='your name'

@@ -1,7 +1,7 @@
 import { FC, useRef, useState, useEffect } from 'react';
 import useHttp from '../../hooks/use-http';
 import {
-  ErrorNotif,
+  Notification,
   Form,
   FormGroup,
   FormInput,
@@ -14,7 +14,7 @@ import {
   InputRefType,
   FormType,
 } from '../../types/types';
-import { Button } from '../button/Button';
+import { Button } from '../html-elements/Button';
 
 export const AccountPassword: FC = () => {
   const [message, setMessage] = useState<string | null>(null);
@@ -64,16 +64,12 @@ export const AccountPassword: FC = () => {
     <>
       <UserViewFormContainer>
         <HeadingSecondary MaBtLg>Password change</HeadingSecondary>
-        {response === false && <ErrorNotif text={message} type='error' />}
+        {response === false && <Notification text={message} type='error' />}
         {response?.status === 'success' && (
-          <ErrorNotif text={message} type='success' />
+          <Notification text={message} type='success' />
         )}
 
-        <Form
-          submitForm={handleChangePassword}
-          className='form-user-password'
-          formRef={formRef}
-        >
+        <Form submitForm={handleChangePassword} formRef={formRef}>
           <FormInput
             label='Current password'
             inputType='password'

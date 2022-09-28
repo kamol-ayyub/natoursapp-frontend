@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { CtaProps } from '../../types/types';
-import { Button } from '../button/Button';
+import { Button } from '../html-elements/Button';
 import { HeadingSecondary, Image } from '../index';
 import { CtaContent, CtaImg, CtaText, CtaWrapper } from './';
 

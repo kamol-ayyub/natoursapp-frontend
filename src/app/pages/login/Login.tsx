@@ -2,17 +2,17 @@ import { FC, useRef, useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useHttp from '../../../hooks/use-http';
 import {
-  ErrorNotif,
+  Notification,
   FormInput,
   Form,
   Main,
   FormGroup,
   LoginForm,
   HeadingSecondary,
+  Button,
 } from '../../../components';
 import { EmailAndPasswordType, FormEventType } from '../../../types/types';
 import { UserIsLoggedContext } from '../../../context/Context';
-import { Button } from '../../../components/button/Button';
 
 export const Login: FC = () => {
   const [message, setMessage] = useState<string | null>(null);
@@ -60,12 +60,8 @@ export const Login: FC = () => {
       <Main>
         <LoginForm>
           <HeadingSecondary MaBtLg>Log into your account</HeadingSecondary>
-          {message && <ErrorNotif text={message} type='error' />}
-          <Form
-            formRef={formRef}
-            submitForm={handleLogin}
-            className='form form--login'
-          >
+          {message && <Notification text={message} type='error' />}
+          <Form formRef={formRef} submitForm={handleLogin}>
             <FormInput
               label='Email address'
               placeholder='you@example.com'

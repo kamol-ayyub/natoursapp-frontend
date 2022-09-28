@@ -1,10 +1,17 @@
-import { Form, FormInput, HeadingSecondary, UserViewFormContainer } from '../';
+import {
+  Form,
+  FormInput,
+  HeadingSecondary,
+  UserViewFormContainer,
+  Image,
+  FormUploadPhoto,
+  Button,
+  FormGroup,
+} from '../';
 import { useRef, FC } from 'react';
 import useHttp from '../../hooks/use-http';
-import UserImg from '../../img/users/default.jpg';
 import { AccountViewProps, InputRefType } from '../../types/types';
 import styled from 'styled-components';
-import { Image, FormUploadPhoto, Button, FormGroup } from '../';
 
 const UserViewContent = styled.div`
   -webkit-box-flex: 1;
@@ -12,7 +19,12 @@ const UserViewContent = styled.div`
   flex: 1;
   padding: 7rem 0;
 `;
-
+const LineBase = styled.div`
+  margin: 6rem 0;
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+`;
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
   const { response, sendRequest: changeNameAndEmail } = useHttp();
   const token = localStorage.getItem('token');
@@ -65,7 +77,6 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
                   id='photo'
                   accept='image/*'
                   inputType='file'
-                  className='form__upload'
                   ref={photoRef}
                   Upload
                   HTMLFor='photo'
@@ -80,7 +91,7 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
             </FormGroup>
           </Form>
         </UserViewFormContainer>
-        <div className='line'>&nbsp;</div>
+        <LineBase />
         {children}
       </UserViewContent>
     </>

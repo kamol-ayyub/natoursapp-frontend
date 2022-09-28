@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { OverviewBox, TourDescription } from '../';
+import { OverviewBox, TourDescription } from '../index';
 import { OverviewProps } from '../../types/types';
 import styled from 'styled-components';
 const SectionDescription = styled.section`

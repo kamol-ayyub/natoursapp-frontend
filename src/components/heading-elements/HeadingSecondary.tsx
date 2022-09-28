@@ -15,8 +15,29 @@ const HeadSecondary = styled('h2')<HeadingType>`
   letter-spacing: 0.1rem;
   line-height: 1.3;
   display: inline-block;
+  ${(props) =>
+    props.error &&
+    css`
+      background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(#ff7730),
+        to(#eb4d4b)
+      );
+      background-image: linear-gradient(to right, #ff7730, #eb4d4b);
+      font-size: 3.5rem;
+    `}
 `;
 
-export const HeadingSecondary: FC<ChildProp> = ({ children, MaBtLg }) => {
-  return <HeadSecondary MaBtLg={MaBtLg}>{children}</HeadSecondary>;
+export const HeadingSecondary: FC<HeadingType> = ({
+  children,
+  MaBtLg,
+  error,
+}) => {
+  return (
+    <HeadSecondary error={error} MaBtLg={MaBtLg}>
+      {children}
+    </HeadSecondary>
+  );
 };

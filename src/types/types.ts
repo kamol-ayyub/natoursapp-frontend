@@ -79,7 +79,7 @@ export interface ChildPropWithRef {
   children?: ReactNode;
   formRef?: RefObject<HTMLFormElement>;
   submitForm?: (e: FormEvent) => Promise<void>;
-  className?: string;
+
   Upload?: boolean;
 }
 
@@ -128,6 +128,8 @@ export interface CardProps {
 }
 export interface HeadingType {
   MaBtLg?: boolean;
+  error?: boolean;
+  children?: ReactNode;
 }
 
 export type ElementProp = {
@@ -167,4 +169,10 @@ export interface Cardelements {
   text?: boolean;
   value?: boolean;
   children: ReactNode;
+}
+export interface OverviewBoxTextProps {
+  label?: boolean;
+}
+export interface ReviewProps {
+  data?: Array<object>;
 }

@@ -9,7 +9,16 @@ const ReviewsRating = styled.div`
 `;
 export const ReviewStar = () => {
   return (
-    <IconContext.Provider value={{ className: 'reviews__star--active' }}>
+    <IconContext.Provider
+      value={{
+        style: {
+          fill: '#55c57a',
+          height: '2rem',
+          width: '2rem',
+          marginRight: '1px',
+        },
+      }}
+    >
       <ReviewsRating>
         <AiOutlineStar />
         <AiOutlineStar />
