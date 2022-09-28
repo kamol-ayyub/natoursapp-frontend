@@ -1,14 +1,8 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-interface CardFooterProps {
-  el: any;
-}
-interface Cardelements {
-  text?: boolean;
-  value?: boolean;
-  children: ReactNode;
-}
+import { CardFooterProps, Cardelements } from '../../types/types';
+
 const CardFooterBase = styled.div`
   background-color: #f7f7f7;
   padding: 2.5rem 3rem;
@@ -62,20 +56,25 @@ const CardButton = styled(Link)`
   border: none;
   cursor: pointer;
 `;
-export const CardFooter: FC<CardFooterProps> = ({ el }) => {
+export const CardFooter: FC<CardFooterProps> = ({
+  _id,
+  price,
+  ratingsAverage,
+  ratingsQuantity,
+}) => {
   return (
     <CardFooterBase>
       <p>
-        <CardFooterText value>${el?.price}</CardFooterText>
+        <CardFooterText value>${price}</CardFooterText>
         <CardFooterText text> per person</CardFooterText>
       </p>
       <CardRatings>
         <CardFooterText value>
-          {el?.ratingsAverage} {'  '}
+          {ratingsAverage} {'  '}
         </CardFooterText>
-        <CardFooterText text> rating ({el?.ratingsQuantity})</CardFooterText>
+        <CardFooterText text> rating ({ratingsQuantity})</CardFooterText>
       </CardRatings>
-      <CardButton to={`/tour/${el?._id}`}>Details</CardButton>
+      <CardButton to={`/tour/${_id}`}>Details</CardButton>
     </CardFooterBase>
   );
 };

@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
-import { HeadingTertirary, Image, Span } from '../index';
+import { HeadingTertirary, Image } from '../index';
 import styled from 'styled-components';
-interface CardHeaderProps {
-  el: any;
-}
+import { CardHeaderProps } from '../../types/types';
 
 const CardHeaderBase = styled.div`
   position: relative;
@@ -28,18 +26,18 @@ const CardPicOverlay = styled.div`
   background-image: linear-gradient(to right bottom, #7dd56f, #28b487);
   opacity: 0.7;
 `;
-export const CardHeader: FC<CardHeaderProps> = ({ el }) => {
+export const CardHeader: FC<CardHeaderProps> = ({ imageCover, name }) => {
   return (
     <CardHeaderBase>
       <CardPicture>
         <CardPicOverlay>&nbsp;</CardPicOverlay>
         <Image
-          src={require(`../../img/tours/${el?.imageCover}`)}
-          alt={`../../img/tours/${el?.imageCover}`}
+          src={require(`../../img/tours/${imageCover}`)}
+          alt={`../../img/tours/${imageCover}`}
           CardPicImage
         />
       </CardPicture>
-      <HeadingTertirary>{el?.name}</HeadingTertirary>
+      <HeadingTertirary>{name}</HeadingTertirary>
     </CardHeaderBase>
   );
 };

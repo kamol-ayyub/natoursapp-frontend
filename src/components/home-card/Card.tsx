@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { IconContext } from 'react-icons';
-
 import { CardHeader, CardDetails, CardFooter } from '../index';
 import { CardProps } from '../../types/types';
 import styled from 'styled-components';
@@ -38,9 +37,22 @@ export const Card: FC<CardProps> = ({ allTours }) => {
               }}
             >
               <CardBase>
-                <CardHeader el={el} />
-                <CardDetails el={el} />
-                <CardFooter el={el} />
+                <CardHeader imageCover={el?.imageCover} name={el?.name} />
+                <CardDetails
+                  difficulty={el?.difficulty}
+                  duration={el?.duration}
+                  description={el?.startLocations?.description}
+                  summary={el?.summary}
+                  startDates={el?.startDates}
+                  locations={el?.locations}
+                  maxGroupSize={el?.maxGroupSize}
+                />
+                <CardFooter
+                  _id={el?._id}
+                  price={el?.price}
+                  ratingsAverage={el?.ratingsAverage}
+                  ratingsQuantity={el?.ratingsQuantity}
+                />
               </CardBase>
             </IconContext.Provider>
           );

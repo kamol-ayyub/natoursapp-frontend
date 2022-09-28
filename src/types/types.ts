@@ -129,3 +129,42 @@ export interface CardProps {
 export interface HeadingType {
   MaBtLg?: boolean;
 }
+
+export type ElementProp = {
+  description: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  duration: number;
+  durationWeeks: number;
+  guides: Array<object>;
+  id: string;
+  imageCover: string;
+  images: Array<string>;
+  locations: Array<object>;
+  maxGroupSize: number;
+  name: string;
+  price: number;
+  ratingsAverage: number;
+  ratingsQuantiy: number;
+  secretTour: boolean;
+  slug: string;
+  startDates: Array<string>;
+  startLocation: any;
+  summary: string;
+  _id: string;
+};
+export interface CardHeaderProps {
+  imageCover: string;
+  name: string;
+}
+
+export interface CardFooterProps {
+  price: number;
+  ratingsAverage: number;
+  ratingsQuantity: number;
+  _id: string;
+}
+export interface Cardelements {
+  text?: boolean;
+  value?: boolean;
+  children: ReactNode;
+}
