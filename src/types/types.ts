@@ -123,3 +123,9 @@ export interface SpanProps {
   OverviewBoxLabel?: boolean;
   OverviewBoxText?: boolean;
 }
+export interface CardProps {
+  allTours: Object[];
+}
+export interface HeadingType {
+  MaBtLg?: boolean;
+}

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { GoLocation } from 'react-icons/go';
@@ -6,11 +6,28 @@ import { AiOutlineCalendar } from 'react-icons/ai';
 import { BsFlag } from 'react-icons/bs';
 import { VscAccount } from 'react-icons/vsc';
 import { CardData, Image, Span } from '../index';
+import { CardProps } from '../../types/types';
 import styled from 'styled-components';
-//types
-interface CardProps {
-  allTours: Object[];
-}
+
+//styled components
+const CardBase = styled.div`
+  border-radius: 3px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+`;
 
 export const Card: FC<CardProps> = ({ allTours }) => {
   return (
@@ -22,7 +39,7 @@ export const Card: FC<CardProps> = ({ allTours }) => {
               key={el?.id}
               value={{ className: 'card__icon' }}
             >
-              <div className='card'>
+              <CardBase>
                 <div className='card__header'>
                   <div className='card__picture'>
                     <div className='card__picture-overlay'>&nbsp;</div>
@@ -83,7 +100,7 @@ export const Card: FC<CardProps> = ({ allTours }) => {
                     Details
                   </Link>
                 </div>
-              </div>
+              </CardBase>
             </IconContext.Provider>
           );
         })}

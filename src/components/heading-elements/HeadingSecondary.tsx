@@ -1,10 +1,8 @@
 import { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { ChildProp } from '../../types/types';
-interface SecondaryType {
-  MaBtLg?: boolean;
-}
-const HeadSecondary = styled('h2')<SecondaryType>`
+import { ChildProp, HeadingType } from '../../types/types';
+
+const HeadSecondary = styled('h2')<HeadingType>`
   margin-bottom: ${(props) => (props.MaBtLg ? '35px' : '0px')};
   font-size: 2.25rem;
   text-transform: uppercase;

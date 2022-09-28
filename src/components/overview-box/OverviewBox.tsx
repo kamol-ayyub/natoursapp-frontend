@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-
 import { AiOutlineCalendar, AiOutlineStar } from 'react-icons/ai';
 import { MdPeopleOutline } from 'react-icons/md';
 import { BiTrendingUp } from 'react-icons/bi';
