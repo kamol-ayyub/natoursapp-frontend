@@ -6,15 +6,11 @@ import useHttp from '../../../hooks/use-http';
 export const Home: FC = () => {
   const { response, sendRequest: getAllTours, isError } = useHttp();
 
-  const getTours = async () => {
-    await getAllTours({
+  useLayoutEffect(() => {
+    getAllTours({
       url: '/api/v1/tours',
       method: 'GET',
     });
-  };
-
-  useLayoutEffect(() => {
-    getTours();
   }, []);
 
   return (
