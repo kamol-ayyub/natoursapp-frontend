@@ -64,10 +64,14 @@ export const AccountPassword: FC = () => {
     <>
       <UserViewFormContainer>
         <HeadingSecondary MaBtLg>Password change</HeadingSecondary>
-        {response === false && <Notification text={message} type='error' />}
-        {response?.status === 'success' && (
-          <Notification text={message} type='success' />
-        )}
+        {
+          <Notification
+            text={message}
+            type={
+              !response || response?.status !== 'success' ? 'error' : 'success'
+            }
+          />
+        }
 
         <Form submitForm={handleChangePassword} formRef={formRef}>
           <FormInput

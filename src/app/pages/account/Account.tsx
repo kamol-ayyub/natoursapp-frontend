@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import {
   AccountPassword,
   AccountSidebar,
@@ -6,10 +6,8 @@ import {
   Main,
   UserView,
 } from '../../../components';
-import { UserIsLoggedContext } from '../../../context/Context';
 
 export const Account: FC = () => {
-  // const { logged, setLogged } = useContext(UserIsLoggedContext);
   return (
     <Main>
       <UserView>

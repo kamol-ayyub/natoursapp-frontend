@@ -12,7 +12,7 @@ export const Header: FC = () => {
   return (
     <HeaderWrapper>
       <Nav Tour>
-        <RouteLink navel={true} to={`/`}>
+        <RouteLink navel to={`/`}>
           All tours
         </RouteLink>
       </Nav>
@@ -35,7 +35,7 @@ export const Header: FC = () => {
             <RouteLink navel={true} to={'/login'}>
               Log in
             </RouteLink>
-            <RouteLink navel={true} navelcta={true} to='/signup'>
+            <RouteLink navel navelcta to='/signup'>
               Sign up
             </RouteLink>
           </>

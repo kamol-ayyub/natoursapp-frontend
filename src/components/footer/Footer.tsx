@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Logogreen from '../../img/logo-green.png';
 import { FooterLogo, FooterWrapper, Image, FooterNav } from '../index';
-import { links } from '../../mocks/links';
+import { links } from '../../mocks';
 import { FooterCopyright } from './FooterCopyright';
 
 export const Footer: FC = () => {
