@@ -1,7 +1,7 @@
 import { FC, useLayoutEffect } from 'react';
-import { Main, Card, CardContainer } from '../../../components';
+import { Main, Card, CardContainer } from '@/components';
 
-import useHttp from '../../../hooks/use-http';
+import useHttp from '@/hooks/use-http';
 
 export const Home: FC = () => {
   const { response, sendRequest: getAllTours, isError } = useHttp();

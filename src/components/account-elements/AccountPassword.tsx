@@ -1,5 +1,5 @@
 import { FC, useRef, useState, useEffect } from 'react';
-import useHttp from '../../hooks/use-http';
+import useHttp from '@/hooks/use-http';
 import {
   Notification,
   Form,
@@ -13,7 +13,7 @@ import {
   FormEventType,
   InputRefType,
   FormType,
-} from '../../types/types';
+} from '@/types/types';
 import { Button } from '../html-elements/Button';
 
 export const AccountPassword: FC = () => {

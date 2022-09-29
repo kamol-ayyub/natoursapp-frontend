@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ChildProp } from '../../types/types';
+import { ChildProp } from '@/types/types';
 import styled from 'styled-components';
 const HeaderLogoBase = styled.div<ChildProp>`
   @media only screen and (max-width: 62.5em) {

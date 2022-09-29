@@ -10,9 +10,9 @@ import {
   LoginForm,
   HeadingSecondary,
   Button,
-} from '../../../components';
-import { EmailAndPasswordType, FormEventType } from '../../../types/types';
-import { UserIsLoggedContext } from '../../../context/Context';
+} from '@/components';
+import { EmailAndPasswordType, FormEventType } from '@/types/types';
+import { UserIsLoggedContext } from '@/context/Context';
 
 export const Login: FC = () => {
   const [message, setMessage] = useState<string | null>(null);

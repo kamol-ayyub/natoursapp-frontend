@@ -1,5 +1,5 @@
 import { IconContext } from 'react-icons';
-import { OverviewDetailProps, OverviewBoxTextProps } from '../../types/types';
+import { OverviewDetailProps, OverviewBoxTextProps } from '@/types/types';
 import styled, { css } from 'styled-components';
 const OverviewBoxDetail = styled.div`
   font-size: 1.5rem;

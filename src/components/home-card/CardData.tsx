@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { CardDataProps } from '../../types/types';
+import { CardDataProps } from '@/types/types';
 const CardDataBase = styled.div`
   font-size: 1.3rem;
   display: -webkit-box;

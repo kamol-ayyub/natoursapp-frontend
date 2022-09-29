@@ -254,3 +254,7 @@ export type HeaderProps = {
   duration: number;
   description: string;
 };
+export interface TourDescriptionProps {
+  tourName?: string;
+  description?: string;
+}

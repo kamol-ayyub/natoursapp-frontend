@@ -1,6 +1,6 @@
 import { FC, useRef, useState, useEffect, useContext, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InputRefType, FormType, FormEventType } from '../../../types/types';
+import { InputRefType, FormType, FormEventType } from '@/types/types';
 import {
   Form,
   FormGroup,
@@ -9,9 +9,9 @@ import {
   LoginForm,
   Main,
   Button,
-} from '../../../components';
-import useHttp from '../../../hooks/use-http';
-import { UserIsLoggedContext } from '../../../context/Context';
+} from '@/components';
+import useHttp from '@/hooks/use-http';
+import { UserIsLoggedContext } from '@/context/Context';
 
 export const Signup: FC = () => {
   const navigate = useNavigate();

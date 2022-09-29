@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { UserViewType } from '../../types/types';
+import { UserViewType } from '@/types/types';
 const UserViewWrap = styled.main`
   background-color: #fff;
   max-width: 120rem;

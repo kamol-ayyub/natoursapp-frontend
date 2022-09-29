@@ -4,7 +4,7 @@ import { AiOutlineCalendar } from 'react-icons/ai';
 import { BsFlag } from 'react-icons/bs';
 import { VscAccount } from 'react-icons/vsc';
 import { FC } from 'react';
-import { CardData, Span } from '../index';
+import { CardData, Span } from '@/components';
 import { CardDetailsProps } from '../../types/types';
 
 const CardDetailsBase = styled.div`

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { ChildProp } from '../../types/types';
+import { ChildProp } from '@/types/types';
 const UserViewContainer = styled.div`
   max-width: 68rem;
   margin: 0 auto;

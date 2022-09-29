@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { AiOutlineCalendar, AiOutlineStar } from 'react-icons/ai';
 import { MdPeopleOutline } from 'react-icons/md';
 import { BiTrendingUp } from 'react-icons/bi';
-import { TourGuide, OverviewDetail, HeadingSecondary } from '../index';
-import { OverviewBoxProps } from '../../types/types';
+import { TourGuide, OverviewDetail, HeadingSecondary } from '@/components';
+import { OverviewBoxProps } from '@/types/types';
 
 const OverviewBoxBase = styled.div`
   background-color: white;

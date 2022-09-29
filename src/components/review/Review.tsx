@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { ReviewProps } from '../../types/types';
+import { ReviewProps } from '@/types/types';
 import { ReviewCard } from './ReviewCard';
 const SectionreviewBase = styled.section`
   margin-top: calc(0px - var(--section-rotate));

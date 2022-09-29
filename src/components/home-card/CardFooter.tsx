@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { CardFooterProps, Cardelements } from '../../types/types';
+import { CardFooterProps, Cardelements } from '@/types/types';
 
 const CardFooterBase = styled.div`
   background-color: #f7f7f7;

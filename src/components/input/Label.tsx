@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { LabelProp } from '../../types/types';
+import { LabelProp } from '@/types/types';
 const LabelBase = styled.label<LabelProp>`
   ${(props) =>
     props.Upload

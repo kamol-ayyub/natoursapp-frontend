@@ -7,10 +7,10 @@ import {
   FormUploadPhoto,
   Button,
   FormGroup,
-} from '..';
+} from '@/components';
 import { useRef, FC } from 'react';
-import useHttp from '../../hooks/use-http';
-import { AccountViewProps, InputRefType } from '../../types/types';
+import useHttp from '@/hooks/use-http';
+import { AccountViewProps, InputRefType } from '@/types/types';
 import styled from 'styled-components';
 
 const UserViewContent = styled.div`

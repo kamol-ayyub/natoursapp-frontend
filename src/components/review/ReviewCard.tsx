@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ReviewStar } from './ReviewStar';
-import { ReviewerType } from '../../types/types';
+import { ReviewerType } from '@/types/types';
 import styled from 'styled-components';
 const ReviewCardBase = styled.div`
   width: 30rem;

@@ -1,6 +1,7 @@
-import React from 'react';
-import { HeadingSecondary } from '../heading-elements';
+import { FC } from 'react';
+import { HeadingSecondary } from '@/components';
 import styled from 'styled-components';
+import { TourDescriptionProps } from '@/types/types';
 const DescriptionBase = styled.div`
   margin-right: 5rem;
   background-color: white;
@@ -14,7 +15,11 @@ const DescriptionText = styled.p`
   }
 `;
 
-export const TourDescription = ({ tourName, description }: any) => {
+export const TourDescription: FC<TourDescriptionProps> = ({
+  tourName,
+  description,
+}) => {
+  console.log(tourName, description);
   return (
     <DescriptionBase>
       <HeadingSecondary MaBtLg>{tourName}</HeadingSecondary>

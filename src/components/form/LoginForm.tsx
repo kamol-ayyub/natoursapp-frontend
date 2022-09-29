@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { ChildProp } from '../../types/types';
+import { ChildProp } from '@/types/types';
 const LoginFormBase = styled.div`
   margin: 0 auto;
   max-width: 55rem;

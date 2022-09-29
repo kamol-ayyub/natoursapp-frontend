@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { ChildProp } from '../../types/types';
+import { ChildProp } from '@/types/types';
 const MainWrapper = styled.main`
   background-color: #f7f7f7;
   padding: 8rem 6rem;

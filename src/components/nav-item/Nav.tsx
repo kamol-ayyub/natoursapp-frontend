@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { NavBaseProps } from '../../types/types';
+import { NavBaseProps } from '@/types/types';
 const NavBase = styled.nav<NavBaseProps>`
   ${(props) =>
     props.Tour &&

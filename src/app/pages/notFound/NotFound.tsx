@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Error, HeadingSecondary, Main } from '../../../components';
+import { Error, HeadingSecondary, Main } from '@/components';
 
 export const NotFound: FC = () => {
   return (

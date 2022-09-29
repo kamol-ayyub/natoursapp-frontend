@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { ChildProp, SecondaryType } from '../../types/types';
-import { Span } from '../index';
+import { ChildProp, SecondaryType } from '@/types/types';
+import { Span } from '@/components';
 
 const HeadPrimary = styled('h2')<SecondaryType>`
   color: #fff;

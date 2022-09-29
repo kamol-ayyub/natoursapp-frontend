@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { SpanProps } from '../../types/types';
+import { SpanProps } from '@/types/types';
 const SpanBase = styled.span<SpanProps>`
   ${(props) =>
     props.OverviewBoxLabel &&

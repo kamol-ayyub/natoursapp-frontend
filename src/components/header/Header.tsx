@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
-import ProfilePhoto from '../../img/users/default.jpg';
-import { UserIsLoggedContext } from '../../context/Context';
-import { Image, RouteLink, Nav, HeaderWrapper, HeaderLogo } from '../index';
+import ProfilePhoto from '@/img/users/default.jpg';
+import { UserIsLoggedContext } from '@/context/Context';
+import { Image, RouteLink, Nav, HeaderWrapper, HeaderLogo } from '@/components';
 
 export const Header: FC = () => {
   const { logged, setLogged } = useContext(UserIsLoggedContext);

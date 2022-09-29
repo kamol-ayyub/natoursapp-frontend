@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { GuideProps } from '../../types/types';
-import { Image, Span } from '../index';
+import { GuideProps } from '@/types/types';
+import { Image, Span } from '@/components';
 import styled from 'styled-components';
 const OverviewBoxBase = styled.div`
   font-size: 1.5rem;

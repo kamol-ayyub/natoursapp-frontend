@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { CtaProps } from '../../types/types';
+import { CtaProps } from '@/types/types';
 import { Button } from '../html-elements/Button';
 import { HeadingSecondary, Image } from '../index';
-import { CtaContent, CtaImg, CtaText, CtaWrapper } from './';
+import { CtaContent, CtaImg, CtaText, CtaWrapper } from '@/components';
 
 export const Cta: FC<CtaProps> = ({ images, duration }) => {
   console.log(typeof duration);

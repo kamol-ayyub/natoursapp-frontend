@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { FormGroupType } from '../../types/types';
+import { FormGroupType } from '@/types/types';
 export const FormGroupWrap = styled.div<FormGroupType>`
   ${(props) =>
     props.right &&

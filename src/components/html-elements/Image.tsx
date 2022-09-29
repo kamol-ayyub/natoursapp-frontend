@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { ImageType } from '../../types/types';
+import { ImageType } from '@/types/types';
 
 const ImageBase = styled.img<ImageType>`
   ${(props) =>

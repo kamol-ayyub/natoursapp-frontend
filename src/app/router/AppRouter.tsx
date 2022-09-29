@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { App } from '../App';
 import { Login, Signup, NotFound, Home, Tour } from '../pages/';
-import { UserIsLoggedContext } from '../../context/Context';
-import { Protected } from '../../components';
+import { UserIsLoggedContext } from '@/context/Context';
+import { Protected } from '@/components';
 
 export const AppRouter = () => {
   const [logged, setLogged] = useState(false);

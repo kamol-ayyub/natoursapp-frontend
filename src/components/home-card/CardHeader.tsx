@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { HeadingTertirary, Image } from '../index';
+import { FC } from 'react';
+import { HeadingTertirary, Image } from '@/components';
 import styled from 'styled-components';
-import { CardHeaderProps } from '../../types/types';
+import { CardHeaderProps } from '@/types/types';
 
 const CardHeaderBase = styled.div`
   position: relative;

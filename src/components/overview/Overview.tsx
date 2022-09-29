@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { OverviewBox, TourDescription } from '../index';
-import { OverviewProps } from '../../types/types';
+import { OverviewBox, TourDescription } from '@/components';
+import { OverviewProps } from '@/types/types';
 import styled from 'styled-components';
 const SectionDescription = styled.section`
   background-color: white;

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { ChildProp } from '../../types/types';
+import { ChildProp } from '@/types/types';
 const CardContainerBase = styled.div`
   max-width: 120rem;
   margin: 0 auto;

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { ChildProp, HeadingType } from '../../types/types';
+import { HeadingType } from '@/types/types';
 
 const HeadSecondary = styled('h2')<HeadingType>`
   margin-bottom: ${(props) => (props.MaBtLg ? '35px' : '0px')};
