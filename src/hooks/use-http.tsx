@@ -26,6 +26,7 @@ const useHttp = () => {
         const data = response.data;
         setResponse(data);
       } catch (err: any) {
+        setIsLoading(false);
         setIsError(err.message || 'Something went wrong!');
         setResponse(false);
       }
