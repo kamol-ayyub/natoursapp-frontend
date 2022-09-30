@@ -9,7 +9,7 @@ import {
   FormGroup,
   Notification,
 } from '@/components';
-import { useRef, FC, useState, useEffect } from 'react';
+import { useRef, FC, useState, useEffect, FormEvent } from 'react';
 import useHttp from '@/hooks/use-http';
 import { AccountViewProps, InputRefType } from '@/types/types';
 import styled from 'styled-components';
@@ -36,9 +36,10 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
   const nameRef = useRef<InputRefType>(null);
   const emailRef = useRef<InputRefType>(null);
   const photoRef = useRef<InputRefType>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   // function for request to backend
-  const handleSignup = async (event: any): Promise<void> => {
+  const handleSignup = async (event: FormEvent): Promise<void> => {
     event.preventDefault();
     const name = nameRef.current?.value;
     const email = emailRef.current?.value;
@@ -52,12 +53,12 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
       data: { name, email, formData },
       headers: { Authorization: `Bearer ${token}` },
     });
-    event.target.reset();
+    formRef.current?.reset();
   };
 
   useEffect(() => {
     if (response?.status === 'success') {
-      setMessage(`You successfully changed your email, photo and name!`);
+      setMessage(`You successfully changed your account!`);
       clearMessage(setMessage(''));
     }
   }, [response]);
@@ -77,7 +78,7 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
               }
             />
           }
-          <Form submitForm={handleSignup}>
+          <Form formRef={formRef} submitForm={handleSignup}>
             <FormGroup>
               <FormInput label='Name' inputType='text' ref={nameRef} required />
               <FormInput

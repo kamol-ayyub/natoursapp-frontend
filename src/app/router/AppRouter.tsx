@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { App } from '../App';
-import { Login, Signup, NotFound, Home, Tour } from '../pages/';
+import { Login, Signup, NotFound, Home, Tour } from '@/app/pages';
 import { UserIsLoggedContext } from '@/context/Context';
 import { Protected } from '@/components';
 
@@ -18,8 +18,8 @@ export const AppRouter = () => {
             <Route path='/signup' element={<Signup />} />
             <Route path='/tour/:tour' element={<Tour />} />
             <Route path='/me' element={<Protected isLogged={logged} />} />
+            <Route path='*' element={<NotFound />} />
           </Route>
-          <Route path='*' element={<NotFound />} />
         </Routes>
       </Router>
     </UserIsLoggedContext.Provider>
