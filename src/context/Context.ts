@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { GlobalContext } from '../types/types';
+import { GlobalContext } from '@/types/types';
 
 export let logged: boolean = false;
 export const setLogged = (params: boolean) => (logged = params);
