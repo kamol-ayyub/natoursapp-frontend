@@ -7,6 +7,7 @@ import {
   FormInput,
   HeadingSecondary,
   UserViewFormContainer,
+  Button,
 } from '..';
 import {
   RefValueType,
@@ -14,10 +15,10 @@ import {
   InputRefType,
   FormType,
 } from '@/types/types';
-import { Button } from '../html-elements/Button';
+import { clearMessage } from '@/utils/utils';
 
 export const AccountPassword: FC = () => {
-  const [message, setMessage] = useState<string | null>(null);
+  const [message, setMessage] = useState<string>('');
 
   const token = localStorage.getItem('token');
   const currentPasswordRef = useRef<InputRefType>(null);
@@ -45,18 +46,15 @@ export const AccountPassword: FC = () => {
 
     formRef.current?.reset();
   };
-  const clearMsg = (): void => {
-    setTimeout(() => {
-      setMessage(null);
-    }, 3000);
-  };
+
   useEffect(() => {
     if (response?.status === 'success') {
       setMessage(`You successfully changed your password!`);
-      clearMsg();
+      clearMessage(setMessage(''));
     } else if (response === false) {
       setMessage(`Password or password confirm is not valid!`);
-      clearMsg();
+
+      clearMessage(setMessage(''));
     }
   }, [response]);
 

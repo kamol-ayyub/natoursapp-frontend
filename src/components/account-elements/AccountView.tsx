@@ -7,11 +7,13 @@ import {
   FormUploadPhoto,
   Button,
   FormGroup,
+  Notification,
 } from '@/components';
-import { useRef, FC } from 'react';
+import { useRef, FC, useState, useEffect } from 'react';
 import useHttp from '@/hooks/use-http';
 import { AccountViewProps, InputRefType } from '@/types/types';
 import styled from 'styled-components';
+import { clearMessage } from '@/utils/utils';
 
 const UserViewContent = styled.div`
   -webkit-box-flex: 1;
@@ -26,6 +28,7 @@ const LineBase = styled.div`
   background-color: #e0e0e0;
 `;
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
+  const [message, setMessage] = useState<string>('');
   const { response, sendRequest: changeNameAndEmail } = useHttp();
   const token = localStorage.getItem('token');
 
@@ -52,18 +55,35 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
     event.target.reset();
   };
 
+  useEffect(() => {
+    if (response?.status === 'success') {
+      setMessage(`You successfully changed your email, photo and name!`);
+      clearMessage(setMessage(''));
+    }
+  }, [response]);
+
   return (
     <>
       <UserViewContent>
         <UserViewFormContainer>
           <HeadingSecondary MaBtLg>Your account settings</HeadingSecondary>
+          {
+            <Notification
+              text={message}
+              type={
+                !response || response?.status !== 'success'
+                  ? 'error'
+                  : 'success'
+              }
+            />
+          }
           <Form submitForm={handleSignup}>
             <FormGroup>
               <FormInput label='Name' inputType='text' ref={nameRef} required />
               <FormInput
-                label='Email address'
                 inputType='email'
                 ref={emailRef}
+                label={'Email Address'}
                 required
               />
               <FormUploadPhoto>

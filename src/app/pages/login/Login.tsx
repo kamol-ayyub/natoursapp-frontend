@@ -13,9 +13,10 @@ import {
 } from '@/components';
 import { EmailAndPasswordType, FormEventType } from '@/types/types';
 import { UserIsLoggedContext } from '@/context/Context';
+import { clearMessage } from '@/utils/utils';
 
 export const Login: FC = () => {
-  const [message, setMessage] = useState<string | null>(null);
+  const [message, setMessage] = useState<string>('');
   const { setLogged } = useContext(UserIsLoggedContext);
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
@@ -37,21 +38,17 @@ export const Login: FC = () => {
     formRef.current?.reset();
   };
 
-  const clearMsg = (): void => {
-    setTimeout(() => {
-      setMessage(null);
-    }, 3000);
-  };
   useEffect(() => {
     if (response?.status === 'success') {
       setLogged(true);
       localStorage.setItem('token', response?.token);
+      setMessage('You successfully logged in');
       setTimeout(() => {
         navigate('/me', { replace: true });
-      }, 1000);
+      }, 2000);
     } else if (response === false) {
       setMessage(`Incorrect email or password!`);
-      clearMsg();
+      clearMessage(setMessage(''));
     }
   }, [response]);
 
@@ -60,7 +57,16 @@ export const Login: FC = () => {
       <Main>
         <LoginForm>
           <HeadingSecondary MaBtLg>Log into your account</HeadingSecondary>
-          {message && <Notification text={message} type='error' />}
+          {
+            <Notification
+              text={message}
+              type={
+                !response || response?.status !== 'success'
+                  ? 'error'
+                  : 'success'
+              }
+            />
+          }
           <Form formRef={formRef} submitForm={handleLogin}>
             <FormInput
               label='Email address'
