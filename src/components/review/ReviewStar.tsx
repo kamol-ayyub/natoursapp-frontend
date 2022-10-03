@@ -12,7 +12,7 @@ export const ReviewStar = () => {
     <IconContext.Provider
       value={{
         style: {
-          fill: '#55c57a',
+          fill: 'var(--greenColor-55)',
           height: '2rem',
           width: '2rem',
           marginRight: '1px',

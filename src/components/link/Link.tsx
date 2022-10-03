@@ -7,7 +7,7 @@ const LinkBase = styled(Link)<LinkBaseType>`
   ${(props) =>
     props.navel &&
     css`
-      color: #f7f7f7;
+      color: var(--mainColor-f7);
       text-transform: uppercase;
       font-size: 1.6rem;
       text-decoration: none;
@@ -52,10 +52,10 @@ const LinkBase = styled(Link)<LinkBaseType>`
       -webkit-transition: all 0.3s;
       transition: all 0.3s;
       :hover {
-        background-color: #f7f7f7;
-        color: #777;
+        background-color: var(--mainColor-f7);
+        color: var(--lightGray);
         text-shadow: none;
-        border-color: #f7f7f7;
+        border-color: var(--mainColor-f7);
       }
     `}
 `;

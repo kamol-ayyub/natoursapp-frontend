@@ -19,10 +19,14 @@ const CtaImgBase = styled.div<CtaImgProp>`
         linear,
         left top,
         right bottom,
-        from(#7dd56f),
-        to(#28b487)
+        from(var(--headingLightGreen)),
+        to(var(--darkGreen))
       );
-      background: linear-gradient(to right bottom, #7dd56f, #28b487);
+      background: linear-gradient(
+        to right bottom,
+        var(--headingLightGreen),
+        var(--darkGreen)
+      );
       z-index: 10;
       -webkit-transform: translate(-35%, -50%);
       transform: translate(-35%, -50%);

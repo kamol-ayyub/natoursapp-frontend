@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const ReviewCardBase = styled.div`
   width: 30rem;
   padding: 4rem;
-  background-color: #f7f7f7;
+  background-color: var(--mainColor-f7);
   border-radius: 3px;
   -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);

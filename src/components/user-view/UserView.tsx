@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { UserViewType } from '@/types/types';
 const UserViewWrap = styled.main`
-  background-color: #fff;
+  background-color: var(--whiteColor);
   max-width: 120rem;
   margin: 0 auto;
   min-height: 100vh;

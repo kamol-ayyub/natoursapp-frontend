@@ -4,7 +4,7 @@ import { ChildProp, HeadingType } from '@/types/types';
 import { Span } from '@/components';
 const HeadingtertiraryBase = styled.h3<HeadingType>`
   margin-bottom: ${(props) => (props.MaBtLg ? '35px' : '0px')};
-  color: #fff;
+  color: var(--whiteColor);
   text-transform: uppercase;
   font-weight: 300;
   font-size: 2.75rem;

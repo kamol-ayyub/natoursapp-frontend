@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { ChildProp } from '../../types/types';
 import styled from 'styled-components';
 const FooterWrapBase = styled.footer`
-  background-color: #f7f7f7;
+  background-color: var(--mainColor-f7);
   padding: 6rem 4rem 3rem 4rem;
   font-size: 1.4rem;
   display: grid;

@@ -11,7 +11,7 @@ const FooterNavBase = styled.ul`
 `;
 
 const FooterNavLi = styled.li`
-  color: #777;
+  color: var(--lightGray);
   text-decoration: none !important;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;

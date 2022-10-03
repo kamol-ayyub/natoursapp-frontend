@@ -5,17 +5,17 @@ const LabelBase = styled.label<LabelProp>`
   ${(props) =>
     props.Upload
       ? css`
-          color: #55c57a;
+          color: var(--greenColor-55);
           display: inline-block;
           text-decoration: none;
-          border-bottom: 1px solid #55c57a;
+          border-bottom: 1px solid var(--greenColor-55);
           padding: 3px;
           -webkit-transition: all 0.2s;
           transition: all 0.2s;
           cursor: pointer;
           :hover {
-            background-color: #55c57a;
-            color: #fff;
+            background-color: var(--greenColor-55);
+            color: var(--whiteColor);
             -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
             box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
             -webkit-transform: translateY(-2px);

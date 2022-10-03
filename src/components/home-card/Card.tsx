@@ -10,7 +10,7 @@ const CardBase = styled.div`
   overflow: hidden;
   -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: var(--whiteColor);
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
   -webkit-backface-visibility: hidden;
@@ -33,7 +33,11 @@ export const Card: FC<CardProps> = ({ allTours }) => {
             <IconContext.Provider
               key={el?.id}
               value={{
-                style: { height: '2rem', width: '2rem', fill: '#55c57a' },
+                style: {
+                  height: '2rem',
+                  width: '2rem',
+                  fill: 'var(--greenColor-55)',
+                },
               }}
             >
               <CardBase>

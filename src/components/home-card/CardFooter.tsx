@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { CardFooterProps, Cardelements } from '@/types/types';
 
 const CardFooterBase = styled.div`
-  background-color: #f7f7f7;
+  background-color: var(--mainColor-f7);
   padding: 2.5rem 3rem;
   border-top: 1px solid #f1f1f1;
   font-size: 1.4rem;
@@ -18,7 +18,7 @@ const CardFooterText = styled.span<Cardelements>`
   ${(props) =>
     props.text &&
     css`
-      color: #999;
+      color: var(--gray);
     `}
   ${(props) =>
     props.value &&
@@ -35,10 +35,10 @@ const CardButton = styled(Link)`
   justify-self: end;
   -ms-flex-item-align: center;
   align-self: center;
-  background-color: #55c57a;
-  color: #fff;
+  background-color: var(--greenColor-55);
+  color: var(--whiteColor);
   ::after {
-    background-color: #55c57a;
+    background-color: var(--greenColor-55);
   }
   padding: 1.25rem 3rem !important;
   font-size: 1.4rem !important;

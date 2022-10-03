@@ -8,7 +8,11 @@ const HeadSecondary = styled('h2')<HeadingType>`
   text-transform: uppercase;
   font-weight: 700;
 
-  background-image: linear-gradient(to right, #7dd56f, #28b487);
+  background-image: linear-gradient(
+    to right,
+    var(--headingLightGreen),
+    var(--darkGreen)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -22,10 +26,14 @@ const HeadSecondary = styled('h2')<HeadingType>`
         linear,
         left top,
         right top,
-        from(#ff7730),
-        to(#eb4d4b)
+        from(var(--darkOrange)),
+        to(var(--headingAlertColor))
       );
-      background-image: linear-gradient(to right, #ff7730, #eb4d4b);
+      background-image: linear-gradient(
+        to right,
+        var(--darkOrange),
+        var(--headingAlertColor)
+      );
       font-size: 3.5rem;
     `}
 `;

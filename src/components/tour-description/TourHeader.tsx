@@ -31,10 +31,14 @@ const HeaderHeroOverlay = styled.div`
     linear,
     left top,
     right bottom,
-    from(#7dd56f),
-    to(#28b487)
+    from(var(--headingLightGreen)),
+    to(var(--darkGreen))
   );
-  background-image: linear-gradient(to right bottom, #7dd56f, #28b487);
+  background-image: linear-gradient(
+    to right bottom,
+    var(--headingLightGreen),
+    var(--darkGreen)
+  );
   opacity: 0.85;
 `;
 const HeadingBox = styled.div`
@@ -46,7 +50,7 @@ const HeadingBox = styled.div`
   transform: translate(-50%, -50%);
 `;
 const HeadingBoxGroup = styled.div`
-  color: #f7f7f7;
+  color: var(--mainColor-f7);
   margin-top: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;

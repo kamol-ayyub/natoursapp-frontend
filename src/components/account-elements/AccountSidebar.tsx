@@ -13,10 +13,14 @@ const UserNavItem = styled.nav`
     linear,
     left top,
     right bottom,
-    from(#7dd56f),
-    to(#28b487)
+    from(var(--headingLightGreen)),
+    to(var(--darkGreen))
   );
-  background-image: linear-gradient(to right bottom, #7dd56f, #28b487);
+  background-image: linear-gradient(
+    to right bottom,
+    var(--headingLightGreen),
+    var(--darkGreen)
+  );
   padding: 4rem 0;
 `;
 
@@ -24,12 +28,12 @@ const SideNav = styled.ul`
   list-style: none;
   li {
     margin: 1rem 0;
-    border-left: 0 solid #fff;
+    border-left: 0 solid var(--whiteColor);
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
   }
   li:hover {
-    border-left: 4px solid #fff !important;
+    border-left: 4px solid var(--whiteColor) !important;
   }
   a:link,
   a:visited {
@@ -40,7 +44,7 @@ const SideNav = styled.ul`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    color: #fff;
+    color: var(--whiteColor);
     font-size: 1.5rem;
     text-transform: uppercase;
     font-weight: 400;
@@ -56,7 +60,7 @@ const SideNav = styled.ul`
   svg {
     height: 1.9rem;
     width: 1.9rem;
-    fill: #f7f7f7;
+    fill: var(--mainColor-f7);
     margin-right: 2rem;
   }
 `;

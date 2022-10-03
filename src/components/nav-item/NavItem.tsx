@@ -6,13 +6,13 @@ const NavItemBase = styled.li<NavItemBaseType>`
   ${(props) =>
     props.Active &&
     css`
-      border-left: 4px solid #fff !important;
+      border-left: 4px solid var(--whiteColor) !important;
     `}
 `;
 
 const NavItemLink = styled(Link)`
   :hover {
-    /* border-left: 4px solid #fff !important; */
+    /* border-left: 4px solid var(--whiteColor) !important; */
   }
 `;
 

@@ -40,7 +40,11 @@ export const OverviewDetail = ({
     <OverviewBoxDetail>
       <IconContext.Provider
         value={{
-          style: { height: '2.25rem', width: '2.25rem', fill: '#55c57a' },
+          style: {
+            height: '2.25rem',
+            width: '2.25rem',
+            fill: 'var(--greenColor-55)',
+          },
         }}
       >
         {svg}

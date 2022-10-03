@@ -6,14 +6,14 @@ const CtaSection = styled.section`
   padding: 3rem;
   padding-bottom: 11rem;
   padding-top: calc(15rem + var(--section-rotate));
-  background-color: #f7f7f7;
+  background-color: var(--mainColor-f7);
 `;
 const Cta = styled.div`
   position: relative;
   max-width: 105rem;
   margin: 0 auto;
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--whiteColor);
   padding: 9rem 5rem 9rem 21rem;
   border-radius: 2rem;
   -webkit-box-shadow: 0 3rem 8rem 0.5rem rgba(0, 0, 0, 0.15);

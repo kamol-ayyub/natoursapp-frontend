@@ -25,7 +25,7 @@ const InputBase = styled.input<InputBaseType>`
           position: absolute;
           z-index: -1;
           :focus {
-            outline: 3px solid #55c57a;
+            outline: 3px solid var(--greenColor-55);
             outline-offset: 3px;
           }
         `
@@ -37,7 +37,7 @@ const InputBase = styled.input<InputBaseType>`
           padding: 1.25rem 1.75rem;
           border: none;
           width: 100%;
-          background-color: #f2f2f2;
+          background-color: var(--white-f2);
           border-top: 3px solid transparent;
           border-bottom: 3px solid transparent;
           -webkit-transition: all 0.3s;
@@ -47,10 +47,10 @@ const InputBase = styled.input<InputBaseType>`
           box-sizing: border-box;
           :focus {
             outline: none;
-            border-bottom: 3px solid #55c57a;
+            border-bottom: 3px solid var(--greenColor-55);
           }
           :focus:invalid {
-            border-bottom: 3px solid #ff7730;
+            border-bottom: 3px solid var(--darkOrange);
           }
           :not(:last-child) {
             margin-bottom: 2.5rem;

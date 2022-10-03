@@ -4,7 +4,7 @@ import { ChildProp, SecondaryType } from '@/types/types';
 import { Span } from '@/components';
 
 const HeadPrimary = styled('h2')<SecondaryType>`
-  color: #fff;
+  color: var(--whiteColor);
   text-transform: uppercase;
   font-weight: 300;
   span {

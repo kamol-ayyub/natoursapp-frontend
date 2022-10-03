@@ -20,10 +20,14 @@ const CardPicOverlay = styled.div`
     linear,
     left top,
     right bottom,
-    from(#7dd56f),
-    to(#28b487)
+    from(var(--headingLightGreen)),
+    to(var(--darkGreen))
   );
-  background-image: linear-gradient(to right bottom, #7dd56f, #28b487);
+  background-image: linear-gradient(
+    to right bottom,
+    var(--headingLightGreen),
+    var(--darkGreen)
+  );
   opacity: 0.7;
 `;
 export const CardHeader: FC<CardHeaderProps> = ({ imageCover, name }) => {

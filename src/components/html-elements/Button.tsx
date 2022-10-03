@@ -6,15 +6,15 @@ const ButtonBase = styled.button<ButtonPropType>`
   ${(props) =>
     props.GreenBtn &&
     css`
-      background-color: #55c57a;
-      color: #fff;
+      background-color: var(--greenColor-55);
+      color: var(--whiteColor);
     `}
 
   ${(props) =>
     props.WhiteBtn &&
     css`
-      background-color: #fff;
-      color: #777;
+      background-color: var(--whiteColor);
+      color: var(--lightGray);
     `}
 
     ${(props) =>

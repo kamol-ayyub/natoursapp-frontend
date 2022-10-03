@@ -11,10 +11,14 @@ const SectionreviewBase = styled.section`
     linear,
     left top,
     right bottom,
-    from(#7dd56f),
-    to(#28b487)
+    from(var(--headingLightGreen)),
+    to(var(--darkGreen))
   );
-  background: linear-gradient(to right bottom, #7dd56f, #28b487);
+  background: linear-gradient(
+    to right bottom,
+    var(--headingLightGreen),
+    var(--darkGreen)
+  );
   clip-path: polygon(
     0 var(--section-rotate),
     100% 0,

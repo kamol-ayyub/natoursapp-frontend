@@ -25,7 +25,7 @@ const LineBase = styled.div`
   margin: 6rem 0;
   width: 100%;
   height: 1px;
-  background-color: #e0e0e0;
+  background-color: var(--lineColor-e0);
 `;
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
   const [message, setMessage] = useState<string>('');
