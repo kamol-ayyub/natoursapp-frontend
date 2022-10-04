@@ -13,9 +13,9 @@ const GlobalStyle = createGlobalStyle`${css`
     --headingLightGreen: #7dd56f;
     --darkGreen: #28b487;
     --darkOrange: #ff7730;
-    --lightGray: var(--lightGray);
-    --gray: var(--gray);
-    --white-f2: var(--white-f2);
+    --lightGray: #777;
+    --gray: #444;
+    --white-f2: #f2f2f2;
   }
 
   ::-moz-selection {

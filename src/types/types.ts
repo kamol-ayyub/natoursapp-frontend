@@ -244,6 +244,7 @@ export interface NavItemBaseType {
 }
 export interface ProtectedType {
   isLogged?: boolean;
+  children?: ReactNode;
 }
 export interface UserViewType {
   children: ReactNode;
