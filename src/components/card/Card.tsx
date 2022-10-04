@@ -29,6 +29,7 @@ export const Card: FC<CardProps> = ({ allTours }) => {
     <>
       {allTours &&
         allTours?.map((el: any) => {
+          console.log(el, ' el?.startLocations');
           return (
             <IconContext.Provider
               key={el?.id}
@@ -45,7 +46,7 @@ export const Card: FC<CardProps> = ({ allTours }) => {
                 <CardDetails
                   difficulty={el?.difficulty}
                   duration={el?.duration}
-                  description={el?.startLocations?.description}
+                  description={el?.startLocation?.description}
                   summary={el?.summary}
                   startDates={el?.startDates}
                   locations={el?.locations}
