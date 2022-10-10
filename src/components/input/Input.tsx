@@ -57,7 +57,16 @@ const InputBase = styled.input<InputBaseType>`
 `;
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputType> = (
-  { label, placeholder, inputType, required, HTMLFor, Upload, MaBtMd },
+  {
+    label,
+    placeholder,
+    inputType,
+    required,
+    HTMLFor,
+    Upload,
+    MaBtMd,
+    onchange,
+  },
   ref
 ) => {
   return (
@@ -78,6 +87,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputType> = (
         Upload={Upload}
         name={HTMLFor}
         id={HTMLFor}
+        onChange={onchange}
       />
     </InputWrapBase>
   );

@@ -13,7 +13,6 @@ import { useRef, FC, useState, useEffect, FormEvent } from 'react';
 import useHttp from '@/hooks/use-http';
 import { AccountViewProps, InputRefType } from '@/types/types';
 import styled from 'styled-components';
-import { clearMessage } from '@/utils/utils';
 
 const UserViewContent = styled.div`
   -webkit-box-flex: 1;
@@ -29,13 +28,17 @@ const LineBase = styled.div`
 `;
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
   const [message, setMessage] = useState<string>('');
+  const [photo, setPhoto] = useState<any>([]);
   const { response, sendRequest: changeNameAndEmail } = useHttp();
   const token = localStorage.getItem('token');
+
+  const handleImage = (event: any) => {
+    setPhoto(event.target.files[0].name);
+  };
 
   // refs for get data from form
   const nameRef = useRef<InputRefType>(null);
   const emailRef = useRef<InputRefType>(null);
-  const photoRef = useRef<InputRefType>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   // function for request to backend
@@ -43,16 +46,16 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
     event.preventDefault();
     const name = nameRef.current?.value;
     const email = emailRef.current?.value;
-    const photo = photoRef.current?.value;
     const formData = new FormData();
 
-    if (photo) formData.append('photo', photo);
+    formData.append('photo', photo);
     await changeNameAndEmail({
       url: `/api/v1/users/updateMe`,
       method: 'PATCH',
       data: { name, email, formData },
       headers: { Authorization: `Bearer ${token}` },
     });
+    console.log(photo);
   };
 
   useEffect(() => {
@@ -100,10 +103,10 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
                   id='photo'
                   accept='image/*'
                   inputType='file'
-                  ref={photoRef}
                   Upload
                   HTMLFor='photo'
                   label='Choose new photo'
+                  onchange={handleImage}
                 />
               </FormUploadPhoto>
               <FormGroup right>

@@ -1,4 +1,10 @@
-import { ReactNode, RefObject, FormEvent, InputHTMLAttributes } from 'react';
+import {
+  ReactNode,
+  RefObject,
+  FormEvent,
+  InputHTMLAttributes,
+  ChangeEventHandler,
+} from 'react';
 export type ReviewerType = {
   review: string;
   user: string;
@@ -222,6 +228,7 @@ export interface InputType extends InputHTMLAttributes<HTMLInputElement> {
   MaBtMd?: boolean;
   name?: string;
   id?: string;
+  onchange?: ChangeEventHandler;
 }
 
 export interface InputBaseType {
