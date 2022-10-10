@@ -1,6 +1,6 @@
 import { FC, useRef, useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useHttp from '../../../hooks/use-http';
+import useHttp from '@/hooks/use-http';
 import {
   Notification,
   FormInput,
@@ -10,19 +10,20 @@ import {
   LoginForm,
   HeadingSecondary,
   Button,
+  RouteLink,
 } from '@/components';
 import { EmailAndPasswordType, FormEventType } from '@/types/types';
 import { UserIsLoggedContext } from '@/context/Context';
-import { clearMessage } from '@/utils/utils';
 
 export const Login: FC = () => {
   const [message, setMessage] = useState<string>('');
+  const [showForgotPassword, setShowForgotPassword] = useState<boolean>(false);
   const { setLogged } = useContext(UserIsLoggedContext);
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   //
-  const { isLoading, response, sendRequest: sendrequestToLogin } = useHttp();
+  const { response, sendRequest: sendrequestToLogin } = useHttp();
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleLogin = async (e: FormEventType) => {
@@ -46,9 +47,12 @@ export const Login: FC = () => {
       setTimeout(() => {
         navigate('/me', { replace: true });
       }, 2000);
-    } else if (response === false) {
+    } else if (response === 'fail') {
+      setShowForgotPassword(true);
       setMessage(`Incorrect email or password!`);
-      clearMessage(setMessage(''));
+      setTimeout(() => {
+        setMessage('');
+      }, 3000);
     }
   }, [response]);
 
@@ -57,16 +61,13 @@ export const Login: FC = () => {
       <Main>
         <LoginForm>
           <HeadingSecondary MaBtLg>Log into your account</HeadingSecondary>
-          {
+          {message && (
             <Notification
               text={message}
-              type={
-                !response || response?.status !== 'success'
-                  ? 'error'
-                  : 'success'
-              }
+              type={response?.status === 'success' ? 'success' : 'error'}
             />
-          }
+          )}
+
           <Form formRef={formRef} submitForm={handleLogin}>
             <FormInput
               label='Email address'
@@ -88,6 +89,13 @@ export const Login: FC = () => {
             <FormGroup>
               <Button GreenBtn>Login</Button>
             </FormGroup>
+            {showForgotPassword && (
+              <Button GreenBtn>
+                <RouteLink navel to={'/frgtpass'}>
+                  Forgot password?
+                </RouteLink>
+              </Button>
+            )}
           </Form>
         </LoginForm>
       </Main>

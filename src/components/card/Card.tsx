@@ -29,7 +29,7 @@ export const Card: FC<CardProps> = ({ allTours }) => {
     <>
       {allTours &&
         allTours?.map((el: any) => {
-          console.log(el, ' el?.startLocations');
+          // todo elga type berib qo'yishim zarur
           return (
             <IconContext.Provider
               key={el?.id}

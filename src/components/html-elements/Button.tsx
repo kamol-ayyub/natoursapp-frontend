@@ -29,6 +29,11 @@ const ButtonBase = styled.button<ButtonPropType>`
     css`
       grid-row: 1 / -1;
     `}
+    ${(props) =>
+    props.AlignRigt &&
+    css`
+      margin-left: 40%;
+    `}
 
   font-size: 1.6rem;
   padding: 1.4rem 3rem;
@@ -69,6 +74,7 @@ export const Button: FC<ButtonPropType> = ({
   SmallBtn,
   GreenBtn,
   SpanRows,
+  AlignRigt,
 }) => {
   return (
     <ButtonBase
@@ -76,6 +82,7 @@ export const Button: FC<ButtonPropType> = ({
       SmallBtn={SmallBtn}
       GreenBtn={GreenBtn}
       SpanRows={SpanRows}
+      AlignRigt={AlignRigt}
     >
       {children}
     </ButtonBase>

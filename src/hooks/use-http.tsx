@@ -28,7 +28,8 @@ const useHttp = () => {
       } catch (err: any) {
         setIsLoading(false);
         setIsError(err.message || 'Something went wrong!');
-        setResponse(false);
+        setResponse(err?.response.data.status);
+        console.log(err?.response.data.status, 'error in usehttp');
       }
       setIsLoading(false);
     },

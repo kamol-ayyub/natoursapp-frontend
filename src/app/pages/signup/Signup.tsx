@@ -1,4 +1,4 @@
-import { FC, useRef, useState, useEffect, useContext, FormEvent } from 'react';
+import { FC, useRef, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { InputRefType, FormType, FormEventType } from '@/types/types';
 import {
@@ -53,11 +53,11 @@ export const Signup: FC = () => {
       method: 'POST',
       data: { name, email, password, passwordConfirm },
     });
-    formRef.current?.reset();
   };
 
   useEffect(() => {
     if (response?.status === 'success') {
+      formRef.current?.reset();
       setLogged(true);
       setTimeout(() => {
         navigate('/me', { replace: true });

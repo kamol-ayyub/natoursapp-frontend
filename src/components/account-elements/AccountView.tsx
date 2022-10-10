@@ -53,13 +53,21 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
       data: { name, email, formData },
       headers: { Authorization: `Bearer ${token}` },
     });
-    formRef.current?.reset();
   };
 
   useEffect(() => {
     if (response?.status === 'success') {
+      console.log(response, 'response in account');
       setMessage(`You successfully changed your account!`);
-      clearMessage(setMessage(''));
+      setTimeout(() => {
+        setMessage('');
+      }, 3000);
+      formRef.current?.reset();
+    } else if (response === 'fail') {
+      setMessage('Try again!');
+      setTimeout(() => {
+        setMessage('');
+      }, 3000);
     }
   }, [response]);
 
@@ -68,16 +76,10 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
       <UserViewContent>
         <UserViewFormContainer>
           <HeadingSecondary MaBtLg>Your account settings</HeadingSecondary>
-          {
-            <Notification
-              text={message}
-              type={
-                !response || response?.status !== 'success'
-                  ? 'error'
-                  : 'success'
-              }
-            />
-          }
+          <Notification
+            text={message}
+            type={response?.status === 'success' ? 'success' : 'error'}
+          />
           <Form formRef={formRef} submitForm={handleSignup}>
             <FormGroup>
               <FormInput label='Name' inputType='text' ref={nameRef} required />

@@ -6,7 +6,6 @@ const FormBase = styled.form<ChildPropWithRef>``;
 export const Form: FC<ChildPropWithRef> = ({
   children,
   formRef,
-
   submitForm,
 }) => {
   return (

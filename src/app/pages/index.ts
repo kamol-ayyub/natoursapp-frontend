@@ -4,3 +4,4 @@ export * from './login';
 export * from './notFound';
 export * from './signup';
 export * from './tour';
+export * from './forgot-password';

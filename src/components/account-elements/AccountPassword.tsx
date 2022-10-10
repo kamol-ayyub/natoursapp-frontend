@@ -43,18 +43,21 @@ export const AccountPassword: FC = () => {
         data: { passwordCurrent, password, passwordConfirm },
         headers: { Authorization: `Bearer ${token}` },
       });
-
-    formRef.current?.reset();
   };
 
   useEffect(() => {
     if (response?.status === 'success') {
       setMessage(`You successfully changed your password!`);
-      clearMessage(setMessage(''));
-    } else if (response === false) {
+      setTimeout(() => {
+        setMessage('');
+      }, 3000);
+      formRef.current?.reset();
+    } else if (response === 'fail') {
       setMessage(`Password or password confirm is not valid!`);
 
-      clearMessage(setMessage(''));
+      setTimeout(() => {
+        setMessage('');
+      }, 3000);
     }
   }, [response]);
 
@@ -62,14 +65,12 @@ export const AccountPassword: FC = () => {
     <>
       <UserViewFormContainer>
         <HeadingSecondary MaBtLg>Password change</HeadingSecondary>
-        {
+        {message && (
           <Notification
             text={message}
-            type={
-              !response || response?.status !== 'success' ? 'error' : 'success'
-            }
+            type={response?.status === 'success' ? 'success' : 'error'}
           />
-        }
+        )}
 
         <Form submitForm={handleChangePassword} formRef={formRef}>
           <FormInput

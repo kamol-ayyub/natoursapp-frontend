@@ -1,5 +1,5 @@
 export const clearMessage = (state: any) => {
   return setTimeout(() => {
-    state();
+    return state;
   }, 3000);
 };

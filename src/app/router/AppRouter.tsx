@@ -1,7 +1,15 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { App } from '../App';
-import { Login, Signup, NotFound, Home, Tour, Account } from '@/app/pages';
+import {
+  Login,
+  Signup,
+  NotFound,
+  Home,
+  Tour,
+  Account,
+  ForgotPassword,
+} from '@/app/pages';
 import { UserIsLoggedContext } from '@/context/Context';
 import { Protected } from '@/components';
 
@@ -16,6 +24,8 @@ export const AppRouter = () => {
             <Route index element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/frgtpass' element={<ForgotPassword />} />
+
             <Route path='/tour/:tour' element={<Tour />} />
             <Route
               path='/me'

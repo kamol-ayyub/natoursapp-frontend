@@ -86,8 +86,9 @@ export interface ButtonPropType {
   GreenBtn?: boolean;
   SmallBtn?: boolean;
   WhiteBtn?: boolean;
-  children?: string;
+  children?: string | ReactNode;
   SpanRows?: boolean;
+  AlignRigt?: boolean;
 }
 export interface LabelProp {
   children?: ReactNode | string;
