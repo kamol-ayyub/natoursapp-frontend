@@ -19,8 +19,8 @@ import { clearMessage } from '@/utils/utils';
 
 export const AccountPassword: FC = () => {
   const [message, setMessage] = useState<string>('');
+  const token: string = 'vhdfd';
 
-  const token = localStorage.getItem('token');
   const currentPasswordRef = useRef<InputRefType>(null);
   const newPasswordRef = useRef<InputRefType>(null);
   const passwordConfRef = useRef<InputRefType>(null);
@@ -33,14 +33,14 @@ export const AccountPassword: FC = () => {
     event.preventDefault();
 
     const passwordCurrent: RefValueType = currentPasswordRef.current?.value;
-    const password: RefValueType = newPasswordRef.current?.value;
+    const newPassword: RefValueType = newPasswordRef.current?.value;
     const passwordConfirm: RefValueType = passwordConfRef.current?.value;
 
-    if (passwordCurrent && password && passwordConfirm)
+    if (passwordCurrent && newPassword && passwordConfirm)
       await sendRequestToResetPass({
-        url: `/api/v1/users/updateMyPassword`,
+        url: `/api/v1/users/resetPassword/:${token}`,
         method: 'PATCH',
-        data: { passwordCurrent, password, passwordConfirm },
+        data: { passwordCurrent, newPassword, passwordConfirm },
         headers: { Authorization: `Bearer ${token}` },
       });
   };

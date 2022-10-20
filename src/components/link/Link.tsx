@@ -58,6 +58,8 @@ const LinkBase = styled(Link)<LinkBaseType>`
         border-color: var(--mainColor-f7);
       }
     `}
+    text-decoration:none;
+  color: white;
 `;
 
 export const RouteLink: FC<LinkBaseType> = ({

@@ -43,6 +43,7 @@ export const Tour: FC = () => {
       <Cta
         images={response?.data?.data?.images}
         duration={response?.data?.data?.duration}
+        tourId={response?.data?.data?._id}
       />
     </>
   );

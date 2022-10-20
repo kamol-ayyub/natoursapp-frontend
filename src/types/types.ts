@@ -13,6 +13,7 @@ export type ReviewerType = {
 export type CtaProps = {
   images: string[];
   duration: string;
+  tourId?: string;
 };
 interface IGuides {
   _id: string;
@@ -95,6 +96,7 @@ export interface ButtonPropType {
   children?: string | ReactNode;
   SpanRows?: boolean;
   AlignRigt?: boolean;
+  onClickFunc?: () => void;
 }
 export interface LabelProp {
   children?: ReactNode | string;

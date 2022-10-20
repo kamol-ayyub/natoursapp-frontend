@@ -21,7 +21,7 @@ export const ForgotPassword: FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
-  const resetPassword = async (e: FormEventType) => {
+  const handleEmail = async (e: FormEventType) => {
     e.preventDefault();
     const email: EmailAndPasswordType = emailRef.current?.value;
     console.log(email, 'email value');
@@ -40,8 +40,8 @@ export const ForgotPassword: FC = () => {
   return (
     <Main>
       <LoginForm>
-        <HeadingSecondary MaBtLg>Reset password</HeadingSecondary>
-        <Form formRef={formRef} submitForm={resetPassword}>
+        <HeadingSecondary MaBtLg>Enter your password</HeadingSecondary>
+        <Form formRef={formRef} submitForm={handleEmail}>
           <FormInput
             inputType='email'
             label='Email address'

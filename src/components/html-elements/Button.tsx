@@ -75,6 +75,7 @@ export const Button: FC<ButtonPropType> = ({
   GreenBtn,
   SpanRows,
   AlignRigt,
+  onClickFunc,
 }) => {
   return (
     <ButtonBase
@@ -83,6 +84,7 @@ export const Button: FC<ButtonPropType> = ({
       GreenBtn={GreenBtn}
       SpanRows={SpanRows}
       AlignRigt={AlignRigt}
+      onClick={onClickFunc}
     >
       {children}
     </ButtonBase>
