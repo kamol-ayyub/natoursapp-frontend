@@ -19,7 +19,6 @@ export const TourDescription: FC<TourDescriptionProps> = ({
   tourName,
   description,
 }) => {
-  console.log(tourName, description);
   return (
     <DescriptionBase>
       <HeadingSecondary MaBtLg>{tourName}</HeadingSecondary>
