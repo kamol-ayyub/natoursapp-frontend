@@ -55,12 +55,10 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
       data: { name, email, formData },
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log(photo);
   };
 
   useEffect(() => {
     if (response?.status === 'success') {
-      console.log(response, 'response in account');
       setMessage(`You successfully changed your account!`);
       setTimeout(() => {
         setMessage('');

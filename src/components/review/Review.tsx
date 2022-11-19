@@ -49,7 +49,6 @@ const ReviewsBase = styled.div`
 `;
 
 export const Review: FC<ReviewProps> = ({ data }) => {
-  console.log(data, ' review');
   return (
     <SectionreviewBase>
       <ReviewsBase>

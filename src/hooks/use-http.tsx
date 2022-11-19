@@ -5,6 +5,7 @@ const api = axios.create({
   baseURL: 'http://127.0.0.1:3000/',
 });
 
+
 /**
  * It's a custom hook that sends a request to the server and returns an isError, a loading state and a
  * function to send the request.

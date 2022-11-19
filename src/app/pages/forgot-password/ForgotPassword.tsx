@@ -24,7 +24,6 @@ export const ForgotPassword: FC = () => {
   const handleEmail = async (e: FormEventType) => {
     e.preventDefault();
     const email: EmailAndPasswordType = emailRef.current?.value;
-    console.log(email, 'email value');
 
     await sendRequestToResetPass({
       url: '/api/v1/users/forgotPassword',
@@ -32,10 +31,6 @@ export const ForgotPassword: FC = () => {
       data: { email },
     });
   };
-
-  useEffect(() => {
-    console.log(response, 'response in forgot password page');
-  }, [response]);
 
   return (
     <Main>

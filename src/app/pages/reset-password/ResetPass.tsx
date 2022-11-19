@@ -26,7 +26,6 @@ export const ResetPass: FC = () => {
   const resetPassword = async (e: FormEventType) => {
     e.preventDefault();
     const password: EmailAndPasswordType = passwordRef.current?.value;
-    console.log(password, 'email value');
 
     await sendRequestToResetPass({
       url: '/api/v1/users/resetPassword',
@@ -34,10 +33,6 @@ export const ResetPass: FC = () => {
       data: { password },
     });
   };
-
-  useEffect(() => {
-    console.log(response, 'response in reset password page');
-  }, [response]);
 
   return (
     <Main>

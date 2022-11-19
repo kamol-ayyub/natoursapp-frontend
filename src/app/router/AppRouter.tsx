@@ -10,7 +10,6 @@ import {
   Account,
   ForgotPassword,
   ResetPass,
-  Stripe,
 } from '@/app/pages';
 import { UserIsLoggedContext } from '@/context/Context';
 import { Protected } from '@/components';

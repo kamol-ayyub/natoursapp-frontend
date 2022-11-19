@@ -1,4 +1,4 @@
-import { FC, useLayoutEffect } from 'react';
+import { FC, useLayoutEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Cta } from '@/components/cta/Cta';
@@ -22,28 +22,29 @@ export const Tour: FC = () => {
   }, [tour]);
 
   if (isError) return <h1>Something went wrong! Try again!</h1>;
+  const tourData = response?.data?.data;
   return (
     <>
       <TourHeader
-        description={response?.data?.data?.startLocation.description}
-        duration={response?.data?.data?.duration}
-        imageCover={response?.data?.data?.imageCover}
-        name={response?.data?.data?.name}
+        description={tourData?.startLocation.description}
+        duration={tourData?.duration}
+        imageCover={tourData?.imageCover}
+        name={tourData?.name}
       />
       <Overview
-        name={response?.data?.data.name}
-        description={response?.data?.data.description}
-        startDates={response?.data?.data?.startDates}
-        difficulty={response?.data?.data?.difficulty}
-        maxGroupSize={response?.data?.data?.maxGroupSize}
-        ratingsAverage={response?.data?.data?.ratingsAverage}
-        guides={response?.data?.data?.guides}
+        name={tourData?.name}
+        description={tourData?.description}
+        startDates={tourData?.startDates}
+        difficulty={tourData?.difficulty}
+        maxGroupSize={tourData?.maxGroupSize}
+        ratingsAverage={tourData?.ratingsAverage}
+        guides={tourData?.guides}
       />
-      <Review data={response?.data?.data?.reviews} />
+      <Review data={tourData?.reviews} />
       <Cta
-        images={response?.data?.data?.images}
-        duration={response?.data?.data?.duration}
-        tourId={response?.data?.data?._id}
+        images={tourData?.images}
+        duration={tourData?.duration}
+        tourId={tourData?._id}
       />
     </>
   );
