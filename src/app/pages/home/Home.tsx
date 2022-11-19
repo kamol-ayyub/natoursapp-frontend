@@ -1,4 +1,4 @@
-import { FC, useLayoutEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { Main, Card, CardContainer } from '@/components';
 
 import useHttp from '@/hooks/use-http';
@@ -6,7 +6,7 @@ import useHttp from '@/hooks/use-http';
 export const Home: FC = () => {
   const { response, sendRequest: getAllTours, isError } = useHttp();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getAllTours({
       url: '/api/v1/tours',
       method: 'GET',

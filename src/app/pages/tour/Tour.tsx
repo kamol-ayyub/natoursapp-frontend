@@ -1,4 +1,4 @@
-import { FC, useLayoutEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Cta } from '@/components/cta/Cta';
@@ -17,7 +17,7 @@ export const Tour: FC = () => {
       method: 'GET',
     });
   };
-  useLayoutEffect(() => {
+  useEffect(() => {
     sendRequest();
   }, [tour]);
 
