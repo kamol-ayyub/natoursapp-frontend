@@ -15,7 +15,6 @@ import {
   InputRefType,
   FormType,
 } from '@/types/types';
-import { clearMessage } from '@/utils/utils';
 
 export const AccountPassword: FC = () => {
   const [message, setMessage] = useState<string>('');
@@ -54,7 +53,6 @@ export const AccountPassword: FC = () => {
       formRef.current?.reset();
     } else if (response === 'fail') {
       setMessage(`Password or password confirm is not valid!`);
-
       setTimeout(() => {
         setMessage('');
       }, 3000);

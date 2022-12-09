@@ -18,3 +18,4 @@ export * from './html-elements';
 export * from './link/Link';
 export * from './not-found';
 export * from './checkout-form';
+export * from './loading';

@@ -1,10 +1,10 @@
 import { FC, useEffect } from 'react';
-import { Main, Card, CardContainer } from '@/components';
+import { Main, Card, CardContainer, Loading } from '@/components';
 
 import useHttp from '@/hooks/use-http';
 
 export const Home: FC = () => {
-  const { response, sendRequest: getAllTours, isError } = useHttp();
+  const { response, sendRequest: getAllTours, isError, isLoading } = useHttp();
 
   useEffect(() => {
     getAllTours({
@@ -17,7 +17,7 @@ export const Home: FC = () => {
     <Main>
       <CardContainer>
         {isError && <h1>Something went wrong, try again!</h1>}
-        <Card allTours={response?.data?.data} />
+        {isLoading ? <Loading /> : <Card allTours={response?.data?.data} />}
       </CardContainer>
     </Main>
   );
