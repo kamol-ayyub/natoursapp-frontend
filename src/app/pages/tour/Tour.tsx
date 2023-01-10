@@ -1,6 +1,5 @@
 import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
 import useHttp from '@/hooks/use-http';
 import { CustomHookType } from '@/types/types';
 import { Cta, TourHeader, Overview, Review, Loading, Main } from '@/components';

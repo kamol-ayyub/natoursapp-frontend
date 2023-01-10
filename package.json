@@ -1,4 +1,5 @@
 {
+  "home": "http://ayyubxon-coder.github.io/natoursapp-frontend",
   "name": "natours-front",
   "version": "0.1.0",
   "private": true,
@@ -27,6 +28,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
@@ -52,6 +55,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
+    "gh-pages": "^4.0.0",
     "yup": "^0.32.11"
   }
 }
