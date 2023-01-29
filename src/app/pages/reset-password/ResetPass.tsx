@@ -1,7 +1,6 @@
-import { FC, useState, useRef, useEffect } from 'react';
+import { FC, useState, useRef, ChangeEvent } from 'react';
 import {
   Main,
-  Notification,
   LoginForm,
   HeadingSecondary,
   Form,
@@ -18,19 +17,26 @@ export const ResetPass: FC = () => {
 
   //states
   const [message, setMessage] = useState<string>('');
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const passwordConfirmRef = useRef<HTMLInputElement>(null);
-
+  const [formData, setformData] = useState({
+    password: '',
+    passwordConfirm: '',
+  });
   const formRef = useRef<HTMLFormElement>(null);
 
+  const handleCatchData = (e: ChangeEvent<HTMLInputElement>) => {
+    setformData({ ...formData, [e.target.name]: e.target.value });
+  };
   const resetPassword = async (e: FormEventType) => {
     e.preventDefault();
-    const password: EmailAndPasswordType = passwordRef.current?.value;
-
+    const { password } = formData;
     await sendRequestToResetPass({
       url: '/api/v1/users/resetPassword',
       method: 'POST',
       data: { password },
+    });
+    setformData({
+      password: '',
+      passwordConfirm: '',
     });
   };
 
@@ -43,14 +49,20 @@ export const ResetPass: FC = () => {
             inputType='password'
             label='Password'
             placeholder='••••••••'
-            ref={passwordRef}
+            onchange={handleCatchData}
             MaBtMd
+            HTMLFor={`
+              password
+            `}
           ></FormInput>
           <FormInput
             inputType='password'
             label='Confirm password'
             placeholder='••••••••'
-            ref={passwordConfirmRef}
+            onchange={handleCatchData}
+            HTMLFor={`
+            passwordConfirm
+          `}
           ></FormInput>
           <Button GreenBtn>Send</Button>
         </Form>
