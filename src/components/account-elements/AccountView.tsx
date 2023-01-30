@@ -44,8 +44,8 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
 
   const handleFormData = (e: OnChangeType) => {
     setAccountFormData({
-      name: '',
-      email: '',
+      ...accountFormData,
+      [e.target.name]: e.target.value,
     });
   };
 
