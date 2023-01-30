@@ -1,6 +1,11 @@
-import { FC, useRef, useState, useEffect, useContext } from 'react';
+import { FC, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InputRefType, FormType, FormEventType } from '@/types/types';
+import {
+  InputRefType,
+  FormType,
+  FormEventType,
+  OnChangeType,
+} from '@/types/types';
 import {
   Form,
   FormGroup,
@@ -21,20 +26,17 @@ export const Signup: FC = () => {
 
   // destructuring custom hook
   const { response, sendRequest: sendRequestToSignup } = useHttp();
-  // refs for get data from form
-  const nameRef = useRef<InputRefType>(null);
-  const emailRef = useRef<InputRefType>(null);
-  const passwordRef = useRef<InputRefType>(null);
-  const passwordConfirmRef = useRef<InputRefType>(null);
-  const formRef = useRef<FormType>(null);
+  const [signupFormData, setsignupFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirm: '',
+  });
 
   // function for request to backend
   const handleSignup = async (event: FormEventType) => {
     event.preventDefault();
-    const name = nameRef.current?.value;
-    const email = emailRef.current?.value;
-    const password = passwordRef.current?.value;
-    const passwordConfirm = passwordConfirmRef.current?.value;
+    const { name, email, password, passwordConfirm } = signupFormData;
 
     if (!name?.match(/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/)) {
       setNameAlertMsg('Name must consist of Latin letters or numbers!');
@@ -54,10 +56,18 @@ export const Signup: FC = () => {
       data: { name, email, password, passwordConfirm },
     });
   };
+  const handleSignupFormData = (e: OnChangeType) => {
+    setsignupFormData({ ...signupFormData, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     if (response?.status === 'success') {
-      formRef.current?.reset();
+      setsignupFormData({
+        name: '',
+        email: '',
+        password: '',
+        passwordConfirm: '',
+      });
       setLogged(true);
       setTimeout(() => {
         navigate('/me', { replace: true });
@@ -69,13 +79,14 @@ export const Signup: FC = () => {
     <Main>
       <LoginForm>
         <HeadingSecondary MaBtLg={true}>CREATE YOUR ACCOUNT!</HeadingSecondary>
-        <Form formRef={formRef} submitForm={handleSignup}>
+        <Form submitForm={handleSignup}>
           <FormInput
             label='Your name'
             placeholder='your name'
             inputType='text'
-            ref={nameRef}
             required
+            onchange={handleSignupFormData}
+            HTMLFor='name'
           />
           {nameAlertMsg && (
             <h2 style={{ color: 'red', margin: '20px 0' }}>{nameAlertMsg}</h2>
@@ -84,24 +95,27 @@ export const Signup: FC = () => {
             label='Email address'
             placeholder='you@example.com'
             inputType='email'
-            ref={emailRef}
             required
+            onchange={handleSignupFormData}
+            HTMLFor='email'
           />
           <FormInput
             label='Password'
-            ref={passwordRef}
             placeholder='••••••••'
             inputType='password'
             MaBtMd
             required
+            onchange={handleSignupFormData}
+            HTMLFor='password'
           />
           <FormInput
             label='Confirm password'
-            ref={passwordConfirmRef}
             placeholder='••••••••'
             inputType='password'
             MaBtMd
             required
+            onchange={handleSignupFormData}
+            HTMLFor='passwordConfirm'
           />
           {passwordAlertMsg && (
             <h2 style={{ color: 'red', margin: '20px 0' }}>
