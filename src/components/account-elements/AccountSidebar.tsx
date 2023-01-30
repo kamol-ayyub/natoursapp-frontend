@@ -1,4 +1,4 @@
-import { NavItem } from '@/components';
+import { NavItem } from '../../components';
 import { RiSettings3Line, RiWallet3Line } from 'react-icons/ri';
 import { AiOutlineStar } from 'react-icons/ai';
 import { BiWallet } from 'react-icons/bi';

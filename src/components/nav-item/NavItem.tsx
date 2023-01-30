@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { NavItemType, NavItemBaseType } from '@/types/types';
+import { NavItemType, NavItemBaseType } from '../../types/types';
 const NavItemBase = styled.li<NavItemBaseType>`
   ${(props) =>
     props.Active &&

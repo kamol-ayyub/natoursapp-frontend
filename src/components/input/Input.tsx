@@ -1,7 +1,7 @@
 import React, { ForwardRefRenderFunction } from 'react';
-import { Label } from '@/components';
+import { Label } from '../../components';
 import styled, { css } from 'styled-components';
-import { InputBaseType, InputType } from '@/types/types';
+import { InputBaseType, InputType } from '../../types/types';
 
 const InputWrapBase = styled.div<InputBaseType>`
   ${(props) =>

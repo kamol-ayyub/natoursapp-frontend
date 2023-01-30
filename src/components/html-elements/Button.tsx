@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ButtonPropType } from '@/types/types';
+import { ButtonPropType } from '../../types/types';
 import styled, { css } from 'styled-components';
 
 const ButtonBase = styled.button<ButtonPropType>`

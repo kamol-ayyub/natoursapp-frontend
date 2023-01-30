@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import Logogreen from '@/img/logo-green.png';
+import Logogreen from '../../img/logo-green.png';
 import {
   FooterLogo,
   FooterWrapper,
   Image,
   FooterNav,
   FooterCopyright,
-} from '@/components';
-import { links } from '@/mocks';
+} from '../../components';
+import { links } from '../../mocks';
 
 export const Footer: FC = () => {
   return (

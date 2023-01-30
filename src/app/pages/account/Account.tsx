@@ -5,7 +5,7 @@ import {
   AccountView,
   Main,
   UserView,
-} from '@/components';
+} from '../../../components';
 
 export const Account: FC = () => {
   return (

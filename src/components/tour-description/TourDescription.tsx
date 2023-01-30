@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { HeadingSecondary } from '@/components';
+import { HeadingSecondary } from '../../components';
 import styled from 'styled-components';
-import { TourDescriptionProps } from '@/types/types';
+import { TourDescriptionProps } from '../../types/types';
 const DescriptionBase = styled.div`
   margin-right: 5rem;
   background-color: white;

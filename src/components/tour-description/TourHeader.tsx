@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { GoLocation } from 'react-icons/go';
 import { BsClock } from 'react-icons/bs';
-import { Image, Span, HeadingPrimary } from '@/components';
+import { Image, Span, HeadingPrimary } from '../../components';
 import styled from 'styled-components';
-import { HeaderProps } from '@/types/types';
+import { HeaderProps } from '../../types/types';
 const SectionHeader = styled.section`
   position: relative;
   height: 38vw;

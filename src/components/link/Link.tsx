@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { LinkBaseType } from '@/types/types';
+import { LinkBaseType } from '../../types/types';
 
 const LinkBase = styled(Link)<LinkBaseType>`
   ${(props) =>

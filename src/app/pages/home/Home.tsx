@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
-import { Main, Card, CardContainer, Loading } from '@/components';
+import { Main, Card, CardContainer, Loading } from '../../../components';
 
-import { useHttp } from '@/hooks/index';
+import { useHttp } from '../../../hooks/index';
 
 export const Home: FC = () => {
   const { response, sendRequest: getAllTours, isError, isLoading } = useHttp();

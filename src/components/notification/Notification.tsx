@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ErrorNotifType } from '@/types/types';
+import { ErrorNotifType } from '../../types/types';
 export const Notification: FC<ErrorNotifType> = ({ text, type }) => {
   if (!text) {
     return null;

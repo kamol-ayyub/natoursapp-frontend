@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { FormGroupWrap } from '@/components/form';
-import { ChildProp } from '@/types/types';
+import { FormGroupWrap } from '../../components/form';
+import { ChildProp } from '../../types/types';
 
 const FormUploadBase = styled(FormGroupWrap)`
   display: -webkit-box;

@@ -8,11 +8,11 @@ import {
   Button,
   FormGroup,
   Notification,
-} from '@/components';
+} from '../../components';
 import { FC, useState, useEffect, FormEvent } from 'react';
-import { useHttp } from '@/hooks/index';
+import { useHttp } from '../../hooks/index';
 
-import { AccountViewProps, OnChangeType } from '@/types/types';
+import { AccountViewProps, OnChangeType } from '../../types/types';
 import styled from 'styled-components';
 
 const UserViewContent = styled.div`

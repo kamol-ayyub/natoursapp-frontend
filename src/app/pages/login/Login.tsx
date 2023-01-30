@@ -1,6 +1,6 @@
 import { FC, useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useHttp } from '@/hooks/index';
+import { useHttp } from '../../../hooks/index';
 
 import {
   Notification,
@@ -12,9 +12,9 @@ import {
   HeadingSecondary,
   Button,
   RouteLink,
-} from '@/components';
-import { FormEventType, OnChangeType } from '@/types/types';
-import { UserIsLoggedContext } from '@/context/Context';
+} from '../../../components';
+import { FormEventType, OnChangeType } from '../../../types/types';
+import { UserIsLoggedContext } from '../../../context/Context';
 
 export const Login: FC = () => {
   const [message, setMessage] = useState<string>('');

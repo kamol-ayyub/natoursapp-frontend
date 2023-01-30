@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { ChildProp, HeadingType } from '@/types/types';
-import { Span } from '@/components';
+import { ChildProp, HeadingType } from '../../types/types';
+import { Span } from '../../components';
 const HeadingtertiraryBase = styled.h3<HeadingType>`
   margin-bottom: ${(props) => (props.MaBtLg ? '35px' : '0px')};
   color: var(--whiteColor);

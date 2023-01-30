@@ -10,9 +10,9 @@ import {
   Account,
   ForgotPassword,
   ResetPass,
-} from '@/app/pages';
-import { UserIsLoggedContext } from '@/context/Context';
-import { Protected } from '@/components';
+} from '../../app/pages';
+import { UserIsLoggedContext } from '../../context/Context';
+import { Protected } from '../../components';
 
 export const AppRouter = () => {
   const [logged, setLogged] = useState(false);

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ChildPropWithRef } from '@/types/types';
+import { ChildPropWithRef } from '../../types/types';
 import styled from 'styled-components';
 const FormBase = styled.form<ChildPropWithRef>``;
 

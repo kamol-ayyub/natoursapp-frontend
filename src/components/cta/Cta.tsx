@@ -1,5 +1,5 @@
 import { FC, useContext } from 'react';
-import { CtaProps } from '@/types/types';
+import { CtaProps } from '../../types/types';
 
 import {
   CtaContent,
@@ -10,8 +10,8 @@ import {
   HeadingSecondary,
   Image,
   RouteLink,
-} from '@/components';
-import { UserIsLoggedContext } from '@/context/Context';
+} from '../../components';
+import { UserIsLoggedContext } from '../../context/Context';
 
 export const Cta: FC<CtaProps> = ({ images, duration, tourId }) => {
   const { logged } = useContext(UserIsLoggedContext);

@@ -1,9 +1,16 @@
 import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useHttp } from '@/hooks/index';
+import { useHttp } from '../../../hooks/index';
 
-import { CustomHookType } from '@/types/types';
-import { Cta, TourHeader, Overview, Review, Loading, Main } from '@/components';
+import { CustomHookType } from '../../../types/types';
+import {
+  Cta,
+  TourHeader,
+  Overview,
+  Review,
+  Loading,
+  Main,
+} from '../../../components';
 
 export const Tour: FC = () => {
   const { tour } = useParams();
@@ -13,7 +20,7 @@ export const Tour: FC = () => {
     isError,
     isLoading,
   }: CustomHookType = useHttp();
-  const sendRequest = async () => {
+  const sendRequest = async (): Promise<void> => {
     await getTour({
       url: `/api/v1/tours/${tour}`,
       method: 'GET',

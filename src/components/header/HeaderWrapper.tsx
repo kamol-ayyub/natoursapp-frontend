@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { ChildProp } from '@/types/types';
+import { ChildProp } from '../../types/types';
 const HeaderBase = styled.header`
   background-color: #444;
   padding: 0 5rem;

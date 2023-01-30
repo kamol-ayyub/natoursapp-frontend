@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { IconContext } from 'react-icons';
-import { CardHeader, CardDetails, CardFooter } from '@/components';
-import { CardProps } from '@/types/types';
+import { CardHeader, CardDetails, CardFooter } from '../../components';
+import { CardProps } from '../../types/types';
 import styled from 'styled-components';
 
 //styled components
