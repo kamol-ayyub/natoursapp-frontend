@@ -23,7 +23,7 @@ export const ForgotPassword: FC = () => {
     setEmail(e.target.value);
   };
 
-  const handleResetPassword = async (e: FormEventType) => {
+  const handleResetPassword = async (e: FormEventType): Promise<void> => {
     e.preventDefault();
 
     await sendRequestToResetPass({

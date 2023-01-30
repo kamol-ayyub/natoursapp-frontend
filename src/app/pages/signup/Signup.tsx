@@ -29,7 +29,7 @@ export const Signup: FC = () => {
   });
 
   // function for request to backend
-  const handleSignup = async (event: FormEventType) => {
+  const handleSignup = async (event: FormEventType): Promise<void> => {
     event.preventDefault();
     const { name, email, password, passwordConfirm } = signupFormData;
 

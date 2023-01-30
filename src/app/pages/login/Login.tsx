@@ -29,7 +29,7 @@ export const Login: FC = () => {
   //
   const { response, sendRequest: sendrequestToLogin } = useHttp();
 
-  const handleLogin = async (e: FormEventType) => {
+  const handleLogin = async (e: FormEventType): Promise<void> => {
     e.preventDefault();
     const { email, password } = formData;
 

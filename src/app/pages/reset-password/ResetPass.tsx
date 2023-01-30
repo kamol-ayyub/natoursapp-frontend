@@ -26,7 +26,7 @@ export const ResetPass: FC = () => {
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const resetPassword = async (e: FormEventType) => {
+  const resetPassword = async (e: FormEventType): Promise<void> => {
     e.preventDefault();
     const { password } = formData;
     await sendRequestToResetPass({

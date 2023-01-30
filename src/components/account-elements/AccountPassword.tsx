@@ -24,7 +24,7 @@ export const AccountPassword: FC = () => {
   const { response, sendRequest: sendRequestToResetPass } = useHttp();
 
   // function for request to backend
-  const handleChangePassword = async (event: FormEventType) => {
+  const handleChangePassword = async (event: FormEventType): Promise<void> => {
     event.preventDefault();
 
     const { passwordCurrent, newPassword, passwordConfirm } = formData;
