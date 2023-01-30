@@ -11,7 +11,7 @@ const api = axios.create({
  * @returns An object with three properties: isError, isLoading, and sendRequest.
  */
 
-const useHttp = () => {
+export const useHttp = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean | null>(null);
   const [response, setResponse] = useState<any>(null);
@@ -41,4 +41,3 @@ const useHttp = () => {
     sendRequest,
   };
 };
-export default useHttp;

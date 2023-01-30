@@ -1,6 +1,7 @@
 import { FC, useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useHttp from '@/hooks/use-http';
+import { useHttp } from '@/hooks/index';
+
 import {
   Notification,
   FormInput,

@@ -10,7 +10,8 @@ import {
   Notification,
 } from '@/components';
 import { useRef, FC, useState, useEffect, FormEvent } from 'react';
-import useHttp from '@/hooks/use-http';
+import { useHttp } from '@/hooks/index';
+
 import { AccountViewProps, InputRefType } from '@/types/types';
 import styled from 'styled-components';
 

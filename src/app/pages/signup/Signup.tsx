@@ -10,7 +10,7 @@ import {
   Main,
   Button,
 } from '@/components';
-import useHttp from '@/hooks/use-http';
+import { useHttp } from '@/hooks/index';
 import { UserIsLoggedContext } from '@/context/Context';
 
 export const Signup: FC = () => {

@@ -1,5 +1,6 @@
 import { FC, useState, useEffect } from 'react';
-import useHttp from '@/hooks/use-http';
+import { useHttp } from '@/hooks/index';
+
 import {
   Notification,
   Form,
@@ -9,13 +10,7 @@ import {
   UserViewFormContainer,
   Button,
 } from '..';
-import {
-  RefValueType,
-  FormEventType,
-  InputRefType,
-  FormType,
-  OnChangeType,
-} from '@/types/types';
+import { FormEventType, OnChangeType } from '@/types/types';
 
 export const AccountPassword: FC = () => {
   const [message, setMessage] = useState<string>('');

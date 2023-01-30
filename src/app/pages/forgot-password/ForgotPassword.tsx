@@ -7,7 +7,8 @@ import {
   FormInput,
   Button,
 } from '@/components';
-import useHttp from '@/hooks/use-http';
+import { useHttp } from '@/hooks/index';
+
 import { FormEventType, OnChangeType } from '@/types/types';
 
 export const ForgotPassword: FC = () => {
