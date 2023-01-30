@@ -6,4 +6,3 @@ export * from './signup';
 export * from './tour';
 export * from './forgot-password';
 export * from './reset-password';
-export * from './stripe';
