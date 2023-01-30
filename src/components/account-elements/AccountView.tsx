@@ -9,10 +9,10 @@ import {
   FormGroup,
   Notification,
 } from '@/components';
-import { useRef, FC, useState, useEffect, FormEvent } from 'react';
+import { FC, useState, useEffect, FormEvent } from 'react';
 import { useHttp } from '@/hooks/index';
 
-import { AccountViewProps, InputRefType } from '@/types/types';
+import { AccountViewProps, OnChangeType } from '@/types/types';
 import styled from 'styled-components';
 
 const UserViewContent = styled.div`
@@ -30,6 +30,11 @@ const LineBase = styled.div`
 export const AccountView: FC<AccountViewProps> = ({ children }) => {
   const [message, setMessage] = useState<string>('');
   const [photo, setPhoto] = useState<any>([]);
+  const [accountFormData, setAccountFormData] = useState({
+    name: '',
+    email: '',
+  });
+
   const { response, sendRequest: changeNameAndEmail } = useHttp();
   const token = localStorage.getItem('token');
 
@@ -37,16 +42,17 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
     setPhoto(event.target.files[0].name);
   };
 
-  // refs for get data from form
-  const nameRef = useRef<InputRefType>(null);
-  const emailRef = useRef<InputRefType>(null);
-  const formRef = useRef<HTMLFormElement>(null);
+  const handleFormData = (e: OnChangeType) => {
+    setAccountFormData({
+      name: '',
+      email: '',
+    });
+  };
 
   // function for request to backend
   const handleSignup = async (event: FormEvent): Promise<void> => {
     event.preventDefault();
-    const name = nameRef.current?.value;
-    const email = emailRef.current?.value;
+    const { name, email } = accountFormData;
     const formData = new FormData();
 
     formData.append('photo', photo);
@@ -64,7 +70,10 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
       setTimeout(() => {
         setMessage('');
       }, 3000);
-      formRef.current?.reset();
+      setAccountFormData({
+        name: '',
+        email: '',
+      });
     } else if (response === 'fail') {
       setMessage('Try again!');
       setTimeout(() => {
@@ -82,12 +91,19 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
             text={message}
             type={response?.status === 'success' ? 'success' : 'error'}
           />
-          <Form formRef={formRef} submitForm={handleSignup}>
+          <Form submitForm={handleSignup}>
             <FormGroup>
-              <FormInput label='Name' inputType='text' ref={nameRef} required />
+              <FormInput
+                onchange={handleFormData}
+                label='Name'
+                inputType='text'
+                required
+                HTMLFor='name'
+              />
               <FormInput
                 inputType='email'
-                ref={emailRef}
+                onchange={handleFormData}
+                name='email'
                 label={'Email Address'}
                 required
               />
