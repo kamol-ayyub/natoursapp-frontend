@@ -4,6 +4,7 @@ import {
   FormEvent,
   InputHTMLAttributes,
   ChangeEventHandler,
+  ChangeEvent,
 } from 'react';
 export type ReviewerType = {
   review: string;
@@ -269,3 +270,4 @@ export interface TourDescriptionProps {
   tourName?: string;
   description?: string;
 }
+export type OnChangeType = ChangeEvent<HTMLInputElement>;

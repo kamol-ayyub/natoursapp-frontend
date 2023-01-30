@@ -1,4 +1,4 @@
-import { FC, useState, useRef, ChangeEvent } from 'react';
+import { FC, useState } from 'react';
 import {
   Main,
   LoginForm,
@@ -8,24 +8,23 @@ import {
   Button,
 } from '@/components';
 import useHttp from '@/hooks/use-http';
-import { FormEventType, EmailAndPasswordType } from '@/types/types';
+import { FormEventType, OnChangeType } from '@/types/types';
 
 export const ResetPass: FC = () => {
   //hooks
 
-  const { response, sendRequest: sendRequestToResetPass } = useHttp();
+  const { sendRequest: sendRequestToResetPass } = useHttp();
 
   //states
-  const [message, setMessage] = useState<string>('');
   const [formData, setformData] = useState({
     password: '',
     passwordConfirm: '',
   });
-  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleCatchData = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleCatchData = (e: OnChangeType) => {
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const resetPassword = async (e: FormEventType) => {
     e.preventDefault();
     const { password } = formData;
@@ -44,7 +43,7 @@ export const ResetPass: FC = () => {
     <Main>
       <LoginForm>
         <HeadingSecondary MaBtLg>Reset password</HeadingSecondary>
-        <Form formRef={formRef} submitForm={resetPassword}>
+        <Form submitForm={resetPassword}>
           <FormInput
             inputType='password'
             label='Password'
