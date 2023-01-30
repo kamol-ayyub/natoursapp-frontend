@@ -1,3 +1,4 @@
+import { FC, useState, useEffect, FormEvent, memo } from 'react';
 import {
   Form,
   FormInput,
@@ -9,7 +10,6 @@ import {
   FormGroup,
   Notification,
 } from '../../components';
-import { FC, useState, useEffect, FormEvent } from 'react';
 import { useHttp } from '../../hooks/index';
 
 import { AccountViewProps, OnChangeType } from '../../types/types';
@@ -27,7 +27,7 @@ const LineBase = styled.div`
   height: 1px;
   background-color: var(--lineColor-e0);
 `;
-export const AccountView: FC<AccountViewProps> = ({ children }) => {
+export const AccountView: FC<AccountViewProps> = memo(({ children }) => {
   const [message, setMessage] = useState<string>('');
   const [photo, setPhoto] = useState<any>([]);
   const [accountFormData, setAccountFormData] = useState({
@@ -36,7 +36,7 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
   });
 
   const { response, sendRequest: changeNameAndEmail } = useHttp();
-  const token = localStorage.getItem('token');
+  let token = localStorage.getItem('token');
 
   const handleImage = (event: any) => {
     setPhoto(event.target.files[0].name);
@@ -137,4 +137,4 @@ export const AccountView: FC<AccountViewProps> = ({ children }) => {
       </UserViewContent>
     </>
   );
-};
+});

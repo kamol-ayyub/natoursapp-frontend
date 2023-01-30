@@ -1,6 +1,5 @@
 import { FC, useEffect } from 'react';
 import { Main, Card, CardContainer, Loading } from '../../../components';
-
 import { useHttp } from '../../../hooks/index';
 
 export const Home: FC = () => {
