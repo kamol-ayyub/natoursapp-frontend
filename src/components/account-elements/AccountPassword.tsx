@@ -1,4 +1,4 @@
-import { FC, useRef, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import useHttp from '@/hooks/use-http';
 import {
   Notification,
@@ -14,16 +14,17 @@ import {
   FormEventType,
   InputRefType,
   FormType,
+  OnChangeType,
 } from '@/types/types';
 
 export const AccountPassword: FC = () => {
   const [message, setMessage] = useState<string>('');
   const token: string = 'vhdfd';
-
-  const currentPasswordRef = useRef<InputRefType>(null);
-  const newPasswordRef = useRef<InputRefType>(null);
-  const passwordConfRef = useRef<InputRefType>(null);
-  const formRef = useRef<FormType>(null);
+  const [formData, setFormData] = useState({
+    passwordCurrent: '',
+    newPassword: '',
+    passwordConfirm: '',
+  });
 
   const { response, sendRequest: sendRequestToResetPass } = useHttp();
 
@@ -31,9 +32,7 @@ export const AccountPassword: FC = () => {
   const handleChangePassword = async (event: FormEventType) => {
     event.preventDefault();
 
-    const passwordCurrent: RefValueType = currentPasswordRef.current?.value;
-    const newPassword: RefValueType = newPasswordRef.current?.value;
-    const passwordConfirm: RefValueType = passwordConfRef.current?.value;
+    const { passwordCurrent, newPassword, passwordConfirm } = formData;
 
     if (passwordCurrent && newPassword && passwordConfirm)
       await sendRequestToResetPass({
@@ -43,6 +42,9 @@ export const AccountPassword: FC = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
   };
+  const handleFormData = (e: OnChangeType) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     if (response?.status === 'success') {
@@ -50,7 +52,11 @@ export const AccountPassword: FC = () => {
       setTimeout(() => {
         setMessage('');
       }, 3000);
-      formRef.current?.reset();
+      setFormData({
+        passwordCurrent: '',
+        newPassword: '',
+        passwordConfirm: '',
+      });
     } else if (response === 'fail') {
       setMessage(`Password or password confirm is not valid!`);
       setTimeout(() => {
@@ -70,27 +76,30 @@ export const AccountPassword: FC = () => {
           />
         )}
 
-        <Form submitForm={handleChangePassword} formRef={formRef}>
+        <Form submitForm={handleChangePassword}>
           <FormInput
             label='Current password'
             inputType='password'
-            ref={currentPasswordRef}
+            onchange={handleFormData}
             placeholder='••••••••'
             required
+            name='currentPassword'
           />
           <FormInput
             label='New password'
             inputType='password'
-            ref={newPasswordRef}
+            onchange={handleFormData}
             required
             placeholder='••••••••'
+            name='newPassword'
           />
           <FormInput
             label='Confirm password'
             inputType='password'
-            ref={passwordConfRef}
+            onchange={handleFormData}
             required
             placeholder='••••••••'
+            name='confirmPassword'
           />
           <FormGroup right>
             <Button SmallBtn GreenBtn>

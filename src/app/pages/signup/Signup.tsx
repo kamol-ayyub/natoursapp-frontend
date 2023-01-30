@@ -1,11 +1,6 @@
 import { FC, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  InputRefType,
-  FormType,
-  FormEventType,
-  OnChangeType,
-} from '@/types/types';
+import { FormEventType, OnChangeType } from '@/types/types';
 import {
   Form,
   FormGroup,
@@ -56,6 +51,7 @@ export const Signup: FC = () => {
       data: { name, email, password, passwordConfirm },
     });
   };
+
   const handleSignupFormData = (e: OnChangeType) => {
     setsignupFormData({ ...signupFormData, [e.target.name]: e.target.value });
   };
