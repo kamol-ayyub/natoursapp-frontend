@@ -29,9 +29,7 @@ export const AppRouter = () => {
             <Route path='/signup' element={<Signup />} />
             <Route path='/forgot-pass' element={<ForgotPassword />} />
             <Route path='/reset-pass/:token' element={<ResetPass />} />
-            <Suspense fallback={<h1>Loading...</h1>}>
-              <Route path='/tour/:tour' element={<Tour />} />
-            </Suspense>
+            <Route path='/tour/:tour' element={<Tour />} />
             <Route
               path='/me'
               element={
