@@ -26,6 +26,7 @@ export const Tour: FC = () => {
     });
   };
   useEffect(() => {
+    window.scroll(0, 0);
     sendRequest();
   }, []);
   const tourData: any = data.filter((el) => el._id === tour)[0];
