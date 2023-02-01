@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { App } from '../App';
 import {
@@ -6,13 +6,15 @@ import {
   Signup,
   NotFound,
   Home,
-  Tour,
   Account,
   ForgotPassword,
   ResetPass,
 } from '../../app/pages';
 import { UserIsLoggedContext } from '../../context/Context';
 import { Protected } from '../../components';
+const Tour = lazy(() =>
+  import('../pages/tour/index').then(({ Tour }) => ({ default: Tour }))
+);
 
 export const AppRouter = () => {
   const [logged, setLogged] = useState(false);
@@ -27,7 +29,9 @@ export const AppRouter = () => {
             <Route path='/signup' element={<Signup />} />
             <Route path='/forgot-pass' element={<ForgotPassword />} />
             <Route path='/reset-pass/:token' element={<ResetPass />} />
-            <Route path='/tour/:tour' element={<Tour />} />
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Route path='/tour/:tour' element={<Tour />} />
+            </Suspense>
             <Route
               path='/me'
               element={
