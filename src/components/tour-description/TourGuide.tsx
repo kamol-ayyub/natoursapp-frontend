@@ -20,7 +20,6 @@ const OverviewBoxBase = styled.div`
 `;
 
 export const TourGuide: FC<GuideProps> = ({ name, title, photo }) => {
-  console.log(photo, 'photo in tourguide');
   return (
     <OverviewBoxBase>
       <Image

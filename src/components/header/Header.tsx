@@ -41,7 +41,7 @@ export const Header: FC = () => {
             <RouteLink navel={true} to={'/login'}>
               Log in
             </RouteLink>
-            <RouteLink navel navelcta to='/signup'>
+            <RouteLink navel={true} navelcta={true} to='/signup'>
               Sign up
             </RouteLink>
           </>

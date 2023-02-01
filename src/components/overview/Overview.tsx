@@ -27,7 +27,6 @@ export const Overview: FC<OverviewProps> = ({
   ratingsAverage,
   guides,
 }) => {
-  console.log(guides, 'guides in overview comp');
   return (
     <SectionDescription>
       <OverviewBox

@@ -102,7 +102,7 @@ export const Login: FC = () => {
             </FormGroup>
             {showForgotPassword && (
               <Button GreenBtn>
-                <RouteLink navel to={'/forgot-pass'}>
+                <RouteLink navel={true} to={'/forgot-pass'}>
                   Forgot password?
                 </RouteLink>
               </Button>
