@@ -20,9 +20,14 @@ const OverviewBoxBase = styled.div`
 `;
 
 export const TourGuide: FC<GuideProps> = ({ name, title, photo }) => {
+  console.log(photo, 'photo in tourguide');
   return (
     <OverviewBoxBase>
-      <Image src={`../../img/users/${photo}`} alt='Lead guide' OverviewBoxImg />
+      <Image
+        src={`../../img/users/${photo}`}
+        alt='Lead guide'
+        OverviewBoxImg={true}
+      />
       <Span OverviewBoxLabel>{title}</Span>
       <Span OverviewBoxText>{name}</Span>
     </OverviewBoxBase>

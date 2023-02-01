@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { OverviewBox, TourDescription } from '../../components';
 import { OverviewProps } from '../../types/types';
 import styled from 'styled-components';
@@ -27,6 +27,7 @@ export const Overview: FC<OverviewProps> = ({
   ratingsAverage,
   guides,
 }) => {
+  console.log(guides, 'guides in overview comp');
   return (
     <SectionDescription>
       <OverviewBox
@@ -41,4 +42,4 @@ export const Overview: FC<OverviewProps> = ({
   );
 };
 
-export default Overview;
+export default memo(Overview);

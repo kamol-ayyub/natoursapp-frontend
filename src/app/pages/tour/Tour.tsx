@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useHttp } from '../../../hooks/index';
+import { data } from '../../../mocks';
 
 import { CustomHookType } from '../../../types/types';
 import {
@@ -8,17 +9,15 @@ import {
   TourHeader,
   Overview,
   Review,
-  Loading,
-  Main,
+  // Loading,
+  // Main,
 } from '../../../components';
 
 export const Tour: FC = () => {
   const { tour } = useParams();
   const {
-    response,
+    // response,
     sendRequest: getTour,
-    isError,
-    isLoading,
   }: CustomHookType = useHttp();
   const sendRequest = async (): Promise<void> => {
     await getTour({
@@ -28,17 +27,18 @@ export const Tour: FC = () => {
   };
   useEffect(() => {
     sendRequest();
-  }, [tour]);
-
-  if (isError) return <h1>Something went wrong! Try again!</h1>;
-  const tourData = response?.data?.data;
+  }, []);
+  const tourData: any = data.filter((el) => el._id === tour)[0];
+  // if (isError) return <h1>Something went wrong! Try again!</h1>;
+  // const tourData = response?.data?.data;
   return (
     <>
-      {isLoading ? (
-        <Main>
-          <Loading />
-        </Main>
-      ) : (
+      {
+        // isLoading ? (
+        //   <Main>
+        //     <Loading />
+        //   </Main>
+        // ) : (
         <>
           <TourHeader
             description={tourData?.startLocation.description}
@@ -62,7 +62,8 @@ export const Tour: FC = () => {
             tourId={tourData?._id}
           />
         </>
-      )}
+        // )
+      }
     </>
   );
 };

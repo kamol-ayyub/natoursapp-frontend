@@ -1,9 +1,10 @@
 import { FC, useEffect } from 'react';
-import { Main, Card, CardContainer, Loading } from '../../../components';
+import { Main, Card, CardContainer } from '../../../components';
 import { useHttp } from '../../../hooks/index';
+import { data } from '../../../mocks';
 
 export const Home: FC = () => {
-  const { response, sendRequest: getAllTours, isError, isLoading } = useHttp();
+  const { sendRequest: getAllTours } = useHttp();
 
   useEffect(() => {
     getAllTours({
@@ -15,8 +16,9 @@ export const Home: FC = () => {
   return (
     <Main>
       <CardContainer>
-        {isError && <h1>Something went wrong, try again!</h1>}
-        {isLoading ? <Loading /> : <Card allTours={response?.data?.data} />}
+        {/* {isError && <h1>Something went wrong, try again!</h1>} */}
+        {/* {isLoading ? <Loading /> : <Card allTours={response?.data?.data} />} */}
+        <Card allTours={data} />
       </CardContainer>
     </Main>
   );

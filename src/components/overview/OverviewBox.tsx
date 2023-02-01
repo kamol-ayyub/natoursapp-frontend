@@ -4,7 +4,8 @@ import { AiOutlineCalendar, AiOutlineStar } from 'react-icons/ai';
 import { MdPeopleOutline } from 'react-icons/md';
 import { BiTrendingUp } from 'react-icons/bi';
 import { TourGuide, OverviewDetail, HeadingSecondary } from '../../components';
-import { OverviewBoxProps } from '../../types/types';
+import { OverviewBoxProps, guideType } from '../../types/types';
+import { guides as users } from '../../mocks';
 
 const OverviewBoxBase = styled.div`
   background-color: white;
@@ -26,8 +27,15 @@ export const OverviewBox: FC<OverviewBoxProps> = ({
   difficulty,
   maxGroupSize,
   ratingsAverage,
-  guides,
+  guides = ['5c8a22c62f8fb814b56fa18b', '5c8a1f4e2f8fb814b56fa185'],
 }) => {
+  const firstGuide: guideType = users?.filter(
+    (guide) => guide._id === guides[0]
+  )[0];
+  const secondGuide: guideType = users?.filter(
+    (guide) => guide._id === guides[1]
+  )[0];
+
   return (
     <OverviewBoxBase>
       <div>
@@ -62,15 +70,15 @@ export const OverviewBox: FC<OverviewBoxProps> = ({
           <HeadingSecondary MaBtLg>Your tour guides</HeadingSecondary>
 
           <TourGuide
-            name={(guides && guides[0]?.name) || ''}
+            name={(firstGuide && firstGuide?.name) || ''}
             title={`Lead Guide`}
-            photo={(guides && guides[0]?.photo) || ''}
+            photo={(firstGuide && firstGuide?.photo) || ''}
           />
 
           <TourGuide
-            name={(guides && guides[1]?.name) || ''}
-            title={`Tour Guide`}
-            photo={(guides && guides[1]?.photo) || ''}
+            name={(secondGuide && secondGuide?.name) || ''}
+            title={`Lead Guide`}
+            photo={(secondGuide && secondGuide?.photo) || ''}
           />
         </OverviewBoxGroup>
       </div>

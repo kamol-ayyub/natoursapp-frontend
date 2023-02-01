@@ -28,14 +28,14 @@ export type OverviewBoxProps = {
   difficulty?: string;
   maxGroupSize?: string;
   ratingsAverage?: string;
-  guides?: IGuides[];
+  guides?: string[] | undefined;
 };
 export type OverviewProps = {
   startDates?: string[];
   difficulty?: string;
   maxGroupSize?: string;
   ratingsAverage?: string;
-  guides?: IGuides[];
+  guides?: string[];
   name?: string;
   description?: string;
 };
@@ -271,3 +271,12 @@ export interface TourDescriptionProps {
   description?: string;
 }
 export type OnChangeType = ChangeEvent<HTMLInputElement>;
+export interface guideType {
+  _id: string;
+  name: string;
+  email: string;
+  role: string;
+  active: boolean;
+  photo: string;
+  password: string;
+}

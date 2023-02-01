@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { App } from '../App';
 import {
@@ -9,12 +9,10 @@ import {
   Account,
   ForgotPassword,
   ResetPass,
+  Tour,
 } from '../pages';
 import { UserIsLoggedContext } from '../../context/Context';
 import { Protected } from '../../components';
-const Tour = lazy(() =>
-  import('../pages').then(({ Tour }) => ({ default: Tour }))
-);
 
 export const AppRouter = () => {
   const [logged, setLogged] = useState(false);
