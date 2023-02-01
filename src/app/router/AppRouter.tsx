@@ -9,11 +9,11 @@ import {
   Account,
   ForgotPassword,
   ResetPass,
-} from '../../app/pages';
+} from '../pages';
 import { UserIsLoggedContext } from '../../context/Context';
 import { Protected } from '../../components';
 const Tour = lazy(() =>
-  import('../pages/tour/index').then(({ Tour }) => ({ default: Tour }))
+  import('../pages').then(({ Tour }) => ({ default: Tour }))
 );
 
 export const AppRouter = () => {
